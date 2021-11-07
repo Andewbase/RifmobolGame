@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">RifmobolGame</string>
+    <string name="play">Начать</string>
+    <string name="multiplayer">Вдвоём</string>
+    <string name="highscores">Рекорды</string>
+    <string name="rules">Правила</string>
+
+    <string name="close">X</string>
+    <string name="backclose">&#8592;</string>
+    <string name="back">Назад</string>
+
+    //Один Игрок
+    <string name="level">Трэк</string>
+    <string name="level1">Первый трэк</string>
+    <string name="level2">Второй трэк</string>
+    <string name="level3">Третий трэк</string>
+    <string name="level4">Четвертый трэк</string>
+    <string name="level5">Пятый трэк</string>
+    <string name="level6">Шестой трэк</string>
+    <string name="level7">Седьмой трэк</string>
+    <string name="level8">Восьмой трэк</string>
+    <string name="level9">Девятый трэк</string>
+    <string name="level10">Десятый трэк</string>
+    <string name="level11">Одиннадцатый трэк</string>
+    <string name="level12">Двенадцатый трэк</string>
+    <string name="level13">Тринадцатый трэк</string>
+    <string name="level14">Четырнадцатый трэк</string>
+    <string name="level15">Пятнадцатый трэк</string>
+    <string name="level16">Шестнадцатый трэк</string>
+    <string name="level17">Семнадцатый трэк</string>
+    <string name="level18">Восемнадцатый трэк</string>
+    <string name="level19">Девятнадцатый трэк</string>
+    <string name="level20">Двадцатый трэк</string>
+    <string name="level21">Двадцать первый трэк</string>
+    <string name="level22">Двадцать второй трэк</string>
+    <string name="level23">Двадцать третий трэк</string>
+    <string name="level24">Двадцать четвертый трэк</string>
+    <string name="level25">Двадцать пятый трэк</string>
+    <string name="level26">Двадцать шестой трэк</string>
+    <string name="level27">Двадцать седьмой трэк</string>
+    <string name="level28">Двадцать восьмой трэк</string>
+    <string name="level29">Двадцать девятый трэк</string>
+    <string name="level30">Тридцатый трэк</string>
+
+    //Два Игрока
+    <string name="raund">Раунд</string>
+    <string name="raund1">Первый Раунд</string>
+    <string name="raund2">Второй Раунд</string>
+    <string name="raund3">Третий Раунд</string>
+    <string name="raund4">Четвертый Раунд</string>
+    <string name="raund5">Пятый Раунд</string>
+    
+    <string name="player1">Первый Игрок</string>
+    <string name="player2">Второй Игрок</string>
+
+    <string name="scoree">0</string>
+    <string name="scoree1">1</string>
+    <string name="scoree2">2</string>
+    <string name="scoree3">3</string>
+    <string name="scoree4">4</string>
+    <string name="scoree5">5</string>
+
+
+    //Номер уровня
+    <string name="imagetextlvl1">1</string>
+    <string name="imagetextlvl2">2</string>
+    <string name="imagetextlvl3">3</string>
+    <string name="imagetextlvl4">4</string>
+    <string name="imagetextlvl5">5</string>
+    <string name="imagetextlvl6">6</string>
+    <string name="imagetextlvl7">7</string>
+    <string name="imagetextlvl8">8</string>
+    <string name="imagetextlvl9">9</string>
+    <string name="imagetextlvl10">10</string>
+    <string name="imagetextlvl11">11</string>
+    <string name="imagetextlvl12">12</string>
+    <string name="imagetextlvl13">13</string>
+    <string name="imagetextlvl14">14</string>
+    <string name="imagetextlvl15">15</string>
+    <string name="imagetextlvl16">16</string>
+    <string name="imagetextlvl17">17</string>
+    <string name="imagetextlvl18">18</string>
+    <string name="imagetextlvl19">19</string>
+    <string name="imagetextlvl20">20</string>
+    <string name="imagetextlvl21">21</string>
+    <string name="imagetextlvl22">22</string>
+    <string name="imagetextlvl23">23</string>
+    <string name="imagetextlvl24">24</string>
+    <string name="imagetextlvl25">25</string>
+    <string name="imagetextlvl26">26</string>
+    <string name="imagetextlvl27">27</string>
+    <string name="imagetextlvl28">28</string>
+    <string name="imagetextlvl29">29</string>
+    <string name="imagetextlvl30">30</string>
+</resources>

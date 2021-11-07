@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lvlcouplet1">"Сначала ты перелюбила всех мальчишек в классе
+    потом перелюбила физрука и даже дядю васю который был &#8230;"</string>
+    <string name="lvl1textone">Дворником</string>
+    <string name="lvl1texttwo">Директором</string>
+    <string name="lvl1textthree">Сторожем</string>
+    <string name="lvl1textfour">Бомжом</string>
+    <string name="lvl1continue1">Ещё раз</string>
+    <string name="lvl1continue2">Далее</string>
+    //Второй уровень
+    <string name="lvlcouplet2">"Я такой непостоянный потому что полигамный &#8230;"</string>
+    <string name="lvl2textone">С бомжами потными</string>
+    <string name="lvl2texttwo">Секс с безработными</string>
+    <string name="lvl2textthree">Ночами бессчётными</string>
+    <string name="lvl2textfour">Это секс с животными</string>
+    //Третий уровень
+    <string name="lvlcouplet3">"Это секс с животными конями потными &#8230;"</string>
+    <string name="lvl3textone">Ужами ползучими</string>
+    <string name="lvl3texttwo">Котами вонючими</string>
+    <string name="lvl3textthree">Мышами летучими</string>
+    <string name="lvl3textfour">Собаками пахучими</string>
+    //Четвертый уровень
+    <string name="lvlcouplet4">"Хочу с тобой гуля-я-я-ть жду каникулы родители на даче мы будем смотреть калигулю это любовь я хочу чтоб мы летали буду целовать твои губы по вер по по повер повертикали это &#8230;"</string>
+    <string name="lvl4textone">Ку-ку ку-ку-ку куни</string>
+    <string name="lvl4texttwo">Куни накануне</string>
+    <string name="lvl4textthree">Куни куни лингус</string>
+    <string name="lvl4textfour">Куни Джорджа Клуни</string>
+    //Пятый уровень
+    <string name="lvlcouplet5">"Я роби вильямс а ты &#8230;"</string>
+    <string name="lvl5textone">Роби хуильямс</string>
+    <string name="lvl5texttwo">Хуёби уильямс</string>
+    <string name="lvl5textthree">Хуёби хуильямс</string>
+    <string name="lvl5textfour">Просто хуй</string>
+    //Шестой уровень
+    <string name="lvlcouplet6">"Дорогая не плачь ради бога не плачь как меня заебал &#8230;"</string>
+    <string name="lvl6textone">Твой опухший ебач</string>
+    <string name="lvl6texttwo">Твой заплывшый ебач</string>
+    <string name="lvl6textthree">Твой угрюмый ебач</string>
+    <string name="lvl6textfour">Твой говнистый ебач</string>
+    //Седьмой уровень
+    <string name="lvlcouplet7">"Твой батя долбится &#8230;"</string>
+    <string name="lvl7textone">В десну</string>
+    <string name="lvl7texttwo">В пердак</string>
+    <string name="lvl7textthree">В starcraft</string>
+    <string name="lvl7textfour">С моим</string>
+    //Восьмой уровень
+    <string name="lvlcouplet8">"Кто мы - кунимастера кто мы - кунимастера кто мы &#8230;"</string>
+    <string name="lvl8textone">Кунимастера</string>
+    <string name="lvl8texttwo">Кунимастера Кунимастера</string>
+    <string name="lvl8textthree">Кунимастера Кунимастера Кунимастера</string>
+    <string name="lvl8textfour">Кунимастера троекратное ура</string>
+    //Девятый уровень
+    <string name="lvlcouplet9">"Э-э-э-эй малышка &#8230;"</string>
+    <string name="lvl9textone">Непобритая подмышка</string>
+    <string name="lvl9texttwo">Зацени что под пальтишком</string>
+    <string name="lvl9textthree">Ты случайно не парнишка</string>
+    <string name="lvl9textfour">У меня дымится шышка</string>
+    //Десятый уровень
+    <string name="lvlcouplet10">"Э-э-э-эй киска это &#8230;"</string>
+    <string name="lvl10textone">Вписка в зоне риска</string>
+    <string name="lvl10texttwo">Лайк а не подписка</string>
+    <string name="lvl10textthree">Мой дружок дениска</string>
+    <string name="lvl10textfour">Изнасилование в стиле диско</string>
+    //Одинадцатый уровень
+    <string name="lvlcouplet11">"Ведь все диджеи все диджеи ведь все диджеи все диджеи все диджеи &#8230;"</string>
+    <string name="lvl11textone">Просто класс</string>
+    <string name="lvl11texttwo">Петушье</string>
+    <string name="lvl11textthree">Мастера</string>
+    <string name="lvl11textfour">Ла-ла-ла</string>
+    //Двенадцатый уровень
+    <string name="lvlcouplet12">"Платье твоё падает в низ а я лежу &#8230;"</string>
+    <string name="lvl12textone">Пискою вверх</string>
+    <string name="lvl12texttwo">Пискою вниз</string>
+    <string name="lvl12textthree">Жопою вниз</string>
+    <string name="lvl12textfour">Дрочу пенис</string>
+    //Тринадцатый уровень
+    <string name="lvlcouplet13">"Слався палатка слався ларёк слався милый сердцу &#8230;"</string>
+    <string name="lvl13textone">Пива бутылёк</string>
+    <string name="lvl13texttwo">Полный фунфырёк</string>
+    <string name="lvl13textthree">Водки бутылёк</string>
+    <string name="lvl13textfour">Сладкий фунфырёк</string>
+    //Четырнадцатый уровень
+    <string name="lvlcouplet14">"Как эту гниду земля только носит его бы убийцу подвесить за яйца на самой высокой берёзе &#8230;"</string>
+    <string name="lvl14textone">Ростова</string>
+    <string name="lvl14texttwo">Рязани</string>
+    <string name="lvl14textthree">Саранска</string>
+    <string name="lvl14textfour">На месяц</string>
+    //Пятнадцатый уровень
+    <string name="lvlcouplet15">"Педик педик щупай щупай педик педик щупай щупай педик &#8230;"</string>
+    <string name="lvl15textone">Щупай вниз</string>
+    <string name="lvl15texttwo">Массажист</string>
+    <string name="lvl15textthree">Культурист</string>
+    <string name="lvl15textfour">Гомосексуалист</string>
+    //Шестнадцатый уровень
+    <string name="lvlcouplet16">"Я люблю &#8230;"</string>
+    <string name="lvl16textone">Диму</string>
+    <string name="lvl16texttwo">Игоря</string>
+    <string name="lvl16textthree">Пашу</string>
+    <string name="lvl16textfour">Сосать</string>
+    //Семнадцатый уровень
+    <string name="lvlcouplet17">"Пенис пенис пенис пенис &#8230;"</string>
+    <string name="lvl17textone">Хрен</string>
+    <string name="lvl17texttwo">Член</string>
+    <string name="lvl17textthree">Хуй</string>
+    <string name="lvl17textfour">Фаллос</string>
+    //Восемнадцатый уровень
+    <string name="lvlcouplet18">"Я кончаю я кончаю я кончаю &#8230;"</string>
+    <string name="lvl18textone">Варить варенье</string>
+    <string name="lvl18texttwo">Я кончаю</string>
+    <string name="lvl18textthree">Есть варенье</string>
+    <string name="lvl18textfour">Есть печенье</string>
+    //Девятнадцатый уровень
+    <string name="lvlcouplet19">"Just be you just be ya just be &#8230;"</string>
+    <string name="lvl19textone">Кончил не туда</string>
+    <string name="lvl19texttwo">Кончил на тебя</string>
+    <string name="lvl19textthree">Кончил на себя</string>
+    <string name="lvl19textfour">Кончил не ебя</string>
+    //Двадцатый уровень
+    <string name="lvlcouplet20">"Мне мой друг вчера принёс гидравлический насос и сказал что это &#8230;"</string>
+    <string name="lvl20textone">Ландыши</string>
+    <string name="lvl20texttwo">Цветы</string>
+    <string name="lvl20textthree">Васильки</string>
+    <string name="lvl20textfour">Полынья</string>
+    //Двадцать первый уровень
+    <string name="lvlcouplet21">"Мамонты купались в говне е-е е-е мамонты купались в говне &#8230;"</string>
+    <string name="lvl21textone">Еее</string>
+    <string name="lvl21texttwo">Оуе</string>
+    <string name="lvl21textthree">Ыыы</string>
+    <string name="lvl21textfour">Фуу</string>
+    //Двадцать второй уровень
+    <string name="lvlcouplet22">"Приличные мужчины мы их знаем много лет когда то одному из них я делала &#8230;"</string>
+    <string name="lvl22textone">Амлет</string>
+    <string name="lvl22texttwo">Миньет</string>
+    <string name="lvl22textthree">Диплом</string>
+    <string name="lvl22textfour">Концерт</string>
+    //Двадцать третий уровень
+    <string name="lvlcouplet23">"В это время кто-то трахал комаров с большими &#8230;"</string>
+    <string name="lvl23textone">Жопами</string>
+    <string name="lvl23texttwo">Сиськами</string>
+    <string name="lvl23textthree">Яйцами</string>
+    <string name="lvl23textfour">Амбициями</string>
+    //Двадцать четвертый уровень
+    <string name="lvlcouplet24">"Когда я мчусь на своём мустанге &#8230;"</string>
+    <string name="lvl24textone">Ты идёшь пешком</string>
+    <string name="lvl24texttwo">Ты не мчишься на нём</string>
+    <string name="lvl24textthree">Ты дома сидишь</string>
+    <string name="lvl24textfour">Все в шоке</string>
+    //Двадцать пятый уровень
+    <string name="lvlcouplet25">"Олеся Олеся &#8230;"</string>
+    <string name="lvl25textone">Разденься</string>
+    <string name="lvl25texttwo">Оденься</string>
+    <string name="lvl25textthree">Побрейся</string>
+    <string name="lvl25textfour">Напейся</string>
+    //Двадцать шестой уровень
+    <string name="lvlcouplet26">"Злобный агрессивный &#8230;"</string>
+    <string name="lvl26textone">Гомосек пассивный</string>
+    <string name="lvl26texttwo">Мужчина импульсивный</string>
+    <string name="lvl26textthree">Гомосек противный</string>
+    <string name="lvl26textfour">Гомосек активный</string>
+    //Двадцать семдьмой уровень
+    <string name="lvlcouplet27">"Ты далеко тебя рядом нет но сомтрит на тебя мой &#8230;"</string>
+    <string name="lvl27textone">Силует</string>
+    <string name="lvl27texttwo">Палец пистолет</string>
+    <string name="lvl27textthree">Планшет</string>
+    <string name="lvl27textfour">Портрет</string>
+    //Двадцать восьмой уровень
+    <string name="lvlcouplet28">"Покидала его жизнь жестянка по миру он бывал в магадане тагиле ростове и в париж он однажды залетел с бодунища изнасиловал &#8230;"</string>
+    <string name="lvl28textone">Голубя</string>
+    <string name="lvl28texttwo">Жабу</string>
+    <string name="lvl28textthree">Мышку</string>
+    <string name="lvl28textfour">Голубя жабу и мышку</string>
+    //Двадцать девятый уровень
+    <string name="lvlcouplet29">"Субботнее надирание задниц субботнее надирание задниц субботнее надирание задниц &#8230;"</string>
+    <string name="lvl29textone">Терпи моя проказница</string>
+    <string name="lvl29texttwo">О да тебе это понравится</string>
+    <string name="lvl29textthree">Возможно тебе это не понравится</string>
+    <string name="lvl29textfour">С тобой мы будем жариться</string>
+    //Тридцатый уровень
+    <string name="lvlcouplet30">"Не одну развёл девчёнку за жевачичную мзду чтобы задрала юбчонку показала мне &#8230;"</string>
+    <string name="lvl30textone">Пизду</string>
+    <string name="lvl30texttwo">Трусы</string>
+    <string name="lvl30textthree">Звезду</string>
+    <string name="lvl30textfour">Тату</string>
+</resources>
