@@ -12,6 +12,7 @@ import java.util.Random;
 import z.nova.rifmobolgame.multiplaer.MultiLevel1;
 import z.nova.rifmobolgame.multiplaer.MultiLevelFive1;
 import z.nova.rifmobolgame.multiplaer.MultiLevelFour1;
+import z.nova.rifmobolgame.multiplaer.MultiLevelSeven1;
 import z.nova.rifmobolgame.multiplaer.MultiLevelSix1;
 import z.nova.rifmobolgame.multiplaer.MultiLevelThree1;
 import z.nova.rifmobolgame.multiplaer.MultiLevelTwo1;
@@ -30,7 +31,7 @@ public class MultiplayerGame extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Random generator = new Random();
-        int number = generator.nextInt(6) + 1;
+        int number = generator.nextInt(7) + 1;
         // The '5' is the number of activities
 
         Class activity = null;
@@ -53,8 +54,11 @@ public class MultiplayerGame extends AppCompatActivity {
             case 5:
                 activity = MultiLevelFive1.class;
                 break;
-            default:
+            case 6:
                 activity = MultiLevelSix1.class;
+                break;
+            default:
+                activity = MultiLevelSeven1.class;
                 break;
         }
         // We use intents to start activities

@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,7 +25,7 @@ import com.google.android.gms.ads.MobileAds;
 import z.nova.rifmobolgame.PlayGame;
 import z.nova.rifmobolgame.R;
 
-public class Level30 extends AppCompatActivity {
+public class Level35 extends AppCompatActivity {
 
     MediaPlayer mediaPlayer; //Создаём Медиа плеер
     Dialog dialogEndWin; //Создаём Диалог Выйграл
@@ -33,8 +34,6 @@ public class Level30 extends AppCompatActivity {
 
     public InterstitialAd interstitialAd; //Реклама
     public int transition = 0;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +55,9 @@ public class Level30 extends AppCompatActivity {
                 try {
                     switch (transition){
                         case 0: break;
-                        case 1:  Intent intent = new Intent(Level30.this, Level31.class );
-                            startActivity(intent); finish();break;
-                        case 2:  Intent intent1 = new Intent(Level30.this, PlayGame.class );
+                        case 1:Intent intent1 = new Intent(Level35.this, PlayGame.class );
                             startActivity(intent1); finish();break;
-                        case 3: Intent intent2 = new Intent(Level30.this, Level30.class);
+                        case 2: Intent intent2 = new Intent(Level35.this, Level35.class);
                             startActivity(intent2); finish(); break;
                         default: break;
                     }
@@ -72,9 +69,10 @@ public class Level30 extends AppCompatActivity {
         });
         //Закрытие рекламы по крестику - начало
 
+
         //Создаём переменную text_levels
         TextView text_levels = findViewById(R.id.text_levels);
-        text_levels.setText(R.string.level30); //Установили текст
+        text_levels.setText(R.string.level35); //Установили текст
 
 
         final Button btn_bottom_right = (Button) findViewById(R.id.btn_right_bottom);//Создаём нижнюю правую кнопку
@@ -87,21 +85,27 @@ public class Level30 extends AppCompatActivity {
 
         //Устанавливаем фон для уровня - начало
         ImageView background = (ImageView) findViewById(R.id.menu_background);
-        background.setImageResource(R.drawable.level10_background);
+        background.setImageResource(R.drawable.level5_background);
         //Устанавливаем фон для уровня - конец
 
         //Устанавливаем текст для уровня - начало
         TextView textlevel2 = findViewById(R.id.couplet_text);
-        textlevel2.setText(R.string.lvlcouplet30);
+        textlevel2.setText(R.string.lvlcouplet35);
         //Устанавливаем текст для уровня - конец
 
+        //Меняем размер текста в кнопках - начало
+        btn_up_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        btn_up_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        //Меняем размер текста в кнопках конец
 
 
         //Меняем текст в кнопках - начало
-        btn_up_left.setText(R.string.lvl30textone);
-        btn_up_right.setText(R.string.lvl30texttwo);
-        btn_bottom_left.setText(R.string.lvl30textthree);
-        btn_bottom_right.setText(R.string.lvl30textfour);
+        btn_up_left.setText(R.string.lvl35textone);
+        btn_up_right.setText(R.string.lvl35texttwo);
+        btn_bottom_left.setText(R.string.lvl35textthree);
+        btn_bottom_right.setText(R.string.lvl35textfour);
         //Меняем текст в кнопках - конец
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
@@ -131,7 +135,7 @@ public class Level30 extends AppCompatActivity {
                     interstitialAd.show();
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, PlayGame.class);
+                        Intent intent = new Intent(Level35.this, PlayGame.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -153,7 +157,7 @@ public class Level30 extends AppCompatActivity {
                     interstitialAd.show(); // показать рекламу
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, Level31.class); //ИЗМЕНИТЬ
+                        Intent intent = new Intent(Level35.this, PlayGame.class); //ИЗМЕНИТЬ
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -193,7 +197,7 @@ public class Level30 extends AppCompatActivity {
                     interstitialAd.show();
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, PlayGame.class);
+                        Intent intent = new Intent(Level35.this, PlayGame.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -215,7 +219,7 @@ public class Level30 extends AppCompatActivity {
                     interstitialAd.show(); // показать рекламу
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, Level30.class);
+                        Intent intent = new Intent(Level35.this, Level35.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -237,7 +241,7 @@ public class Level30 extends AppCompatActivity {
                     interstitialAd.show(); // показать рекламу
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, Level31.class); //ИЗМЕНИТЬ
+                        Intent intent = new Intent(Level35.this, PlayGame.class); //ИЗМЕНИТЬ
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -258,12 +262,12 @@ public class Level30 extends AppCompatActivity {
             public void onClick(View v) {
                 //Обрабатывем нажатие кнопки "Назад" - начало
                 if (interstitialAd.isLoaded()){
-                    transition = 1;
+                    transition = 2;
                     interstitialAd.show(); //Показать рекламу
                 }else {
                     try {
                         //Вернуться назад к выбору уровня - начало
-                        Intent intent = new Intent(Level30.this, PlayGame.class); //Создали намерение для перехода
+                        Intent intent = new Intent(Level35.this, PlayGame.class); //Создали намерение для перехода
                         startActivity(intent);
                         finish();
                         //Вернуться назад к выбору уровня - конец
@@ -285,7 +289,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2); //Изменять
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldenrain2); //Изменять
                         mediaPlayer.start();
                         btn_up_left.setClickable(false);//Отключаем кнопку после нажатия, setEnable(false) красит в серый цвет кнопку
                     }
@@ -295,7 +299,7 @@ public class Level30 extends AppCompatActivity {
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
-                            btn_up_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
+                            btn_bottom_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                             new Handler().postDelayed(new Runnable() {
                                 @Override
@@ -329,7 +333,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldenrain2);
                         mediaPlayer.start();
                         btn_up_right.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -339,12 +343,12 @@ public class Level30 extends AppCompatActivity {
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
-                            btn_up_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
+                            btn_bottom_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    dialogEndWin.show(); //Выводим диалог проиграл
+                                    dialogEndLose.show(); //Выводим диалог проиграл
                                 }
                             },500);
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
@@ -373,7 +377,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldenrain2);
                         mediaPlayer.start();
                         btn_bottom_left.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -383,7 +387,7 @@ public class Level30 extends AppCompatActivity {
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
-                            btn_up_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
+                            btn_bottom_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                             new Handler().postDelayed(new Runnable() {
                                 @Override
@@ -417,7 +421,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldenrain2);
                         mediaPlayer.start();
                         btn_bottom_right.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -427,12 +431,12 @@ public class Level30 extends AppCompatActivity {
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion (MediaPlayer mediaPlayer){
-                            btn_up_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
+                            btn_bottom_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    dialogEndLose.show();//Выводим диалог выйграл
+                                    dialogEndWin.show();//Выводим диалог выйграл
                                 }
                             }, 500);
                             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
@@ -457,18 +461,18 @@ public class Level30 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        final Button btn_up_right = (Button) findViewById(R.id.btn_right_up);//Создаём нижнюю правую кнопку
+        final Button btn_bottom_right = (Button) findViewById(R.id.btn_right_bottom);//Создаём нижнюю правую кнопку
         if (mediaPlayer == null & Clicked == 0) { //Если свернули игру до нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans1);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldrain1);
             mediaPlayer.start();
         }else if(Clicked > 0){ //Иначе если свернули игру после нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.goldenrain2);
             mediaPlayer.start();
             //Метод показывающий правельный ответ - начало
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-                    btn_up_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
+                    btn_bottom_right.setBackground(getResources().getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen));
                     //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -506,11 +510,11 @@ public class Level30 extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         if (interstitialAd.isLoaded()){
-            transition = 1;
+            transition = 2;
             interstitialAd.show(); // показать рекламу
         }else {
             try {
-                Intent intent = new Intent(Level30.this, PlayGame.class);
+                Intent intent = new Intent(Level35.this, PlayGame.class);
                 startActivity(intent);
                 finish();
             } catch (Exception e) {

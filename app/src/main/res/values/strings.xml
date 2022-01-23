@@ -41,6 +41,11 @@
     <string name="level28">Двадцать восьмой трэк</string>
     <string name="level29">Двадцать девятый трэк</string>
     <string name="level30">Тридцатый трэк</string>
+    <string name="level31">Тридцать первый трэк</string>
+    <string name="level32">Тридцать второй трэк</string>
+    <string name="level33">Тридцать третий трэк</string>
+    <string name="level34">Тридцать четвертый трэк</string>
+    <string name="level35">Тридцать пятый трэк</string>
 
     //Два Игрока
     <string name="raund">Раунд</string>
@@ -92,4 +97,9 @@
     <string name="imagetextlvl28">28</string>
     <string name="imagetextlvl29">29</string>
     <string name="imagetextlvl30">30</string>
+    <string name="imagetextlvl31">31</string>
+    <string name="imagetextlvl32">32</string>
+    <string name="imagetextlvl33">33</string>
+    <string name="imagetextlvl34">34</string>
+    <string name="imagetextlvl35">35</string>
 </resources>

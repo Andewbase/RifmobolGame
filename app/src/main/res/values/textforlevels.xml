@@ -182,4 +182,34 @@
     <string name="lvl30texttwo">Трусы</string>
     <string name="lvl30textthree">Звезду</string>
     <string name="lvl30textfour">Тату</string>
+    //Тридцать первый уровень
+    <string name="lvlcouplet31">"Я пью махито Я ем бурито на лошадях скачу &#8230;"</string>
+    <string name="lvl31textone">Я лошадей ебу</string>
+    <string name="lvl31texttwo">На лошадей дрочу</string>
+    <string name="lvl31textthree">Сомберо я ношу</string>
+    <string name="lvl31textfour">Мачете я ношу</string>
+    //Тридцать второй уровень
+    <string name="lvlcouplet32">"Я горячий мексиканец выходи со мной на танец а не то я &#8230;"</string>
+    <string name="lvl32textone">Щас твою тачку бензом оболью</string>
+    <string name="lvl32texttwo">Щас твою всю еду пережую</string>
+    <string name="lvl32textthree">Щас твою всю квартиру облюю</string>
+    <string name="lvl32textfour">Всю твою нахуй вырежу семью</string>
+    //Тридцать третий уровень
+    <string name="lvlcouplet33">"Человек яйца человек яйца человек яйца человек яйца человек яйца человек яйца &#8230;"</string>
+    <string name="lvl33textone">Без конца</string>
+    <string name="lvl33texttwo">Человек яйца</string>
+    <string name="lvl33textthree">Нет конца</string>
+    <string name="lvl33textfour">До конца</string>
+    //Тридцать четвертый уровень
+    <string name="lvlcouplet34">"Кто всегда с большим трудом влазиет в дверной проём у кого такая жопа что там можно жить как дома у кого такие груди как два горба на верблюде &#8230;"</string>
+    <string name="lvl34textone">Мясокомбинат</string>
+    <string name="lvl34texttwo">Миссис холодильник</string>
+    <string name="lvl34textthree">Румяный батон</string>
+    <string name="lvl34textfour">Жопа с ручками</string>
+    //Тридцать пятый уровень
+    <string name="lvlcouplet35">"Мы стоим вдвоём под золотым дождём будем всегда рады &#8230;"</string>
+    <string name="lvl35textone">Шоколадному камнепаду</string>
+    <string name="lvl35texttwo">Коричневому аромату</string>
+    <string name="lvl35textthree">Жёлтому водопаду</string>
+    <string name="lvl35textfour">Коричневому граду</string>
 </resources>

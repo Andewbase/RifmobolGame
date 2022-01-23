@@ -263,6 +263,41 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".singlplayer.Level31"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".singlplayer.Level32"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".singlplayer.Level33"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".singlplayer.Level34"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".singlplayer.Level35"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".multiplaer.MultiLevel1"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -467,6 +502,41 @@
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix5"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multiplaer.MultiLevelSeven1"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multiplaer.MultiLevelSeven2"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multiplaer.MultiLevelSeven3"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multiplaer.MultiLevelSeven4"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multiplaer.MultiLevelSeven5"
             android:screenOrientation="landscape">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

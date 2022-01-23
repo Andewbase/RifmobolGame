@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,16 +25,13 @@ import com.google.android.gms.ads.MobileAds;
 import z.nova.rifmobolgame.PlayGame;
 import z.nova.rifmobolgame.R;
 
-public class Level30 extends AppCompatActivity {
+public class Level34 extends AppCompatActivity {
 
     MediaPlayer mediaPlayer; //Создаём Медиа плеер
     Dialog dialogEndWin; //Создаём Диалог Выйграл
     Dialog dialogEndLose; //Создаем Диалог Проиграл
     int Clicked = 0; //Создаём переменую для отслеживания нажатия
-
     public InterstitialAd interstitialAd; //Реклама
-    public int transition = 0;
-
 
 
     @Override
@@ -54,17 +52,8 @@ public class Level30 extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 try {
-                    switch (transition){
-                        case 0: break;
-                        case 1:  Intent intent = new Intent(Level30.this, Level31.class );
-                            startActivity(intent); finish();break;
-                        case 2:  Intent intent1 = new Intent(Level30.this, PlayGame.class );
-                            startActivity(intent1); finish();break;
-                        case 3: Intent intent2 = new Intent(Level30.this, Level30.class);
-                            startActivity(intent2); finish(); break;
-                        default: break;
-                    }
-
+                    Intent intent1 = new Intent(Level34.this, PlayGame.class );
+                    startActivity(intent1); finish();
                 }catch (Exception e){
                     //пусто
                 }
@@ -74,7 +63,7 @@ public class Level30 extends AppCompatActivity {
 
         //Создаём переменную text_levels
         TextView text_levels = findViewById(R.id.text_levels);
-        text_levels.setText(R.string.level30); //Установили текст
+        text_levels.setText(R.string.level34); //Установили текст
 
 
         final Button btn_bottom_right = (Button) findViewById(R.id.btn_right_bottom);//Создаём нижнюю правую кнопку
@@ -87,21 +76,26 @@ public class Level30 extends AppCompatActivity {
 
         //Устанавливаем фон для уровня - начало
         ImageView background = (ImageView) findViewById(R.id.menu_background);
-        background.setImageResource(R.drawable.level10_background);
+        background.setImageResource(R.drawable.level4_background);
         //Устанавливаем фон для уровня - конец
 
         //Устанавливаем текст для уровня - начало
         TextView textlevel2 = findViewById(R.id.couplet_text);
-        textlevel2.setText(R.string.lvlcouplet30);
+        textlevel2.setText(R.string.lvlcouplet34);
         //Устанавливаем текст для уровня - конец
 
-
+        //Меняем размер текста в кнопках - начало
+        btn_up_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        btn_up_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        //Меняем размер текста в кнопках конец
 
         //Меняем текст в кнопках - начало
-        btn_up_left.setText(R.string.lvl30textone);
-        btn_up_right.setText(R.string.lvl30texttwo);
-        btn_bottom_left.setText(R.string.lvl30textthree);
-        btn_bottom_right.setText(R.string.lvl30textfour);
+        btn_up_left.setText(R.string.lvl34textone);
+        btn_up_right.setText(R.string.lvl34texttwo);
+        btn_bottom_left.setText(R.string.lvl34textthree);
+        btn_bottom_right.setText(R.string.lvl34textfour);
         //Меняем текст в кнопках - конец
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
@@ -118,7 +112,7 @@ public class Level30 extends AppCompatActivity {
 
         //Устанавливаем текст в диалоговое окно - начало
         TextView textdescriptions = (TextView) dialogEndWin.findViewById(R.id.textwin);
-        textdescriptions.setText(R.string.dialogwins5);
+        textdescriptions.setText(R.string.dialogwins4);
         //Устанавливаем текст в диалоговое окно - начало
 
         //Кнопка которая закрывет диалоговое окно - начало
@@ -127,11 +121,10 @@ public class Level30 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (interstitialAd.isLoaded()) {
-                    transition = 2;
-                    interstitialAd.show();
+                    interstitialAd.show(); //Показать рекламу
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, PlayGame.class);
+                        Intent intent = new Intent(Level34.this, PlayGame.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -148,19 +141,14 @@ public class Level30 extends AppCompatActivity {
         buttoncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 1;
-                    interstitialAd.show(); // показать рекламу
-                } else {
-                    try {
-                        Intent intent = new Intent(Level30.this, Level31.class); //ИЗМЕНИТЬ
-                        startActivity(intent);
-                        finish();
-                    } catch (Exception e) {
-                        //Пусто
-                    }
-                    dialogEndWin.dismiss();
+                try {
+                    Intent intent = new Intent(Level34.this, Level35.class); //ИЗМЕНИТЬ
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+                    //Пусто
                 }
+                dialogEndWin.dismiss();
             }
         });
         //Кнопка "ДАЛЕЕ" - конец
@@ -179,7 +167,7 @@ public class Level30 extends AppCompatActivity {
 
         //Устанавливаем текст в диалоговое окно - начало
         TextView textdescriptionsl = (TextView) dialogEndLose.findViewById(R.id.textlose);
-        textdescriptionsl.setText(R.string.dialoglose5);
+        textdescriptionsl.setText(R.string.dialoglose4);
         //Устанавливаем текст в диалоговое окно - начало
 
 
@@ -189,11 +177,10 @@ public class Level30 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (interstitialAd.isLoaded()) {
-                    transition = 2;
-                    interstitialAd.show();
+                    interstitialAd.show(); //Показать рекламу
                 } else {
                     try {
-                        Intent intent = new Intent(Level30.this, PlayGame.class);
+                        Intent intent = new Intent(Level34.this, PlayGame.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -210,19 +197,14 @@ public class Level30 extends AppCompatActivity {
         buttoncontinueback1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 3;
-                    interstitialAd.show(); // показать рекламу
-                } else {
-                    try {
-                        Intent intent = new Intent(Level30.this, Level30.class);
-                        startActivity(intent);
-                        finish();
-                    } catch (Exception e) {
-                        //Пусто
-                    }
-                    dialogEndLose.dismiss();
+                try {
+                    Intent intent = new Intent(Level34.this, Level34.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+                    //Пусто
                 }
+                dialogEndLose.dismiss();
             }
         });
         //Кнопка "ЕЩЁ РАЗ" - конец
@@ -232,19 +214,14 @@ public class Level30 extends AppCompatActivity {
         buttoncontinue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 1;
-                    interstitialAd.show(); // показать рекламу
-                } else {
-                    try {
-                        Intent intent = new Intent(Level30.this, Level31.class); //ИЗМЕНИТЬ
-                        startActivity(intent);
-                        finish();
-                    } catch (Exception e) {
-                        //Пусто
-                    }
-                    dialogEndLose.dismiss();
+                try {
+                    Intent intent = new Intent(Level34.this, Level35.class); //ИЗМЕНИТЬ
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+                    //Пусто
                 }
+                dialogEndLose.dismiss();
             }
         });
         //Кнопка "ДАЛЕЕ" - конец
@@ -258,12 +235,11 @@ public class Level30 extends AppCompatActivity {
             public void onClick(View v) {
                 //Обрабатывем нажатие кнопки "Назад" - начало
                 if (interstitialAd.isLoaded()){
-                    transition = 1;
                     interstitialAd.show(); //Показать рекламу
                 }else {
                     try {
                         //Вернуться назад к выбору уровня - начало
-                        Intent intent = new Intent(Level30.this, PlayGame.class); //Создали намерение для перехода
+                        Intent intent = new Intent(Level34.this, PlayGame.class); //Создали намерение для перехода
                         startActivity(intent);
                         finish();
                         //Вернуться назад к выбору уровня - конец
@@ -285,7 +261,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2); //Изменять
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator2); //Изменять
                         mediaPlayer.start();
                         btn_up_left.setClickable(false);//Отключаем кнопку после нажатия, setEnable(false) красит в серый цвет кнопку
                     }
@@ -329,7 +305,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator2);
                         mediaPlayer.start();
                         btn_up_right.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -373,7 +349,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator2);
                         mediaPlayer.start();
                         btn_bottom_left.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -417,7 +393,7 @@ public class Level30 extends AppCompatActivity {
                     //Вопроизводим полный куплет -начало
                     if (mediaPlayer!=null){
                         releaseMP();
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator2);
                         mediaPlayer.start();
                         btn_bottom_right.setClickable(false);//Отключаем кнопку после нажатия
                     }
@@ -459,10 +435,10 @@ public class Level30 extends AppCompatActivity {
         super.onResume();
         final Button btn_up_right = (Button) findViewById(R.id.btn_right_up);//Создаём нижнюю правую кнопку
         if (mediaPlayer == null & Clicked == 0) { //Если свернули игру до нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans1);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator1);
             mediaPlayer.start();
         }else if(Clicked > 0){ //Иначе если свернули игру после нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.umbertrans2);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.refrigerator2);
             mediaPlayer.start();
             //Метод показывающий правельный ответ - начало
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -473,7 +449,7 @@ public class Level30 extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            if (Clicked == 4){
+                            if (Clicked == 2){
                                 dialogEndWin.show();//Выводит диалог выйграл
                             }else{
                                 dialogEndLose.show();//Выводит диалог проиграл
@@ -506,11 +482,10 @@ public class Level30 extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         if (interstitialAd.isLoaded()){
-            transition = 1;
             interstitialAd.show(); // показать рекламу
         }else {
             try {
-                Intent intent = new Intent(Level30.this, PlayGame.class);
+                Intent intent = new Intent(Level34.this, PlayGame.class);
                 startActivity(intent);
                 finish();
             } catch (Exception e) {
