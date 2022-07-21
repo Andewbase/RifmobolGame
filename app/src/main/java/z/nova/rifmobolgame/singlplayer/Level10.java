@@ -17,10 +17,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.yodo1.mas.Yodo1Mas;
 
 import z.nova.rifmobolgame.PlayGame;
 import z.nova.rifmobolgame.R;
@@ -32,44 +29,13 @@ public class Level10 extends AppCompatActivity {
     Dialog dialogEndLose; //Создаем Диалог Проиграл
     int Clicked = 0; //Создаём переменую для отслеживания нажатия
 
-    public InterstitialAd interstitialAd; //Реклама
-    public int transition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
-        //Реклама - начало
-        MobileAds.initialize(this, "ca-app-pub-7867301759529153~4469254788");
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-7867301759529153/6261682753");
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        //Реклама - конец
 
-        //Закрытие рекламы по крестику - начало
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                try {
-                    switch (transition){
-                        case 0: break;
-                        case 1:  Intent intent = new Intent(Level10.this, Level11.class );
-                            startActivity(intent); finish();break;
-                        case 2:Intent intent1 = new Intent(Level10.this, PlayGame.class );
-                            startActivity(intent1); finish();break;
-                        case 3: Intent intent2 = new Intent(Level10.this, Level10.class);
-                            startActivity(intent2); finish(); break;
-                        default: break;
-                    }
-
-                }catch (Exception e){
-                    //пусто
-                }
-            }
-        });
-        //Закрытие рекламы по крестику - начало
 
         //Создаём переменную text_levels
         TextView text_levels = findViewById(R.id.text_levels);
@@ -131,9 +97,11 @@ public class Level10 extends AppCompatActivity {
         btnclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 2;
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this);
+                    Intent intent = new Intent(Level10.this, PlayGame.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         Intent intent = new Intent(Level10.this, PlayGame.class);
@@ -153,9 +121,10 @@ public class Level10 extends AppCompatActivity {
         buttoncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 1;
-                    interstitialAd.show(); // показать рекламу
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this); // показать рекламу
+                    Intent intent = new Intent(Level10.this, Level11.class); //ИЗМЕНИТЬ
+                    startActivity(intent);
                 } else {
                     try {
                         Intent intent = new Intent(Level10.this, Level11.class); //ИЗМЕНИТЬ
@@ -193,9 +162,11 @@ public class Level10 extends AppCompatActivity {
         btnclose1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 2;
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this);
+                    Intent intent = new Intent(Level10.this, PlayGame.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         Intent intent = new Intent(Level10.this, PlayGame.class);
@@ -215,9 +186,11 @@ public class Level10 extends AppCompatActivity {
         buttoncontinueback1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 3;
-                    interstitialAd.show(); // показать рекламу
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this); // показать рекламу
+                    Intent intent = new Intent(Level10.this, Level10.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         Intent intent = new Intent(Level10.this, Level10.class);
@@ -237,9 +210,11 @@ public class Level10 extends AppCompatActivity {
         buttoncontinue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    transition = 1;
-                    interstitialAd.show(); // показать рекламу
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this); // // показать рекламу
+                    Intent intent = new Intent(Level10.this, Level11.class); //ИЗМЕНИТЬ
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         Intent intent = new Intent(Level10.this, Level11.class); //ИЗМЕНИТЬ
@@ -262,9 +237,11 @@ public class Level10 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Обрабатывем нажатие кнопки "Назад" - начало
-                if (interstitialAd.isLoaded()){
-                    transition = 2;
-                    interstitialAd.show(); //Показать рекламу
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(Level10.this); //Показать рекламу
+                    Intent intent = new Intent(Level10.this, PlayGame.class); //Создали намерение для перехода
+                    startActivity(intent);
+                    finish();
                 }else {
                     try {
                         //Вернуться назад к выбору уровня - начало
@@ -510,9 +487,11 @@ public class Level10 extends AppCompatActivity {
     //Системная кнопка "Назад" - начало
     @Override
     public void onBackPressed(){
-        if (interstitialAd.isLoaded()){
-            transition = 2;
-            interstitialAd.show(); // показать рекламу
+        if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+            Yodo1Mas.getInstance().showInterstitialAd(Level10.this); // показать рекламу
+            Intent intent = new Intent(Level10.this, PlayGame.class);
+            startActivity(intent);
+            finish();
         }else {
             try {
                 Intent intent = new Intent(Level10.this, PlayGame.class);

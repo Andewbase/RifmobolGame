@@ -7,13 +7,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.yodo1.mas.banner.Yodo1MasBannerAdListener;
+import com.yodo1.mas.banner.Yodo1MasBannerAdView;
+import com.yodo1.mas.error.Yodo1MasError;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ import z.nova.rifmobolgame.singlplayer.Level9;
 
 public class PlayGame extends AppCompatActivity {
 
-    private AdView adView;
+    Yodo1MasBannerAdView bannerAdView;
     ArrayList<TextLevel> textLevels = new ArrayList<TextLevel>();
 
     @Override
@@ -65,10 +66,38 @@ public class PlayGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_game);
 
-        MobileAds.initialize(this, "ca-app-pub-7867301759529153~4469254788");
-        adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        bannerAdView = findViewById(R.id.adView);
+        bannerAdView.setAdListener(new Yodo1MasBannerAdListener() {
+            @Override
+            public void onBannerAdLoaded(Yodo1MasBannerAdView bannerAdView) {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onBannerAdFailedToLoad(Yodo1MasBannerAdView bannerAdView, @NonNull Yodo1MasError error) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onBannerAdOpened(Yodo1MasBannerAdView bannerAdView) {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onBannerAdFailedToOpen(Yodo1MasBannerAdView bannerAdView, @NonNull Yodo1MasError error) {
+                // Code to be executed when an ad open fails.
+            }
+
+            @Override
+            public void onBannerAdClosed(Yodo1MasBannerAdView bannerAdView) {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
+        bannerAdView.loadAd();
+
+        //Yodo1
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

@@ -7,7 +7,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.yodo1.mas.Yodo1Mas;
+import com.yodo1.mas.error.Yodo1MasError;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //you just have to use this code in MainActivity not others. Just once
+        Yodo1Mas.getInstance().init(this, "sszpCIMxv0", new Yodo1Mas.InitListener() {
+            @Override
+            public void onMasInitSuccessful() {
+
+            }
+
+            @Override
+            public void onMasInitFailed(@NonNull Yodo1MasError error) {
+                //пусто
+            }
+        });
         //Убираем панель с батареей
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

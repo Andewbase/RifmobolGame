@@ -16,6 +16,8 @@ public class GameMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_menu);
 
+
+
         //кнопка "Играть" - начало
         Button buttonPlay = (Button) findViewById(R.id.btnPlay);
         buttonPlay.setOnClickListener(new View.OnClickListener() {

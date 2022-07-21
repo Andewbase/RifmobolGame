@@ -19,10 +19,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.yodo1.mas.Yodo1Mas;
 
 import z.nova.rifmobolgame.GameMenu;
 import z.nova.rifmobolgame.R;
@@ -51,34 +48,11 @@ public class MultiLevelThree5 extends AppCompatActivity {
     TextView multiscore2;
     TextView multiscoredraw;
 
-    public InterstitialAd interstitialAd; //Реклама
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universalmulti);
-
-        //Реклама - начало
-        MobileAds.initialize(this, "ca-app-pub-7867301759529153~4469254788");
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-7867301759529153/6261682753");
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        //Реклама - конец
-
-        //Закрытие рекламы по крестику - начало
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                try {
-                    Intent intent1 = new Intent(MultiLevelThree5.this, GameMenu.class );
-                    startActivity(intent1); finish();
-                }catch (Exception e){
-                    //пусто
-                }
-            }
-        });
-        //Закрытие рекламы по крестику - начало
 
         loadResult ();
 
@@ -175,8 +149,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         btnclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -197,8 +175,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         buttoncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -219,8 +201,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         btnclose2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -241,8 +227,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         buttoncontinue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -263,8 +253,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         btnclosedraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -285,8 +279,12 @@ public class MultiLevelThree5 extends AppCompatActivity {
         buttoncontinuedraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this);
+                    cleanResult();
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     try {
                         cleanResult();
@@ -315,8 +313,11 @@ public class MultiLevelThree5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Обрабатывем нажатие кнопки "Назад" - начало
-                if (interstitialAd.isLoaded()){
-                    interstitialAd.show(); //Показать рекламу
+                if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+                    Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this); //Показать рекламу
+                    Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class); //Создали намерение для перехода
+                    startActivity(intent);
+                    finish();
                 }else {
                     try {
                         //Вернуться назад к выбору уровня - начало
@@ -958,8 +959,11 @@ public class MultiLevelThree5 extends AppCompatActivity {
     //Системная кнопка "Назад" - начало
     @Override
     public void onBackPressed(){
-        if (interstitialAd.isLoaded()){
-            interstitialAd.show(); // показать рекламу
+        if (Yodo1Mas.getInstance().isInterstitialAdLoaded()) { //TODO
+            Yodo1Mas.getInstance().showInterstitialAd(MultiLevelThree5.this); // показать рекламу
+            Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
+            startActivity(intent);
+            finish();
         }else {
             try {
                 Intent intent = new Intent(MultiLevelThree5.this, GameMenu.class);
