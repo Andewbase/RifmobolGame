@@ -46,6 +46,7 @@
     <string name="level33">Тридцать третий трэк</string>
     <string name="level34">Тридцать четвертый трэк</string>
     <string name="level35">Тридцать пятый трэк</string>
+    <string name="eror">Ошибка</string>
 
     //Два Игрока
     <string name="raund">Раунд</string>

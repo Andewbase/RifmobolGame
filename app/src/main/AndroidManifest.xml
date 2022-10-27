@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="z.nova.rifmobolgame">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        tools:targetApi="31">
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
@@ -20,7 +20,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,518 +30,592 @@
         </activity>
         <activity
             android:name=".GameMenu"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".PlayGame"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MultiplayerGame"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".RulesGame"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level6"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level7"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level8"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level9"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level10"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level11"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level12"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level13"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level14"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level15"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level16"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level17"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level18"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level19"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level20"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level21"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level22"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level23"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level24"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level25"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level26"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level27"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level28"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level29"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level30"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level31"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level32"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level33"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level34"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".singlplayer.Level35"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevel1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevel2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevel3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevel4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevel5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelTwo1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelTwo2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelTwo3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelTwo4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelTwo5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelThree1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelThree2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelThree3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelThree4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelThree5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFour1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFour2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFour3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFour4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFour5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFive1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFive2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFive3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFive4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelFive5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSix5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSeven1"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSeven2"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSeven3"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSeven4"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".multiplaer.MultiLevelSeven5"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
