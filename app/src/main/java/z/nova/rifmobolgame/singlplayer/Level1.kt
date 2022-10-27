@@ -23,18 +23,19 @@ import z.nova.rifmobolgame.model.round.RoundInfoImpl
 
 class Level1 : AppCompatActivity() {
 
-    val roundInfoImpl = RoundInfoImpl(1)
-    val getRoundInfo = GetRoundInfo(roundRepo = roundInfoImpl)
+   private val roundInfoImpl = RoundInfoImpl(1)
+   private val getRoundInfo = GetRoundInfo(roundRepo = roundInfoImpl)
 
-    val roundInfo: RoundInfo = getRoundInfo.execut()
+   private val roundInfo: RoundInfo = getRoundInfo.execut()
 
-    var mediaPlayer //Создаём Медиа плеер
+   private var mediaPlayer //Создаём Медиа плеер
             : MediaPlayer? = null
-    lateinit var dialogEndWin //Создаём Диалог Выйграл
+   private lateinit var dialogEndWin //Создаём Диалог Выйграл
             : Dialog
-    lateinit var dialogEndLose //Создаем Диалог Проиграл
+   private lateinit var dialogEndLose //Создаем Диалог Проиграл
             : Dialog
-    var Clicked = 0 //Создаём переменую для отслеживания нажатия
+   private var Clicked = 0 //Создаём переменую для отслеживания нажатия
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.universal)

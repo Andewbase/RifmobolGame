@@ -11,13 +11,13 @@ import z.nova.rifmobolgame.model.round.LevelData.listcouplet
 import z.nova.rifmobolgame.model.round.LevelData.listmusic1
 import z.nova.rifmobolgame.model.round.LevelData.listmusic2
 
-class RoundInfoImpl(id: Int): RoundRepo {
+class RoundInfoImpl(private val id: Int = 0): RoundRepo {
 
-    val idLvl = id
+
 
     override fun getRoundInf(): RoundInfo {
 
-        val resultTextLvl = when(idLvl){
+        val resultTextLvl = when(id){
             1 -> listTextLevl[0]
             2 -> listTextLevl[1]
             3 -> listTextLevl[2]
@@ -56,7 +56,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resultBackgroundLvl = when(idLvl){
+        val resultBackgroundLvl = when(id){
             1 -> listBackground[0]
             2 -> listBackground[1]
             3 -> listBackground[2]
@@ -95,7 +95,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> listBackground[0]
         }
 
-        val resultcouplet = when(idLvl){
+        val resultcouplet = when(id){
             1 -> listcouplet [0]
             2 -> listcouplet[1]
             3 -> listcouplet[2]
@@ -134,7 +134,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resultbtnone = when(idLvl){
+        val resultbtnone = when(id){
             1 -> listbtnone[0]
             2 -> listbtnone[1]
             3 -> listbtnone[2]
@@ -173,7 +173,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resultbtntwo = when(idLvl){
+        val resultbtntwo = when(id){
             1 -> listbtntwo[0]
             2 -> listbtntwo[1]
             3 -> listbtntwo[2]
@@ -212,7 +212,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resultbtnthree = when(idLvl){
+        val resultbtnthree = when(id){
             1 -> listbtnthree[0]
             2 -> listbtnthree[1]
             3 -> listbtnthree[2]
@@ -251,7 +251,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resultbtnfour = when(idLvl){
+        val resultbtnfour = when(id){
             1 -> listbtnfour[0]
             2 -> listbtnfour[1]
             3 -> listbtnfour[2]
@@ -290,7 +290,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.string.eror
         }
 
-        val resulmusic1 = when(idLvl){
+        val resulmusic1 = when(id){
             1 -> listmusic1[0]
             2 -> listmusic1[1]
             3 -> listmusic1[2]
@@ -329,7 +329,7 @@ class RoundInfoImpl(id: Int): RoundRepo {
             else -> R.raw.eggs1
         }
 
-        val resulmusic2 = when(idLvl){
+        val resulmusic2 = when(id){
             1 -> listmusic2[0]
             2 -> listmusic2[1]
             3 -> listmusic2[2]
