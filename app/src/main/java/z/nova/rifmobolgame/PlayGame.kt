@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yodo1.mas.banner.Yodo1MasBannerAdListener
 import com.yodo1.mas.banner.Yodo1MasBannerAdView
 import com.yodo1.mas.error.Yodo1MasError
-import z.nova.rifmobolgame.model.LevelAdapter
-import z.nova.rifmobolgame.model.LevelAdapter.ListItemClickListener
-import z.nova.rifmobolgame.model.TextLevel
+import z.nova.rifmobolgame.adapter.LevelAdapter
+import z.nova.rifmobolgame.adapter.LevelAdapter.ListItemClickListener
+import z.nova.rifmobolgame.adapter.TextLevel
 import z.nova.rifmobolgame.singlplayer.*
 
 class PlayGame : AppCompatActivity() {

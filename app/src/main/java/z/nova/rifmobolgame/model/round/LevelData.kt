@@ -321,4 +321,20 @@ object LevelData {
         R.raw.goldenrain2
     )
 
+    var listtextDialogLose = mutableListOf(
+        R.string.dialoglose1,
+        R.string.dialoglose2,
+        R.string.dialoglose3,
+        R.string.dialoglose4,
+        R.string.dialoglose5
+    )
+
+    var listtextDialogWin = mutableListOf(
+        R.string.dialogwins1,
+        R.string.dialogwins2,
+        R.string.dialogwins3,
+        R.string.dialogwins4,
+        R.string.dialogwins5
+    )
+
 }

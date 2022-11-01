@@ -1,4 +1,4 @@
-package z.nova.rifmobolgame.model
+package z.nova.rifmobolgame.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

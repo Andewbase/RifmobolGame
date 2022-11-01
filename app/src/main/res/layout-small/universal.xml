@@ -56,7 +56,7 @@
                     android:gravity="center"
                     android:layout_marginRight="100dp"
                     android:padding="10dp"
-                    android:text="@string/level"
+                    android:text="@string/level1"
                     android:textColor="@color/lightYellow"
                     android:textSize="18sp"/>
             </LinearLayout>

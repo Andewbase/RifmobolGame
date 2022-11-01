@@ -11,6 +11,8 @@ class RoundInfo (
     @StringRes val nameBtntwo: Int,
     @StringRes val nameBtnthree: Int,
     @StringRes val nameBtnfour: Int,
+    @StringRes val textDialogWin: Int,
+    @StringRes val textDialogLose: Int,
     val music1: Int,
     val music2: Int
     )

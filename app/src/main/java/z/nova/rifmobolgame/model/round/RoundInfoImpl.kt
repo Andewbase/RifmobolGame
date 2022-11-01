@@ -10,6 +10,8 @@ import z.nova.rifmobolgame.model.round.LevelData.listbtntwo
 import z.nova.rifmobolgame.model.round.LevelData.listcouplet
 import z.nova.rifmobolgame.model.round.LevelData.listmusic1
 import z.nova.rifmobolgame.model.round.LevelData.listmusic2
+import z.nova.rifmobolgame.model.round.LevelData.listtextDialogLose
+import z.nova.rifmobolgame.model.round.LevelData.listtextDialogWin
 
 class RoundInfoImpl(private val id: Int = 0): RoundRepo {
 
@@ -368,11 +370,88 @@ class RoundInfoImpl(private val id: Int = 0): RoundRepo {
             else -> R.raw.eggs2
         }
 
+        val resultTextDialogLose = when(id){
+            1 -> listtextDialogLose[0]
+            2 -> listtextDialogLose[1]
+            3 -> listtextDialogLose[2]
+            4 -> listtextDialogLose[3]
+            5 -> listtextDialogLose[4]
+            6 -> listtextDialogLose[0]
+            7 -> listtextDialogLose[1]
+            8 -> listtextDialogLose[2]
+            9 -> listtextDialogLose[3]
+            10 -> listtextDialogLose[4]
+            11 -> listtextDialogLose[0]
+            12 -> listtextDialogLose[1]
+            13 -> listtextDialogLose[2]
+            14 -> listtextDialogLose[3]
+            15 -> listtextDialogLose[4]
+            16 -> listtextDialogLose[0]
+            17 -> listtextDialogLose[1]
+            18 -> listtextDialogLose[2]
+            19 -> listtextDialogLose[3]
+            20 -> listtextDialogLose[4]
+            21 -> listtextDialogLose[0]
+            22 -> listtextDialogLose[1]
+            23 -> listtextDialogLose[2]
+            24 -> listtextDialogLose[3]
+            25 -> listtextDialogLose[4]
+            26 -> listtextDialogLose[0]
+            27 -> listtextDialogLose[1]
+            28 -> listtextDialogLose[2]
+            29 -> listtextDialogLose[3]
+            30 -> listtextDialogLose[4]
+            31 -> listtextDialogLose[0]
+            32 -> listtextDialogLose[1]
+            33 -> listtextDialogLose[2]
+            34 -> listtextDialogLose[3]
+            35 -> listtextDialogLose[4]
+            else -> R.string.eror
+        }
+
+        val resultTextDialogWin = when(id){
+            1 -> listtextDialogWin[0]
+            2 -> listtextDialogWin[1]
+            3 -> listtextDialogWin[2]
+            4 -> listtextDialogWin[3]
+            5 -> listtextDialogWin[4]
+            6 -> listtextDialogWin[0]
+            7 -> listtextDialogWin[1]
+            8 -> listtextDialogWin[2]
+            9 -> listtextDialogWin[3]
+            10 -> listtextDialogWin[4]
+            11 -> listtextDialogWin[0]
+            12 -> listtextDialogWin[1]
+            13 -> listtextDialogWin[2]
+            14 -> listtextDialogWin[3]
+            15 -> listtextDialogWin[4]
+            16 -> listtextDialogWin[0]
+            17 -> listtextDialogWin[1]
+            18 -> listtextDialogWin[2]
+            19 -> listtextDialogWin[3]
+            20 -> listtextDialogWin[4]
+            21 -> listtextDialogWin[0]
+            22 -> listtextDialogWin[1]
+            23 -> listtextDialogWin[2]
+            24 -> listtextDialogWin[3]
+            25 -> listtextDialogWin[4]
+            26 -> listtextDialogWin[0]
+            27 -> listtextDialogWin[1]
+            28 -> listtextDialogWin[2]
+            29 -> listtextDialogWin[3]
+            30 -> listtextDialogWin[4]
+            31 -> listtextDialogWin[0]
+            32 -> listtextDialogWin[1]
+            33 -> listtextDialogWin[2]
+            34 -> listtextDialogWin[3]
+            35 -> listtextDialogWin[4]
+            else -> R.string.eror
+        }
 
 
-        return RoundInfo(textLvl = resultTextLvl, backgroundRound = resultBackgroundLvl,
-            nameBtnone = resultbtnone, nameBtntwo = resultbtntwo, textCouplet  = resultcouplet ,nameBtnthree = resultbtnthree, nameBtnfour = resultbtnfour,
-       music1 = resulmusic1, music2 = resulmusic2)
 
+        return RoundInfo(textLvl = resultTextLvl, backgroundRound = resultBackgroundLvl, textCouplet  = resultcouplet,
+            nameBtnone = resultbtnone, nameBtntwo = resultbtntwo, nameBtnthree = resultbtnthree, nameBtnfour = resultbtnfour,
+            textDialogLose = resultTextDialogLose, textDialogWin = resultTextDialogWin ,music1 = resulmusic1, music2 = resulmusic2)
     }
 }
