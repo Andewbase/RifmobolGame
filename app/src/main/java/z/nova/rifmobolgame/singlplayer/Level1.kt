@@ -65,7 +65,7 @@ class Level1 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         btn_bottom_right.setOnClickListener {
-            roundFactory.clickButtonRoundWin(4, btn_bottom_left)
+            roundFactory.clickButtonRoundLose(4, btn_bottom_right, btn_bottom_left)
             //Метод показывающий правельный ответ - конец
             roundFactory.setButtonBackgroundCLick(btn_bottom_right, btn_up_left, btn_up_right, btn_bottom_left) // Меняем фон кнопки при нажатие
         }

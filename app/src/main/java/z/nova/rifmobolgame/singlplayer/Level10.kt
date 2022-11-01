@@ -1,63 +1,48 @@
 package z.nova.rifmobolgame.singlplayer
 
-import android.app.Dialog
-import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.Handler
 import android.util.TypedValue
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.yodo1.mas.Yodo1Mas
-import z.nova.rifmobolgame.PlayGame
 import z.nova.rifmobolgame.R
-import z.nova.rifmobolgame.model.round.GetRoundInfo
-import z.nova.rifmobolgame.model.round.RoundInfo
-import z.nova.rifmobolgame.model.round.RoundInfoImpl
+import z.nova.rifmobolgame.model.roundfactory.RoundFactory
 
 class Level10 : AppCompatActivity() {
 
-    val roundInfoImpl = RoundInfoImpl(10)
-    val getRoundInfo = GetRoundInfo(roundRepo = roundInfoImpl)
+    private val roundFactory = RoundFactory(10, this@Level10)
 
-    val roundInfo: RoundInfo = getRoundInfo.execut()
+    private lateinit var text_levels: TextView
+    private lateinit var textLevelCouplet: TextView
+    private lateinit var btn_bottom_right: Button
+    private lateinit var btn_up_left: Button
+    private lateinit var btn_up_right: Button
+    private lateinit var btn_bottom_left: Button
+    private lateinit var btnBack: Button
+    private lateinit var background: ImageView
 
-    var mediaPlayer //Создаём Медиа плеер
-            : MediaPlayer? = null
-    lateinit var dialogEndWin //Создаём Диалог Выйграл
-            : Dialog
-    lateinit var dialogEndLose //Создаем Диалог Проиграл
-            : Dialog
-    var Clicked = 0 //Создаём переменую для отслеживания нажатия
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.universal)
 
+        text_levels = findViewById(R.id.text_levels) //Создаём переменную text_levels
 
-        //Создаём переменную text_levels
-        val text_levels = findViewById<TextView>(R.id.text_levels)
-        text_levels.setText(roundInfo.textLvl) //Установили текст
-        val btn_bottom_right =
-            findViewById<View>(R.id.btn_right_bottom) as Button //Создаём нижнюю правую кнопку
-        val btn_up_left =
-            findViewById<View>(R.id.btn_left_up) as Button //Создаём левую верхнюю кнопку
-        val btn_up_right =
-            findViewById<View>(R.id.btn_right_up) as Button //Создаём правую верхнюю кнопку
-        val btn_bottom_left =
-            findViewById<View>(R.id.btn_left_bottom) as Button //Создаём нижнюю правоую кнопку
-
+        btn_bottom_right = findViewById(R.id.btn_right_bottom) //Создаём нижнюю правую кнопку
+        btn_up_left = findViewById(R.id.btn_left_up) //Создаём левую верхнюю кнопку
+        btn_up_right = findViewById(R.id.btn_right_up) //Создаём правую верхнюю кнопку
+        btn_bottom_left = findViewById(R.id.btn_left_bottom) //Создаём нижнюю правоую кнопку
 
         //Устанавливаем фон для уровня - начало
-        val background = findViewById<View>(R.id.menu_background) as ImageView
-        background.setImageResource(roundInfo.backgroundRound)
+        background = findViewById(R.id.menu_background)
         //Устанавливаем фон для уровня - конец
+
+        //Устанавливаем текст для уровня - начало
+        textLevelCouplet = findViewById(R.id.couplet_text)
+        //Устанавливаем текст для уровня - конец
+
+        //Кнопка "Назад" - начало
+        btnBack = findViewById(R.id.button_back)
 
         //Меняем размер текста в кнопках - начало
         btn_up_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
@@ -66,325 +51,52 @@ class Level10 : AppCompatActivity() {
         btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
         //Меняем размер текста в кнопках конец
 
-        //Устанавливаем текст для уровня - начало
-        val textlevel2 = findViewById<TextView>(R.id.couplet_text)
-        textlevel2.setText(roundInfo.textCouplet)
-        //Устанавливаем текст для уровня - конец
-
-
-        //Меняем текст в кнопках - начало
-        btn_up_left.setText(roundInfo.nameBtnone)
-        btn_up_right.setText(roundInfo.nameBtntwo)
-        btn_bottom_left.setText(roundInfo.nameBtnthree)
-        btn_bottom_right.setText(roundInfo.nameBtnfour)
-        //Меняем текст в кнопках - конец
+        roundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
-        dialogEndWin = Dialog(this)
-        dialogEndWin!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogEndWin!!.setContentView(R.layout.dialogend_win)
-        dialogEndWin!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogEndWin!!.window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.MATCH_PARENT
-        )
-        dialogEndWin!!.setCancelable(false)
+        roundFactory.dialogWinCreate(this@Level10, Level11::class.java) //TODO Установить следующий уровень
         //Вызов диалогового окна Выйграл "В Конце" - конец
 
-
-        //Устанавливаем текст в диалоговое окно - начало
-        val textdescriptions = dialogEndWin!!.findViewById<View>(R.id.textwin) as TextView
-        textdescriptions.setText(R.string.dialogwins5)
-        //Устанавливаем текст в диалоговое окно - начало
-
-        //Кнопка которая закрывет диалоговое окно - начало
-        val btnclose = dialogEndWin!!.findViewById<View>(R.id.btnclose) as TextView
-        btnclose.setOnClickListener {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10)
-                val intent = Intent(this@Level10, PlayGame::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                try {
-                    val intent = Intent(this@Level10, PlayGame::class.java)
-                    startActivity(intent)
-                    finish()
-                } catch (e: Exception) {
-                    //Пусто
-                }
-                dialogEndWin!!.dismiss()
-            }
-        }
-        //Кнопка которая закрывет диалоговое окно - конец
-
-        //Кнопка "ДАЛЕЕ" - начало
-        val buttoncontinue = dialogEndWin!!.findViewById<View>(R.id.btncontinue) as Button
-        buttoncontinue.setOnClickListener {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10) // показать рекламу
-                val intent = Intent(this@Level10, Level11::class.java) //ИЗМЕНИТЬ
-                startActivity(intent)
-            } else {
-                try {
-                    val intent = Intent(this@Level10, Level11::class.java) //ИЗМЕНИТЬ
-                    startActivity(intent)
-                    finish()
-                } catch (e: Exception) {
-                    //Пусто
-                }
-                dialogEndWin!!.dismiss()
-            }
-        }
-        //Кнопка "ДАЛЕЕ" - конец
-
         //Вызов диалогового окна Проиграл "В Конце" - начало
-        dialogEndLose = Dialog(this)
-        dialogEndLose!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogEndLose!!.setContentView(R.layout.dialogend_lose)
-        dialogEndLose!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogEndLose!!.window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.MATCH_PARENT
-        )
-        dialogEndLose!!.setCancelable(false)
+        roundFactory.dialogLoseCreate(this@Level10, Level10::class.java, Level11::class.java) //TODO Установить повторяющийся, следующий уровень
         //Вызов диалогового окна Проиграл "В Конце" - конец
 
-
-        //Устанавливаем текст в диалоговое окно - начало
-        val textdescriptionsl = dialogEndLose!!.findViewById<View>(R.id.textlose) as TextView
-        textdescriptionsl.setText(R.string.dialoglose5)
-        //Устанавливаем текст в диалоговое окно - начало
-
-
-        //Кнопка которая закрывет диалоговое окно - начало
-        val btnclose1 = dialogEndLose!!.findViewById<View>(R.id.btnclose) as TextView
-        btnclose1.setOnClickListener {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10)
-                val intent = Intent(this@Level10, PlayGame::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                try {
-                    val intent = Intent(this@Level10, PlayGame::class.java)
-                    startActivity(intent)
-                    finish()
-                } catch (e: Exception) {
-                    //Пусто
-                }
-                dialogEndLose!!.dismiss()
-            }
-        }
-        //Кнопка которая закрывет диалоговое окно - конец
-
-        //Кнопка "ЕЩЕ РАЗ" - начало
-        val buttoncontinueback1 = dialogEndLose!!.findViewById<View>(R.id.btncontinueback) as Button
-        buttoncontinueback1.setOnClickListener {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10) // показать рекламу
-                val intent = Intent(this@Level10, Level10::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                try {
-                    val intent = Intent(this@Level10, Level10::class.java)
-                    startActivity(intent)
-                    finish()
-                } catch (e: Exception) {
-                    //Пусто
-                }
-                dialogEndLose!!.dismiss()
-            }
-        }
-        //Кнопка "ЕЩЁ РАЗ" - конец
-
-        //Кнопка "ДАЛЕЕ" - начало
-        val buttoncontinue1 = dialogEndLose!!.findViewById<View>(R.id.btncontinue) as Button
-        buttoncontinue1.setOnClickListener {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10) // // показать рекламу
-                val intent = Intent(this@Level10, Level11::class.java) //ИЗМЕНИТЬ
-                startActivity(intent)
-                finish()
-            } else {
-                try {
-                    val intent = Intent(this@Level10, Level11::class.java) //ИЗМЕНИТЬ
-                    startActivity(intent)
-                    finish()
-                } catch (e: Exception) {
-                    //Пусто
-                }
-                dialogEndLose!!.dismiss()
-            }
-        }
-        //Кнопка "ДАЛЕЕ" - конец
-
-
         //Кнопка "Назад" - начало
-        val btn_back = findViewById<View>(R.id.button_back) as Button
-        btn_back.setOnClickListener {
+        btnBack.setOnClickListener {
             //Обрабатывем нажатие кнопки "Назад" - начало
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-                Yodo1Mas.getInstance().showInterstitialAd(this@Level10) //Показать рекламу
-                val intent =
-                    Intent(this@Level10, PlayGame::class.java) //Создали намерение для перехода
-                startActivity(intent)
-                finish()
-            } else {
-                try {
-                    //Вернуться назад к выбору уровня - начало
-                    val intent =
-                        Intent(this@Level10, PlayGame::class.java) //Создали намерение для перехода
-                    startActivity(intent)
-                    finish()
-                    //Вернуться назад к выбору уровня - конец
-                } catch (e: Exception) {
-                    //Здесь кода не будет
-                }
-                //Обрабатываем нажатие кнопки "Назад" - конец
-            }
+            roundFactory.clickBackButton(this@Level10)
         }
         //Кнопка "Назад" - конец
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало
         btn_up_left.setOnClickListener {
-            try {
-                Clicked = 1 //Кнопка нажата
-                //Вопроизводим полный куплет -начало
-                if (mediaPlayer != null) {
-                    releaseMP()
-                    mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music2) //Изменять
-                    mediaPlayer?.start()
-                    btn_up_left.isClickable =
-                        false //Отключаем кнопку после нажатия, setEnable(false) красит в серый цвет кнопку
-                }
-                //Вопроизводим полный куплет - конец
-
-                //Метод показывающий правельный ответ - начало
-                mediaPlayer!!.setOnCompletionListener {
-                    btn_bottom_right.background =
-                        resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                    Handler().postDelayed({
-                        dialogEndLose!!.show() // Выводим диалог проиграл
-                    }, 500)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                }
-                //Метод показывающий правельный ответ - конец
-                btn_up_left.background =
-                    resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whiteblue) // Меняем фон кнопки при нажатие
-                btn_up_right.isClickable = false //Блокируем правую верхнюю
-                btn_bottom_left.isClickable = false //Блокируем нижнюю левую
-                btn_bottom_right.isClickable = false //Блокируем нижнюю правую
-            } catch (e: Exception) {
-                //Пусто
-            }
+            roundFactory.clickButtonRoundLose(1, btn_up_left, btn_bottom_right)
+            //Метод показывающий правельный ответ - конец
+            roundFactory.setButtonBackgroundCLick(btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - конец
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало
         btn_up_right.setOnClickListener {
-            try {
-                Clicked = 2 //Кнопка нажата
-                //Вопроизводим полный куплет -начало
-                if (mediaPlayer != null) {
-                    releaseMP()
-                    mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music2)
-                    mediaPlayer?.start()
-                    btn_up_right.isClickable = false //Отключаем кнопку после нажатия
-                }
-                //Вопроизводим полный куплет - конец
-
-                //Метод показывающий правельный ответ - начало
-                mediaPlayer!!.setOnCompletionListener {
-                    btn_bottom_right.background =
-                        resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                    Handler().postDelayed({
-                        dialogEndLose!!.show() //Выводим диалог проиграл
-                    }, 500)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
-                }
-                //Метод показывающий правельный ответ - конец
-                btn_up_right.background =
-                    resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whiteblue) // Меняем фон кнопки при нажатие
-                btn_up_left.isClickable = false //Блокируем правую верхнюю
-                btn_bottom_left.isClickable = false //Блокируем нижнюю левую
-                btn_bottom_right.isClickable = false //Блокируем нижнюю правую
-            } catch (e: Exception) {
-                //Пусто
-            }
+            roundFactory.clickButtonRoundLose(2, btn_up_right, btn_bottom_right)
+            //Метод показывающий правельный ответ - конец
+            roundFactory.setButtonBackgroundCLick(btn_up_right, btn_up_left, btn_bottom_left, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - конец
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало
         btn_bottom_left.setOnClickListener {
-            try {
-                Clicked = 3 //Кнопка нажата
-                //Вопроизводим полный куплет -начало
-                if (mediaPlayer != null) {
-                    releaseMP()
-                    mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music2)
-                    mediaPlayer?.start()
-                    btn_bottom_left.isClickable = false //Отключаем кнопку после нажатия
-                }
-                //Вопроизводим полный куплет - конец
-
-                //Метод показывающий правельный ответ - начало
-                mediaPlayer!!.setOnCompletionListener {
-                    btn_bottom_right.background =
-                        resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                    Handler().postDelayed({
-                        dialogEndLose!!.show() //Выводим диалог проиграл
-                    }, 500)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
-                }
-                //Метод показывающий правельный ответ - конец
-                btn_bottom_left.background =
-                    resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whiteblue) // Меняем фон кнопки при нажатие
-                btn_up_left.isClickable = false //Блокируем правую верхнюю
-                btn_up_right.isClickable = false //Блокируем нижнюю левую
-                btn_bottom_right.isClickable = false //Блокируем нижнюю правую
-            } catch (e: Exception) {
-                //Пусто
-            }
+            roundFactory.clickButtonRoundLose(3, btn_bottom_left, btn_bottom_right)
+            //Метод показывающий правельный ответ - конец
+            roundFactory.setButtonBackgroundCLick(btn_bottom_left, btn_up_left, btn_up_right, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - конец
 
-        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
+        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало //TODO WIN BUTTON
         btn_bottom_right.setOnClickListener {
-            try {
-                Clicked = 4 //Кнопка нажата
-                //Вопроизводим полный куплет -начало
-                if (mediaPlayer != null) {
-                    releaseMP()
-                    mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music2)
-                    mediaPlayer?.start()
-                    btn_bottom_right.isClickable = false //Отключаем кнопку после нажатия
-                }
-                //Вопроизводим полный куплет - конец
-
-                //Метод показывающий правельный ответ - начало
-                mediaPlayer!!.setOnCompletionListener {
-                    btn_bottom_right.background =
-                        resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                    Handler().postDelayed({
-                        dialogEndWin!!.show() //Выводим диалог выйграл
-                    }, 500)
-                    //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
-                }
-                //Метод показывающий правельный ответ - конец
-                btn_bottom_right.background =
-                    resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whiteblue) // Меняем фон кнопки при нажатие
-                btn_up_left.isClickable = false //Блокируем правую верхнюю
-                btn_up_right.isClickable = false //Блокируем нижнюю левую
-                btn_bottom_left.isClickable = false //Блокируем нижнюю правую
-            } catch (e: Exception) {
-                //Пусто
-            }
+            roundFactory.clickButtonRoundWin(4, btn_bottom_right)
+            //Метод показывающий правельный ответ - конец
+            roundFactory.setButtonBackgroundCLick(btn_bottom_right, btn_up_left, btn_up_right, btn_bottom_left) // Меняем фон кнопки при нажатие
         }
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - конец
     }
@@ -392,75 +104,25 @@ class Level10 : AppCompatActivity() {
     //Проигрываем музыку при запуске уровня - начало
     override fun onResume() {
         super.onResume()
-        val btn_bottom_right =
-            findViewById<View>(R.id.btn_right_bottom) as Button //Создаём нижнюю правую кнопку
-        if (mediaPlayer == null && Clicked == 0) { //Если свернули игру до нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music1)
-            mediaPlayer?.start()
-        } else if (Clicked > 0) { //Иначе если свернули игру после нажатия варианта ответа
-            mediaPlayer = MediaPlayer.create(applicationContext, roundInfo.music2)
-            mediaPlayer?.start()
-            //Метод показывающий правельный ответ - начало
-            mediaPlayer?.setOnCompletionListener(MediaPlayer.OnCompletionListener {
-                btn_bottom_right.background =
-                    resources.getDrawable(R.drawable.style_btn_stroke_whiteblack_press_whitgreen)
-                //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                Handler().postDelayed({
-                    if (Clicked == 4) {
-                        dialogEndWin!!.show() //Выводит диалог выйграл
-                    } else {
-                        dialogEndLose!!.show() //Выводит диалог проиграл
-                    }
-                }, 500)
-                //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
-            })
-            //Метод показывающий правельный ответ - конец
-        }
+        roundFactory.mediaStart(btn_bottom_right)
     }
 
-    //Проигрываем музыку при запуске уровня - конец
-    //Метод освобождения Плеера - начало
-    private fun releaseMP() {
-        if (mediaPlayer != null) {
-            try {
-                mediaPlayer!!.release()
-                mediaPlayer = null
-            } catch (e: Exception) {
-                //Пусто
-            }
-        }
-    }
-
-    //Метод освобождения Плеера - конец
     //Системная кнопка "Назад" - начало
     override fun onBackPressed() {
-        if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
-            Yodo1Mas.getInstance().showInterstitialAd(this@Level10) // показать рекламу
-            val intent = Intent(this@Level10, PlayGame::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            try {
-                val intent = Intent(this@Level10, PlayGame::class.java)
-                startActivity(intent)
-                finish()
-            } catch (e: Exception) {
-                //Пусто
-            }
-        }
+        roundFactory.clickBackButton(this@Level10)
     }
-
     //Системная кнопка "Назад" - конец
+
     //Останавливает проигрыватель при паузе активити - начало
     override fun onPause() {
         super.onPause()
-        releaseMP()
+        roundFactory.releaseMP()
     }
-
     //Останавливает проигрыватель при паузе активити - конец
+
     //Освобождаем ресурсы проигрывателя при уничтожение активити - начало
     override fun onDestroy() {
         super.onDestroy()
-        releaseMP()
+        roundFactory.releaseMP()
     } //Освобождаем ресурсы проигрывателя при уничтожение активити - конец
 }

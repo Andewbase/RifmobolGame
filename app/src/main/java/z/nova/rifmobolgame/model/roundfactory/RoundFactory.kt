@@ -115,6 +115,15 @@ class RoundFactory(private val idRound: Int, private val context: Context, priva
         btnBlock3.isClickable = false
     }
 
+    fun setTextRound(textLevel: TextView, textLevelCouplet: TextView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
+        textLevel.setText(roundInfo.textLvl)
+        textLevelCouplet.setText(roundInfo.textCouplet)
+        btn_up_left.setText(roundInfo.nameBtnone)
+        btn_up_right.setText(roundInfo.nameBtntwo)
+        btn_bottom_left.setText(roundInfo.nameBtnthree)
+        btn_bottom_right.setText(roundInfo.nameBtnfour)
+    }
+
     fun setTextRound(textLevel: TextView, textLevelCouplet: TextView, background: ImageView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
         textLevel.setText(roundInfo.textLvl)
         textLevelCouplet.setText(roundInfo.textCouplet)

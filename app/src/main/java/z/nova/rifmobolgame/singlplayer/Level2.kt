@@ -43,7 +43,6 @@ class Level2 : AppCompatActivity() {
         //Кнопка "Назад" - начало
         btnBack = findViewById(R.id.button_back)
 
-
         roundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
@@ -63,7 +62,7 @@ class Level2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало
         btn_up_left.setOnClickListener {
-            roundFactory.clickButtonRoundLose(2, btn_up_left, btn_bottom_right)
+            roundFactory.clickButtonRoundLose(1, btn_up_left, btn_bottom_right)
             //Метод показывающий правельный ответ - конец
             roundFactory.setButtonBackgroundCLick(btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
         }
