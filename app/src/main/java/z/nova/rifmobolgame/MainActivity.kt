@@ -6,12 +6,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.yodo1.mas.Yodo1Mas
 import com.yodo1.mas.error.Yodo1MasError
-import java.util.*
-
-import kotlin.concurrent.schedule
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import z.nova.rifmobolgame.model.const.TEXT_BACK
 
 private const val YODO1MAS_KEY = "sszpCIMxv0"
-private const val TEXT_BACK = "Нажмити ещё раз, что бы выйти"
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,11 +29,13 @@ class MainActivity : AppCompatActivity() {
             override fun onMasInitFailed(error: Yodo1MasError) {}
         })
 
-            val intent = Intent(this@MainActivity, GameMenu::class.java)
-            Timer().schedule(5000) {
+        val intent = Intent(this@MainActivity, GameMenu::class.java)
+        GlobalScope.launch(Dispatchers.Main){
+            delay(5000)
                 startActivity(intent)
                 finish()
-            }
+        }
+
     }
 
     //Системная кнопка "Назад" - начало

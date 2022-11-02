@@ -19,8 +19,10 @@ import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.GetRoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfoImpl
-import android.os.Handler
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
 
@@ -61,9 +63,10 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         mediaPlayer!!.setOnCompletionListener {
             setButtonBackgroundWin(btnWin)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-            Handler().postDelayed({
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(500)
                 dialogEndLose.show() //Выводим диалог проиграл
-            }, 500)
+            }
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
         }
     }
@@ -84,9 +87,10 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
 
             setButtonBackgroundWin(btnWin)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-            Handler().postDelayed({
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(500)
                 dialogEndWin.show() //Выводим диалог выйграл
-            }, 500)
+            }
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
         }
 
@@ -149,13 +153,15 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
             mediaPlayer?.setOnCompletionListener {
                 setButtonBackgroundWin(btnWin)
                 //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
-                Handler().postDelayed({
-                    if (clickedIdBtn == 4) {
-                        dialogEndWin.show() //Выводит диалог выйграл
-                    } else {
-                        dialogEndLose.show() //Выводит диалог проиграл
-                    }
-                }, 500)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    delay(500)
+                        if (clickedIdBtn == 4) {
+                            dialogEndWin.show() //Выводит диалог выйграл
+                        } else {
+                            dialogEndLose.show() //Выводит диалог проиграл
+                        }
+                }
                 //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
             }
             //Метод показывающий правельный ответ - конец

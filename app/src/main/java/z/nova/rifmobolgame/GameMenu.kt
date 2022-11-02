@@ -3,9 +3,14 @@ package z.nova.rifmobolgame
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import z.nova.rifmobolgame.model.const.TEXT_BACK
 
 class GameMenu : AppCompatActivity() {
+
+    private var backPressedTime: Long = 0
+    private lateinit var backToast: Toast
 
     private lateinit var buttonPlay: Button
     private lateinit var buttonMultiplayer: Button
@@ -44,4 +49,18 @@ class GameMenu : AppCompatActivity() {
         }
         //Кнопка "Правила" - конец
     }
+
+    //Системная кнопка "Назад" - начало
+    override fun onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel() //Закрывает Тост вместе с приложением
+            super.onBackPressed()
+            return
+        } else {
+            backToast =
+                Toast.makeText(baseContext, TEXT_BACK, Toast.LENGTH_SHORT)
+            backToast.show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    } //Системная кнопка "Назад" - конец
 }
