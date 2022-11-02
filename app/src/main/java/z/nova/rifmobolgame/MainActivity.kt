@@ -10,6 +10,9 @@ import java.util.*
 
 import kotlin.concurrent.schedule
 
+private const val YODO1MAS_KEY = "sszpCIMxv0"
+private const val TEXT_BACK = "Нажмити ещё раз, что бы выйти"
+
 class MainActivity : AppCompatActivity() {
 
     private var backPressedTime: Long = 0
@@ -20,13 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //you just have to use this code in MainActivity not others. Just once
-        Yodo1Mas.getInstance().init(this, "sszpCIMxv0", object : Yodo1Mas.InitListener {
+        Yodo1Mas.getInstance().init(this@MainActivity, YODO1MAS_KEY, object : Yodo1Mas.InitListener {
             override fun onMasInitSuccessful() {}
-            override fun onMasInitFailed(error: Yodo1MasError) {
-                //пусто
-            }
+            override fun onMasInitFailed(error: Yodo1MasError) {}
         })
-
 
             val intent = Intent(this@MainActivity, GameMenu::class.java)
             Timer().schedule(5000) {
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             return
         } else {
             backToast =
-                Toast.makeText(baseContext, "Нажмити ещё раз, что бы выйти", Toast.LENGTH_SHORT)
+                Toast.makeText(baseContext, TEXT_BACK, Toast.LENGTH_SHORT)
             backToast.show()
         }
         backPressedTime = System.currentTimeMillis()

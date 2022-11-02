@@ -84,7 +84,7 @@ class Level2 : AppCompatActivity() {
         }
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - конец
 
-        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало //TODO WIN BUTTON
+        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         btn_bottom_right.setOnClickListener {
             singlRoundFactory.clickButtonRoundWin(4, btn_bottom_right)
             //Метод показывающий правельный ответ - конец

@@ -7,7 +7,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
-import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -20,6 +19,8 @@ import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.GetRoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfoImpl
+import android.os.Handler
+
 
 class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
 
@@ -61,7 +62,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
             setButtonBackgroundWin(btnWin)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
             Handler().postDelayed({
-                dialogEndLose!!.show() //Выводим диалог проиграл
+                dialogEndLose.show() //Выводим диалог проиграл
             }, 500)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
         }
@@ -84,7 +85,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
             setButtonBackgroundWin(btnWin)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
             Handler().postDelayed({
-                dialogEndWin!!.show() //Выводим диалог выйграл
+                dialogEndWin.show() //Выводим диалог выйграл
             }, 500)
             //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
         }
@@ -145,40 +146,40 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
             mediaPlayer = MediaPlayer.create(context, roundInfo.music2)
             mediaPlayer?.start()
             //Метод показывающий правельный ответ - начало
-            mediaPlayer?.setOnCompletionListener(MediaPlayer.OnCompletionListener {
+            mediaPlayer?.setOnCompletionListener {
                 setButtonBackgroundWin(btnWin)
                 //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Начало
                 Handler().postDelayed({
                     if (clickedIdBtn == 4) {
-                        dialogEndWin!!.show() //Выводит диалог выйграл
+                        dialogEndWin.show() //Выводит диалог выйграл
                     } else {
-                        dialogEndLose!!.show() //Выводит диалог проиграл
+                        dialogEndLose.show() //Выводит диалог проиграл
                     }
                 }, 500)
                 //ВЫХОД ИЗ ТРЭКА (Задержка 0.3 секунды) - Конец
-            })
+            }
             //Метод показывающий правельный ответ - конец
         }
     }
 
     fun dialogWinCreate(activity: Activity, clsNext: Class<*>) {
         dialogEndWin = Dialog(context)
-        dialogEndWin!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogEndWin!!.setContentView(R.layout.dialogend_win)
-        dialogEndWin!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogEndWin!!.window!!.setLayout(
+        dialogEndWin.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialogEndWin.setContentView(R.layout.dialogend_win)
+        dialogEndWin.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialogEndWin.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
-        dialogEndWin!!.setCancelable(false)
+        dialogEndWin.setCancelable(false)
 
         //Устанавливаем текст в диалоговое окно - начало
-        textdescriptionsDialogWin = dialogEndWin!!.findViewById(R.id.textwin)
+        textdescriptionsDialogWin = dialogEndWin.findViewById(R.id.textwin)
         textdescriptionsDialogWin.setText(roundInfo.textDialogWin)
         //Устанавливаем текст в диалоговое окно - начало
 
         //Кнопка которая закрывет диалоговое окно - начало
-        btnCloseDialogWin = dialogEndWin!!.findViewById(R.id.btnclose)
+        btnCloseDialogWin = dialogEndWin.findViewById(R.id.btnclose)
         btnCloseDialogWin.setOnClickListener {
             if (Yodo1Mas.getInstance().isInterstitialAdLoaded) {
                 Yodo1Mas.getInstance().showInterstitialAd(activity) //Показать рекламу
@@ -190,13 +191,13 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
                 context.startActivity(intent)
                 activity.finish()
 
-                dialogEndWin!!.dismiss()
+                dialogEndWin.dismiss()
             }
         }
         //Кнопка которая закрывет диалоговое окно - конец
 
         //Кнопка "ДАЛЕЕ" - начало
-        buttonContinueDialogWIn = dialogEndWin!!.findViewById(R.id.btncontinue)
+        buttonContinueDialogWIn = dialogEndWin.findViewById(R.id.btncontinue)
         buttonContinueDialogWIn.setOnClickListener {
             nextButtonDialog(activity, clsNext)
         }
@@ -206,22 +207,22 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
 
     fun dialogLoseCreate(activity: Activity, clsOneMoreTime: Class<*>, clsNext: Class<*>) {
         dialogEndLose = Dialog(context)
-        dialogEndLose!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogEndLose!!.setContentView(R.layout.dialogend_lose)
-        dialogEndLose!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialogEndLose!!.window!!.setLayout(
+        dialogEndLose.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialogEndLose.setContentView(R.layout.dialogend_lose)
+        dialogEndLose.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialogEndLose.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
-        dialogEndLose!!.setCancelable(false)
+        dialogEndLose.setCancelable(false)
 
         //Устанавливаем текст в диалоговое окно - начало
-        textdescriptionsDialogLose = dialogEndLose!!.findViewById(R.id.textlose)
+        textdescriptionsDialogLose = dialogEndLose.findViewById(R.id.textlose)
         textdescriptionsDialogLose.setText(roundInfo.textDialogLose)
         //Устанавливаем текст в диалоговое окно - начало
 
         //Кнопка которая закрывет диалоговое окно - начало
-        btnCloseDialogLose = dialogEndLose!!.findViewById(R.id.btnclose)
+        btnCloseDialogLose = dialogEndLose.findViewById(R.id.btnclose)
         btnCloseDialogLose.setOnClickListener {
             if (Yodo1Mas.getInstance().isInterstitialAdLoaded) {
                 Yodo1Mas.getInstance().showInterstitialAd(activity) //Показать рекламу
@@ -232,36 +233,31 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
                 val intent = Intent(activity, PlayGame::class.java)
                 context.startActivity(intent)
                 activity.finish()
-                dialogEndLose!!.dismiss()
+                dialogEndLose.dismiss()
             }
         }
         //Кнопка которая закрывет диалоговое окно - конец
 
         //Кнопка "ЕЩЕ РАЗ" - начало
-        btnOneMoreTimeDialogLose = dialogEndLose!!.findViewById(R.id.btncontinueback)
+        btnOneMoreTimeDialogLose = dialogEndLose.findViewById(R.id.btncontinueback)
         btnOneMoreTimeDialogLose.setOnClickListener {
-            try {
                 val intent = Intent(activity, clsOneMoreTime)
                 context.startActivity(intent)
                 activity.finish()
-            } catch (e: Exception) {
-                //Пусто
-            }
-            dialogEndLose!!.dismiss()
+
+            dialogEndLose.dismiss()
         }
         //Кнопка "ЕЩЁ РАЗ" - конец
 
         //Кнопка "ДАЛЕЕ" - начало
-        btnNextDialogLose = dialogEndLose!!.findViewById(R.id.btncontinue)
+        btnNextDialogLose = dialogEndLose.findViewById(R.id.btncontinue)
         btnNextDialogLose .setOnClickListener {
-            try {
+
                 val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
                 context.startActivity(intent)
                 activity.finish()
-            } catch (e: Exception) {
-                //Пусто
-            }
-            dialogEndLose!!.dismiss()
+
+            dialogEndLose.dismiss()
         }
         //Кнопка "ДАЛЕЕ" - конец
 
@@ -275,18 +271,18 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
     }
 
     private fun nextButtonDialog(activity: Activity, clsNext: Class<*>) {
-        when (idRound) {
-            5 -> isClickEvenAdvertising = true
-            10 -> isClickEvenAdvertising = true
-            15 -> isClickEvenAdvertising = true
-            20 -> isClickEvenAdvertising = true
-            25 -> isClickEvenAdvertising = true
-            30 -> isClickEvenAdvertising = true
-            35 -> isClickEvenAdvertising = true
-            else -> isClickEvenAdvertising = false
+        isClickEvenAdvertising = when (idRound) {
+            5 -> true
+            10 -> true
+            15 -> true
+            20 -> true
+            25 -> true
+            30 -> true
+            35 -> true
+            else -> false
         }
         if (isClickEvenAdvertising) {
-            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
+            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) {
                 Yodo1Mas.getInstance().showInterstitialAd(activity)
                 val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
                 context.startActivity(intent)
@@ -302,7 +298,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
             activity.finish()
         }
 
-        dialogEndWin!!.dismiss()
+        dialogEndWin.dismiss()
     }
 
     private fun setButtonBackgroundWin(btn: Button) {

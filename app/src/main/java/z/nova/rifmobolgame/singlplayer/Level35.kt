@@ -55,11 +55,11 @@ class Level35 : AppCompatActivity() {
         singlRoundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
-        singlRoundFactory.dialogWinCreate(this@Level35, PlayGame::class.java) //TODO Установить следующий уровень
+        singlRoundFactory.dialogWinCreate(this@Level35, PlayGame::class.java)
         //Вызов диалогового окна Выйграл "В Конце" - конец
 
         //Вызов диалогового окна Проиграл "В Конце" - начало
-        singlRoundFactory.dialogLoseCreate(this@Level35, Level35::class.java, PlayGame::class.java) //TODO Установить повторяющийся, следующий уровень
+        singlRoundFactory.dialogLoseCreate(this@Level35, Level35::class.java, PlayGame::class.java)
         //Вызов диалогового окна Проиграл "В Конце" - конец
 
         //Кнопка "Назад" - начало
@@ -93,7 +93,7 @@ class Level35 : AppCompatActivity() {
         }
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - конец
 
-        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало //TODO WIN BUTTON
+        //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         btn_bottom_right.setOnClickListener {
             singlRoundFactory.clickButtonRoundWin(4, btn_bottom_right)
             //Метод показывающий правельный ответ - конец

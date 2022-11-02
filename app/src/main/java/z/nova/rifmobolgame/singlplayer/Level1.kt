@@ -55,7 +55,7 @@ class Level1 : AppCompatActivity() {
         }
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - конец
 
-        //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало //TODO Win Button
+        //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало
         btn_bottom_left.setOnClickListener {
             singlRoundFactory.clickButtonRoundWin(3, btn_bottom_left)
             //Метод показывающий правельный ответ - конец
@@ -75,7 +75,7 @@ class Level1 : AppCompatActivity() {
     //Проигрываем музыку при запуске уровня - начало
     override fun onResume() {
         super.onResume()
-        singlRoundFactory.mediaStart(btn_bottom_left)
+        singlRoundFactory.mediaStart(btn_bottom_left) //WIN BUTTON!!!
     }
     //Проигрываем музыку при запуске уровня - конец
 

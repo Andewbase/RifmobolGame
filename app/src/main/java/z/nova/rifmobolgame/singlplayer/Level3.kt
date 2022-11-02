@@ -69,7 +69,7 @@ class Level3 : AppCompatActivity() {
         }
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - конец
 
-        //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало //TODO WIN BUTTON
+        //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало
         btn_up_right.setOnClickListener {
             singlRoundFactory.clickButtonRoundWin(2, btn_up_right)
             //Метод показывающий правельный ответ - конец

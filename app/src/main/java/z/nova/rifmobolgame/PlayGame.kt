@@ -16,21 +16,23 @@ import z.nova.rifmobolgame.adapter.TextLevel
 import z.nova.rifmobolgame.singlplayer.*
 
 class PlayGame : AppCompatActivity() {
-    lateinit var bannerAdView: Yodo1MasBannerAdView
-    var textLevels = ArrayList<TextLevel>()
+
+    private lateinit var bannerAdView: Yodo1MasBannerAdView
+    private var textLevels = ArrayList<TextLevel>()
+    private  lateinit var btnBack: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play_game)
+
         bannerAdView = findViewById(R.id.adView)
+
         bannerAdView.setAdListener(object : Yodo1MasBannerAdListener {
             override fun onBannerAdLoaded(bannerAdView: Yodo1MasBannerAdView) {
                 // Code to be executed when an ad finishes loading.
             }
 
-            override fun onBannerAdFailedToLoad(
-                bannerAdView: Yodo1MasBannerAdView,
-                error: Yodo1MasError
-            ) {
+            override fun onBannerAdFailedToLoad(bannerAdView: Yodo1MasBannerAdView, error: Yodo1MasError) {
                 // Code to be executed when an ad request fails.
             }
 
@@ -39,10 +41,7 @@ class PlayGame : AppCompatActivity() {
                 // covers the screen.
             }
 
-            override fun onBannerAdFailedToOpen(
-                bannerAdView: Yodo1MasBannerAdView,
-                error: Yodo1MasError
-            ) {
+            override fun onBannerAdFailedToOpen(bannerAdView: Yodo1MasBannerAdView, error: Yodo1MasError) {
                 // Code to be executed when an ad open fails.
             }
 
@@ -51,23 +50,23 @@ class PlayGame : AppCompatActivity() {
                 // to the app after tapping on an ad.
             }
         })
-        bannerAdView.loadAd()
 
+        bannerAdView.loadAd()
         //Yodo1
 
-        val button_back = findViewById<View>(R.id.button_back) as Button
-        button_back.setOnClickListener {
-            try {
+        btnBack = findViewById<View>(R.id.button_back) as Button
+        btnBack.setOnClickListener {
                 val intent = Intent(this@PlayGame, GameMenu::class.java)
                 startActivity(intent)
                 finish()
-            } catch (e: Exception) {
-                //Пусто
-            }
         }
+
         setInitialData()
+
         val recyclerView = findViewById<RecyclerView>(R.id.list)
+
         val numberofColums = 5
+
         val levelClickListener = object : ListItemClickListener {
             override fun onListItemClick(clickItemIndex: Int) {
                 val intent: Intent
@@ -215,9 +214,11 @@ class PlayGame : AppCompatActivity() {
                 }
             }
         }
+
         recyclerView.layoutManager = GridLayoutManager(this, numberofColums)
         val adapter = LevelAdapter(this, textLevels, levelClickListener)
         recyclerView.adapter = adapter
+
     }
 
     private fun setInitialData() {
@@ -260,12 +261,8 @@ class PlayGame : AppCompatActivity() {
 
     //Системная кнопка "Назад" - начало
     override fun onBackPressed() {
-        try {
             val intent = Intent(this@PlayGame, GameMenu::class.java)
             startActivity(intent)
             finish()
-        } catch (e: Exception) {
-            //Пусто
-        }
     } //Системная кнопка "Назад" - конец
 }

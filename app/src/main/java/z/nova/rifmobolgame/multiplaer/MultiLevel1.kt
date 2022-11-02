@@ -34,6 +34,8 @@ class MultiLevel1 : AppCompatActivity() {
     lateinit var p2btn_up_right: Button
     lateinit var p2btn_bottom_right: Button
     lateinit var p2btn_bottom_left: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.universalmulti)
