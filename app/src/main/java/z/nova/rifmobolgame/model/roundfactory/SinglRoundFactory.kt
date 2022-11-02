@@ -14,18 +14,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.yodo1.mas.Yodo1Mas
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import z.nova.rifmobolgame.PlayGame
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.GetRoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfoImpl
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
-
 
     private var mediaPlayer: MediaPlayer? = null
 
@@ -140,7 +139,6 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         btn_bottom_left.setText(roundInfo.nameBtnthree)
         btn_bottom_right.setText(roundInfo.nameBtnfour)
     }
-
 
     fun mediaStart(btnWin: Button) {
         if (mediaPlayer == null && clickedIdBtn == 0) { //Если свернули игру до нажатия варианта ответа
