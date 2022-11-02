@@ -21,7 +21,7 @@ import z.nova.rifmobolgame.model.round.GetRoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfo
 import z.nova.rifmobolgame.model.round.RoundInfoImpl
 
-class RoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
+class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
 
 
     private var mediaPlayer: MediaPlayer? = null
@@ -33,6 +33,8 @@ class RoundFactory(private val idRound: Int, private val context: Context, priva
     private val getRoundInfo = GetRoundInfo(roundRepo = roundInfoImpl)
 
     private val roundInfo: RoundInfo = getRoundInfo.execut()
+
+    private var isClickEvenAdvertising: Boolean = false
 
     //Dialog
     private lateinit var textdescriptionsDialogWin: TextView
@@ -196,12 +198,7 @@ class RoundFactory(private val idRound: Int, private val context: Context, priva
         //Кнопка "ДАЛЕЕ" - начало
         buttonContinueDialogWIn = dialogEndWin!!.findViewById(R.id.btncontinue)
         buttonContinueDialogWIn.setOnClickListener {
-
-            val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
-            context.startActivity(intent)
-            activity.finish()
-
-            dialogEndWin!!.dismiss()
+            nextButtonDialog(activity, clsNext)
         }
         //Кнопка "ДАЛЕЕ" - конец
 
@@ -275,6 +272,37 @@ class RoundFactory(private val idRound: Int, private val context: Context, priva
             mediaPlayer!!.release()
             mediaPlayer = null
         }
+    }
+
+    private fun nextButtonDialog(activity: Activity, clsNext: Class<*>) {
+        when (idRound) {
+            5 -> isClickEvenAdvertising = true
+            10 -> isClickEvenAdvertising = true
+            15 -> isClickEvenAdvertising = true
+            20 -> isClickEvenAdvertising = true
+            25 -> isClickEvenAdvertising = true
+            30 -> isClickEvenAdvertising = true
+            35 -> isClickEvenAdvertising = true
+            else -> isClickEvenAdvertising = false
+        }
+        if (isClickEvenAdvertising) {
+            if (Yodo1Mas.getInstance().isInterstitialAdLoaded) { //TODO
+                Yodo1Mas.getInstance().showInterstitialAd(activity)
+                val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
+                context.startActivity(intent)
+                activity.finish()
+            } else {
+                val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
+                context.startActivity(intent)
+                activity.finish()
+            }
+        } else {
+            val intent = Intent(activity, clsNext) //ИЗМЕНИТЬ
+            context.startActivity(intent)
+            activity.finish()
+        }
+
+        dialogEndWin!!.dismiss()
     }
 
     private fun setButtonBackgroundWin(btn: Button) {

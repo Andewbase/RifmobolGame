@@ -7,13 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import z.nova.rifmobolgame.R
-import z.nova.rifmobolgame.model.roundfactory.RoundFactory
+import z.nova.rifmobolgame.model.roundfactory.SinglRoundFactory
 
 
 
 class Level8 : AppCompatActivity() {
 
-    private val roundFactory = RoundFactory(8, this@Level8)
+    private val singlRoundFactory = SinglRoundFactory(8, this@Level8)
 
     private lateinit var text_levels: TextView
     private lateinit var textLevelCouplet: TextView
@@ -53,52 +53,52 @@ class Level8 : AppCompatActivity() {
         btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
         //Меняем размер текста в кнопках конец
 
-        roundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
+        singlRoundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
-        roundFactory.dialogWinCreate(this@Level8, Level9::class.java) //TODO Установить следующий уровень
+        singlRoundFactory.dialogWinCreate(this@Level8, Level9::class.java) //TODO Установить следующий уровень
         //Вызов диалогового окна Выйграл "В Конце" - конец
 
         //Вызов диалогового окна Проиграл "В Конце" - начало
-        roundFactory.dialogLoseCreate(this@Level8, Level8::class.java, Level9::class.java) //TODO Установить повторяющийся, следующий уровень
+        singlRoundFactory.dialogLoseCreate(this@Level8, Level8::class.java, Level9::class.java) //TODO Установить повторяющийся, следующий уровень
         //Вызов диалогового окна Проиграл "В Конце" - конец
 
         //Кнопка "Назад" - начало
         btnBack.setOnClickListener {
             //Обрабатывем нажатие кнопки "Назад" - начало
-            roundFactory.clickBackButton(this@Level8)
+            singlRoundFactory.clickBackButton(this@Level8)
         }
         //Кнопка "Назад" - конец
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало
         btn_up_left.setOnClickListener {
-            roundFactory.clickButtonRoundLose(1, btn_up_left, btn_up_right)
+            singlRoundFactory.clickButtonRoundLose(1, btn_up_left, btn_up_right)
             //Метод показывающий правельный ответ - конец
-            roundFactory.setButtonBackgroundCLick(btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
+            singlRoundFactory.setButtonBackgroundCLick(btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - конец
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало //TODO WIN BUTTON
         btn_up_right.setOnClickListener {
-            roundFactory.clickButtonRoundWin(2, btn_up_right)
+            singlRoundFactory.clickButtonRoundWin(2, btn_up_right)
             //Метод показывающий правельный ответ - конец
-            roundFactory.setButtonBackgroundCLick(btn_up_right, btn_up_left, btn_bottom_left, btn_bottom_right)
+            singlRoundFactory.setButtonBackgroundCLick(btn_up_right, btn_up_left, btn_bottom_left, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - конец
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало
         btn_bottom_left.setOnClickListener {
-            roundFactory.clickButtonRoundLose(3, btn_bottom_left, btn_up_right)
+            singlRoundFactory.clickButtonRoundLose(3, btn_bottom_left, btn_up_right)
             //Метод показывающий правельный ответ - конец
-            roundFactory.setButtonBackgroundCLick(btn_bottom_left, btn_up_left, btn_up_right, btn_bottom_right)
+            singlRoundFactory.setButtonBackgroundCLick(btn_bottom_left, btn_up_left, btn_up_right, btn_bottom_right)
         }
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - конец
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         btn_bottom_right.setOnClickListener {
-            roundFactory.clickButtonRoundLose(4, btn_bottom_right, btn_up_right)
+            singlRoundFactory.clickButtonRoundLose(4, btn_bottom_right, btn_up_right)
             //Метод показывающий правельный ответ - конец
-            roundFactory.setButtonBackgroundCLick(btn_bottom_right, btn_up_left, btn_up_right, btn_bottom_left) // Меняем фон кнопки при нажатие
+            singlRoundFactory.setButtonBackgroundCLick(btn_bottom_right, btn_up_left, btn_up_right, btn_bottom_left) // Меняем фон кнопки при нажатие
         }
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - конец
     }
@@ -106,25 +106,25 @@ class Level8 : AppCompatActivity() {
     //Проигрываем музыку при запуске уровня - начало
     override fun onResume() {
         super.onResume()
-        roundFactory.mediaStart(btn_up_right)
+        singlRoundFactory.mediaStart(btn_up_right)
     }
 
     //Системная кнопка "Назад" - начало
     override fun onBackPressed() {
-        roundFactory.clickBackButton(this@Level8)
+        singlRoundFactory.clickBackButton(this@Level8)
     }
     //Системная кнопка "Назад" - конец
 
     //Останавливает проигрыватель при паузе активити - начало
     override fun onPause() {
         super.onPause()
-        roundFactory.releaseMP()
+        singlRoundFactory.releaseMP()
     }
     //Останавливает проигрыватель при паузе активити - конец
 
     //Освобождаем ресурсы проигрывателя при уничтожение активити - начало
     override fun onDestroy() {
         super.onDestroy()
-        roundFactory.releaseMP()
+        singlRoundFactory.releaseMP()
     } //Освобождаем ресурсы проигрывателя при уничтожение активити - конец
 }
