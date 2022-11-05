@@ -10,7 +10,6 @@
     <string name="back">Назад</string>
 
     //Один Игрок
-    <string name="level">Трэк</string>
     <string name="level1">Первый трэк</string>
     <string name="level2">Второй трэк</string>
     <string name="level3">Третий трэк</string>
@@ -49,7 +48,6 @@
     <string name="eror">Ошибка</string>
 
     //Два Игрока
-    <string name="raund">Раунд</string>
     <string name="raund1">Первый Раунд</string>
     <string name="raund2">Второй Раунд</string>
     <string name="raund3">Третий Раунд</string>

@@ -1,7 +1,7 @@
-package z.nova.rifmobolgame.model.round
+package z.nova.rifmobolgame.model.round.singl
 
 class GetRoundInfo(val roundRepo: RoundRepo) {
-    fun execut(): RoundInfo{
+    fun execut(): RoundInfo {
         return roundRepo.getRoundInf()
     }
 }

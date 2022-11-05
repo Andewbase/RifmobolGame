@@ -51,7 +51,7 @@ class Level32 : AppCompatActivity() {
         btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
         //Меняем размер текста в кнопках конец
 
-        singlRoundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
+        singlRoundFactory.setUIRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
         singlRoundFactory.dialogWinCreate(this@Level32, Level33::class.java)

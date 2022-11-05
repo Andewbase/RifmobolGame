@@ -20,9 +20,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import z.nova.rifmobolgame.PlayGame
 import z.nova.rifmobolgame.R
-import z.nova.rifmobolgame.model.round.GetRoundInfo
-import z.nova.rifmobolgame.model.round.RoundInfo
-import z.nova.rifmobolgame.model.round.RoundInfoImpl
+import z.nova.rifmobolgame.model.round.singl.GetRoundInfo
+import z.nova.rifmobolgame.model.round.singl.RoundInfo
+import z.nova.rifmobolgame.model.round.singl.RoundInfoImpl
 
 class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
 
@@ -121,7 +121,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         btnBlock3.isClickable = false
     }
 
-    fun setTextRound(textLevel: TextView, textLevelCouplet: TextView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
+    fun setUIRound(textLevel: TextView, textLevelCouplet: TextView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
         textLevel.setText(roundInfo.textLvl)
         textLevelCouplet.setText(roundInfo.textCouplet)
         btn_up_left.setText(roundInfo.nameBtnone)
@@ -130,7 +130,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         btn_bottom_right.setText(roundInfo.nameBtnfour)
     }
 
-    fun setTextRound(textLevel: TextView, textLevelCouplet: TextView, background: ImageView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
+    fun setUIRound(textLevel: TextView, textLevelCouplet: TextView, background: ImageView, btn_up_left: Button, btn_up_right: Button, btn_bottom_left: Button, btn_bottom_right: Button) {
         textLevel.setText(roundInfo.textLvl)
         textLevelCouplet.setText(roundInfo.textCouplet)
         background.setImageResource(roundInfo.backgroundRound)

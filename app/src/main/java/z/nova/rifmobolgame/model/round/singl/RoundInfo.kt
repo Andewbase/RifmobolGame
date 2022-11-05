@@ -1,4 +1,4 @@
-package z.nova.rifmobolgame.model.round
+package z.nova.rifmobolgame.model.round.singl
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

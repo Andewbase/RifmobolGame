@@ -23,6 +23,9 @@ class MultiplayerGame : AppCompatActivity() {
             6 -> MultiLevelSix1::class.java
             else -> MultiLevelSeven1::class.java
         }
+
+        //val activity: Class<*> = MultiLevel1::class.java //TODO finish Refactoring -> DELETE
+
         // We use intents to start activities
         val intent = Intent(baseContext, activity)
         startActivity(intent)

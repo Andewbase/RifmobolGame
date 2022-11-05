@@ -44,7 +44,7 @@ class Level19 : AppCompatActivity() {
         btnBack = findViewById(R.id.button_back)
 
 
-        singlRoundFactory.setTextRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
+        singlRoundFactory.setUIRound(text_levels, textLevelCouplet, background, btn_up_left, btn_up_right, btn_bottom_left, btn_bottom_right)
 
         //Вызов диалогового окна Выйграл "В Конце" - начало
         singlRoundFactory.dialogWinCreate(this@Level19, Level20::class.java)

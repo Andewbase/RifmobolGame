@@ -42,6 +42,14 @@ object LevelData {
         R.string.level35
     )
 
+    var listTextRoundMulti = mutableListOf(
+        R.string.raund1,
+        R.string.raund2,
+        R.string.raund3,
+        R.string.raund4,
+        R.string.raund5
+    )
+
     var listBackground = mutableListOf(
         R.drawable.level1_background,
         R.drawable.level2_background,
