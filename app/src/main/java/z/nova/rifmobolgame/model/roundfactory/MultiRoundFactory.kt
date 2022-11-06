@@ -29,8 +29,11 @@ import z.nova.rifmobolgame.model.round.multi.RoundInfoMulti
 private const val KEY_SHARED_PREF = "RessultGame"
 private const val KEY_SCORE1 = "score1"
 private const val KEY_SCORE2 = "score2"
+private const val ID_ZERO = 0
+private const val ID_ONE = 1
+private const val ID_TWO = 2
 
-class MultiRoundFactory(private val idRound: Int, private val context: Context, private var checkdIdBtn: Int = 0) {
+class MultiRoundFactory(private val idRound: Int, private val context: Context, private var checkdIdBtn: Int = ID_ZERO) {
 
     private var mediaPlayer: MediaPlayer? = null
 
@@ -54,9 +57,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     private lateinit var multiscoreP2Dialog: TextView
     private lateinit var multiscoreDrawDialog: TextView
 
-
-    private var correctanswer1 = 0 //Счёт первого игрока
-    private var correctanswer2 = 0 //Счёт второго игрока
+    private var correctanswer1 = ID_ZERO //Счёт первого игрока
+    private var correctanswer2 = ID_ZERO //Счёт второго игрока
 
     private var onechek = false //проверка нажал ли первый игрок правильный ответ
     private var twochek = false //проверка нажал ли второй игрок правильный ответ
@@ -91,7 +93,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
 
     fun clickButtonPlayerLose(clickBtnLose: Button, clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
                 releaseMPMulti()
                 mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
                 mediaPlayer?.start()
@@ -115,7 +117,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
 
     fun clickButtonPlayerLoseFinalRound(clickBtnLose: Button, clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
             releaseMPMulti()
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
@@ -149,7 +151,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     fun clickButtonPlayer1Win(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         onechek = true
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
             releaseMPMulti()
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
@@ -173,7 +175,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     fun clickButtonPlayer1WinFinalRound(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
         onechek = true
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
             releaseMPMulti()
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
@@ -206,7 +208,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     fun clickButtonPlayer2WinFinalRound(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button,score1: TextView, score2: TextView){
         twochek = true
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
             releaseMPMulti()
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
@@ -239,7 +241,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     fun clickButtonPlayer2Win(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button,score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         twochek = true
         checkdIdBtn++
-        if (checkdIdBtn == 2 && mediaPlayer != null){
+        if (checkdIdBtn == ID_TWO && mediaPlayer != null){
             releaseMPMulti()
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
@@ -261,10 +263,10 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     }
 
     fun mediaStrartMulit(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
-        if (checkdIdBtn <= 1){
+        if (checkdIdBtn <= ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music1)
             mediaPlayer?.start()
-        } else if (checkdIdBtn > 1){
+        } else if (checkdIdBtn > ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
 
@@ -274,7 +276,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                 accrualOfPoints(score1, score2)
                 GlobalScope.launch(Dispatchers.Main) {
                     delay(500)
-                    if (checkdIdBtn == 2){
+                    if (checkdIdBtn == ID_TWO){
                         val intent = Intent(activity, nextClass)
                         context.startActivity(intent)
                         activity.finish()
@@ -285,10 +287,10 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     }
 
     fun mediaStrartMulitFinalRound(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
-        if (checkdIdBtn <= 1){
+        if (checkdIdBtn <= ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music1)
             mediaPlayer?.start()
-        } else if (checkdIdBtn > 1){
+        } else if (checkdIdBtn > ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music2)
             mediaPlayer?.start()
 
@@ -298,7 +300,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                 accrualOfPoints(score1, score2)
                 GlobalScope.launch(Dispatchers.Main) {
                     delay(500)
-                        if (checkdIdBtn == 2){
+                        if (checkdIdBtn == ID_TWO){
                             scores1 = correctanswer1.toString()
                             scores2 = correctanswer2.toString()
                             multiscoreP1Dialog.setText("Счёт : $scores1 - $scores2")
@@ -526,8 +528,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
 
     fun loadResult() {
         mypref = context.getSharedPreferences(KEY_SHARED_PREF, MODE_PRIVATE)
-        correctanswer1 = mypref.getInt(KEY_SCORE1, 0)
-        correctanswer2 = mypref.getInt(KEY_SCORE2, 0)
+        correctanswer1 = mypref.getInt(KEY_SCORE1, ID_ZERO)
+        correctanswer2 = mypref.getInt(KEY_SCORE2, ID_ZERO)
     }
 
     private fun setButtonBackgroundWinPlayer1(btn: Button) {
@@ -540,13 +542,13 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
 
     //Метод начисления балов - начало
     private fun accrualOfPoints(score1: TextView, score2: TextView) {
-        if (onechek == true && twochek == false) {
+        if (onechek && !twochek) {
             correctanswer1 += 1 //Увеличиваем правильный ответ первому игроку на 1
             score1.text = "Первый Игрок : $correctanswer1" //Меняем текст первому игроку
         } else if (onechek == false && twochek == true) {
             correctanswer2 += 1 //Увеличиваем правильный ответ второму игроку на 1
             score2.text = "Второй Игрок : $correctanswer2" //Меняем текст первому игроку
-        } else if (onechek == true && twochek == true) {
+        } else if (onechek && twochek) {
             correctanswer1 += 1 //Увеличиваем правильный ответ первому игроку на 1
             correctanswer2 += 1 //Увеличиваем правильный ответ первому игроку на 1
             score1.text = "Первый Игрок : $correctanswer1" //Меняем текст первому игроку
