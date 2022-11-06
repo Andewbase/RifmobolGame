@@ -151,4 +151,3 @@ class MultiLevelThree4 : AppCompatActivity() {
         multiLevelRoundFactory.releaseMPMulti()
     } //Освобождаем ресурсы проигрывателя при уничтожение активити - конец
 }
-}
