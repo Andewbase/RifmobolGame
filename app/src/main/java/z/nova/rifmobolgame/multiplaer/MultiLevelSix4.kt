@@ -58,10 +58,10 @@ class MultiLevelSix4 : AppCompatActivity() {
 
         //Меняем размер текста в кнопках - начало
         p1btn_up_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
-        p1btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
+        p1btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
         p1btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
         p2btn_up_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
-        p2btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
+        p2btn_bottom_left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
         p2btn_bottom_right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
         //Меняем размер текста в кнопках конец
 

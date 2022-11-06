@@ -81,7 +81,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало (первый игрок)
         p1btn_up_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_up_left, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_up_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_up_left, p1btn_up_right, p1btn_bottom_right, p1btn_bottom_left)
         }
@@ -89,7 +89,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало (первый игрок)
         p1btn_up_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayer1WinFinalRound(p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_up_right,p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_up_right, p1btn_up_left, p1btn_bottom_right, p1btn_bottom_left)
         }
@@ -97,7 +97,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало (первый игрок)
         p1btn_bottom_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_bottom_left, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_bottom_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_bottom_left, p1btn_up_left, p1btn_up_right, p1btn_bottom_right)
         }
@@ -105,7 +105,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         p1btn_bottom_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p1btn_bottom_right, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayer1WinFinalRound(p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_bottom_right, p1btn_up_left, p1btn_up_right, p1btn_bottom_left)
         }
@@ -113,7 +113,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало (второй игрок)
         p2btn_up_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_up_left, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_up_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_up_left, p2btn_up_right, p2btn_bottom_left, p2btn_bottom_right)
         }
@@ -121,7 +121,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало (второй игрок)
         p2btn_up_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayer2WinFinalRound(p2btn_up_right, p1btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_up_right, p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_up_right, p2btn_up_left, p2btn_bottom_right, p2btn_bottom_left)
         }
@@ -129,7 +129,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало (второй игрок)
         p2btn_bottom_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_bottom_left, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_bottom_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_bottom_left, p2btn_up_right, p2btn_up_left, p2btn_bottom_right)
         }
@@ -137,7 +137,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало (второй игрок)
         p2btn_bottom_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLoseFinalRound(p2btn_bottom_right, p1btn_up_right, p2btn_up_right, score1, score2)
+            multiLevelRoundFactory.clickButtonPlayer2WinFinalRound(p2btn_bottom_right, p1btn_bottom_right, score1, score2)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_bottom_right, p2btn_up_right, p2btn_up_left, p2btn_bottom_left)
         }
@@ -147,7 +147,7 @@ class MultiLevelSeven5 : AppCompatActivity() {
     //Проигрываем музыку при запуске уровня - начало
     override fun onResume() {
         super.onResume()
-        multiLevelRoundFactory.mediaStrartMulitFinalRound(p1btn_up_right, p2btn_up_right, score1, score2)
+        multiLevelRoundFactory.mediaStrartMulitFinalRound(p1btn_bottom_right, p2btn_bottom_right, score1, score2)
     }
     //Проигрываем музыку при запуске уровня - конец
 

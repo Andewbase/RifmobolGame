@@ -78,7 +78,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало (первый игрок)
         p1btn_up_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_up_left, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_up_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_up_left, p1btn_up_right, p1btn_bottom_right, p1btn_bottom_left)
         }
@@ -86,7 +86,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало (первый игрок)
         p1btn_up_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayer1Win(p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_up_right, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_up_right, p1btn_up_left, p1btn_bottom_right, p1btn_bottom_left)
         }
@@ -94,7 +94,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало (первый игрок)
         p1btn_bottom_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_bottom_left, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_bottom_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_bottom_left, p1btn_up_right, p1btn_up_left, p1btn_bottom_right)
         }
@@ -102,7 +102,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало
         p1btn_bottom_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p1btn_bottom_right, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayer1Win(p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer1(p1btn_bottom_right, p1btn_up_right, p1btn_up_left, p1btn_bottom_left)
         }
@@ -110,7 +110,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Верхнюю Кнопку" - начало (второй игрок)
         p2btn_up_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_up_left, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_up_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_up_left, p2btn_up_right, p2btn_bottom_left, p2btn_bottom_right)
         }
@@ -118,7 +118,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Верхнюю Кнопку" - начало (второй игрок)
         p2btn_up_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayer2Win(p2btn_up_right, p1btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_up_right, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_up_right, p2btn_up_left, p2btn_bottom_right, p2btn_bottom_left)
         }
@@ -126,7 +126,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Левую Нижнюю Кнопку" - начало (второй игрок)
         p2btn_bottom_left.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_bottom_left, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_bottom_left, p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_bottom_left, p2btn_up_right, p2btn_up_left, p2btn_bottom_right)
         }
@@ -134,7 +134,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
 
         //Обрабатываем нажатие на "Правую Нижнюю Кнопку" - начало (второй игрок)
         p2btn_bottom_right.setOnClickListener {
-            multiLevelRoundFactory.clickButtonPlayerLose(p2btn_bottom_right, p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+            multiLevelRoundFactory.clickButtonPlayer2Win(p2btn_bottom_right, p1btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
             //Метод показывающий правельный ответ - конец
             multiLevelRoundFactory.setButtonBackgroundCLickPlayer2(p2btn_bottom_right, p2btn_up_right, p2btn_up_left, p2btn_bottom_left)
         }
@@ -145,7 +145,7 @@ class MultiLevelSeven2 : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //Создаём переменую с отображением счёта для первого игрока
-        multiLevelRoundFactory.mediaStrartMulit(p1btn_up_right, p2btn_up_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
+        multiLevelRoundFactory.mediaStrartMulit(p1btn_bottom_right, p2btn_bottom_right, score1, score2, this@MultiLevelSeven2, MultiLevelSeven3::class.java)
     }
 
     override fun onBackPressed() {multiLevelRoundFactory.clickBackButtonMulti(this@MultiLevelSeven2)}//Системная кнопка "Назад"
