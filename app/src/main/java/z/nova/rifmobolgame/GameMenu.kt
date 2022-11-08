@@ -57,8 +57,7 @@ class GameMenu : AppCompatActivity() {
             super.onBackPressed()
             return
         } else {
-            backToast =
-                Toast.makeText(baseContext, TEXT_BACK, Toast.LENGTH_SHORT)
+            backToast = Toast.makeText(baseContext, TEXT_BACK, Toast.LENGTH_SHORT)
             backToast.show()
         }
         backPressedTime = System.currentTimeMillis()
