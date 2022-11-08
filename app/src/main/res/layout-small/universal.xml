@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/level1_background"/>
+        android:src="@drawable/level1_background"
+        tools:ignore="contentDescription"/>
 
     <LinearLayout
         android:id="@+id/container1"
@@ -25,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="5dp"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:id="@+id/line1"
@@ -37,7 +39,7 @@
                     android:id="@+id/button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/button_stroke_olive_press_lightseagreen"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
@@ -50,11 +52,11 @@
                     android:layout_weight="1"
                     android:textAllCaps="true"
                     android:id="@+id/text_levels"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:layout_marginRight="100dp"
+                    android:layout_marginEnd="100dp"
                     android:padding="10dp"
                     android:text="@string/level1"
                     android:textColor="@color/lightYellow"
@@ -90,23 +92,25 @@
                     android:id="@+id/btn_left_up"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:background="@drawable/style_btn_stroke_white_black"
                     android:layout_weight="1"
                     android:text="@string/lvl1textone"
                     android:textColor="@color/lightYellow"
                     android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    style="?android:attr/buttonBarButtonStyle" />
                 <Button
                     android:id="@+id/btn_right_up"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:text="@string/lvl1texttwo"
                     android:layout_weight="1"
                     android:background="@drawable/style_btn_stroke_white_black"
                     android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    tools:ignore="ButtonStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -119,23 +123,25 @@
                     android:id="@+id/btn_left_bottom"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:background="@drawable/style_btn_stroke_white_black"
                     android:layout_weight="1"
                     android:text="@string/lvl1textthree"
                     android:textColor="@color/lightYellow"
                     android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    tools:ignore="ButtonStyle" />
                 <Button
                     android:id="@+id/btn_right_bottom"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:text="@string/lvl1textfour"
                     android:background="@drawable/style_btn_stroke_white_black"
                     android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    tools:ignore="ButtonStyle" />
             </LinearLayout>
 
         </LinearLayout>

@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/level1_background"/>
+        android:src="@drawable/level1_background"
+        tools:ignore="contentDescription"/>
 
     <LinearLayout
         android:id="@+id/container1"
@@ -25,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="5dp"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:id="@+id/line1"
@@ -37,7 +39,7 @@
                     android:id="@+id/button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/button_stroke_olive_press_lightseagreen"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
@@ -49,11 +51,11 @@
                 <TextView
                     android:textAllCaps="true"
                     android:id="@+id/text_levels"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textStyle="bold"
-                    android:layout_marginRight="100dp"
+                    android:layout_marginEnd="100dp"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/raund1"
@@ -84,7 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -237,7 +240,7 @@
             </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
