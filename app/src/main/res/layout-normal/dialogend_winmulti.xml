@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -40,10 +40,14 @@
             android:layout_height="wrap_content"
             android:text="@string/dialogwinsmulti1"/>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
         <TextView
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:id="@+id/multiscore"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +56,45 @@
             android:textSize="24sp"
             android:text="@string/scoremulti"/>
 
+            <TextView
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:id="@+id/multip1scoreP1"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                tools:text="@string/scoree"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:text="@string/dash"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:id="@+id/multip2scoreP1"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                tools:text="@string/scoree"/>
+
+    </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"

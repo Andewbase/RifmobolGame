@@ -92,18 +92,40 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                <TextView
-                    android:id="@+id/scoree1"
-                    android:textAllCaps="true"
-                    android:textStyle="bold"
-                    android:textColor="@color/blue"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="@string/player1"/>
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:text="@string/player1"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textSize="24sp"
+                        android:text="@string/colon"/>
+
+                    <TextView
+                        android:id="@+id/scoree1"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textSize="24sp"
+                        tools:text="@string/scoree"/>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -111,18 +133,40 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                <TextView
-                    android:id="@+id/scoree2"
-                    android:textAllCaps="true"
-                    android:textStyle="bold"
-                    android:textColor="@color/red"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="@string/player2"/>
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/red"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:text="@string/player2"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/red"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textSize="24sp"
+                        android:text="@string/colon"/>
+
+                    <TextView
+                        android:id="@+id/scoree2"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/red"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textSize="24sp"
+                        tools:text="@string/scoree"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

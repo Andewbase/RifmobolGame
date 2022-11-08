@@ -101,4 +101,6 @@
     <string name="imagetextlvl33">33</string>
     <string name="imagetextlvl34">34</string>
     <string name="imagetextlvl35">35</string>
+    <string name="dash">-</string>
+    <string name="colon">:</string>
 </resources>

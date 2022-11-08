@@ -53,9 +53,13 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     private lateinit var btnDialogEndWinP2Continue: Button
     private lateinit var btnDialogEndDrawCloce: TextView
     private lateinit var btnDialogEndDrawContinue: Button
-    private lateinit var multiscoreP1Dialog: TextView
-    private lateinit var multiscoreP2Dialog: TextView
-    private lateinit var multiscoreDrawDialog: TextView
+    private lateinit var multiscoreP1DialogWinP1: TextView
+    private lateinit var multiscoreP2DialogWinP1: TextView
+    private lateinit var multiscoreP1DialogWinP2: TextView
+    private lateinit var multiscoreP2DialogWinP2: TextView
+    private lateinit var multiscoreDrawDialogP1: TextView
+    private lateinit var multiscoreDrawDialogP2: TextView
+
 
     private var correctanswer1 = ID_ZERO //Счёт первого игрока
     private var correctanswer2 = ID_ZERO //Счёт второго игрока
@@ -67,8 +71,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     private lateinit var scores2: String
 
     fun setScoreText(score1: TextView, score2: TextView){
-        score1.text = "Первый Игрок : $correctanswer1"
-        score2.text = "Второй Игрок : $correctanswer2"
+        score1.text = "$correctanswer1"
+        score2.text = "$correctanswer2"
     }
 
     fun setUIMultiRound(textLevel: TextView, textLevelCouplet: TextView, background: ImageView){
@@ -133,9 +137,12 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                 delay(500)
                 scores1 = correctanswer1.toString()
                 scores2 = correctanswer2.toString()
-                multiscoreP1Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreP2Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreDrawDialog.setText("Счёт : $scores1 - $scores2")
+                multiscoreP1DialogWinP1.text = scores1
+                multiscoreP2DialogWinP1.text = scores2
+                multiscoreP1DialogWinP2.text = scores1
+                multiscoreP2DialogWinP2.text = scores2
+                multiscoreDrawDialogP1.text = scores1
+                multiscoreDrawDialogP2.text = scores2
                 if (correctanswer1 > correctanswer2) {
                     dialogEndWinP1.show()
                 } else if (correctanswer1 < correctanswer2) {
@@ -191,9 +198,12 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                 delay(500)
                 scores1 = correctanswer1.toString()
                 scores2 = correctanswer2.toString()
-                multiscoreP1Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreP2Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreDrawDialog.setText("Счёт : $scores1 - $scores2")
+                multiscoreP1DialogWinP1.text = scores1
+                multiscoreP2DialogWinP1.text = scores2
+                multiscoreP1DialogWinP2.text = scores1
+                multiscoreP2DialogWinP2.text = scores2
+                multiscoreDrawDialogP1.text = scores1
+                multiscoreDrawDialogP2.text = scores2
                 if (correctanswer1 > correctanswer2) {
                     dialogEndWinP1.show()
                 } else if (correctanswer1 < correctanswer2) {
@@ -224,9 +234,12 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                 delay(500)
                 scores1 = correctanswer1.toString()
                 scores2 = correctanswer2.toString()
-                multiscoreP1Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreP2Dialog.setText("Счёт : $scores1 - $scores2")
-                multiscoreDrawDialog.setText("Счёт : $scores1 - $scores2")
+                multiscoreP1DialogWinP1.text = scores1
+                multiscoreP2DialogWinP1.text = scores2
+                multiscoreP1DialogWinP2.text = scores1
+                multiscoreP2DialogWinP2.text = scores2
+                multiscoreDrawDialogP1.text = scores1
+                multiscoreDrawDialogP2.text = scores2
                 if (correctanswer1 > correctanswer2) {
                     dialogEndWinP1.show()
                 } else if (correctanswer1 < correctanswer2) {
@@ -303,9 +316,12 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
                         if (checkdIdBtn == ID_TWO){
                             scores1 = correctanswer1.toString()
                             scores2 = correctanswer2.toString()
-                            multiscoreP1Dialog.setText("Счёт : $scores1 - $scores2")
-                            multiscoreP2Dialog.setText("Счёт : $scores1 - $scores2")
-                            multiscoreDrawDialog.setText("Счёт : $scores1 - $scores2")
+                            multiscoreP1DialogWinP1.text = scores1
+                            multiscoreP2DialogWinP1.text = scores2
+                            multiscoreP1DialogWinP2.text = scores1
+                            multiscoreP2DialogWinP2.text = scores2
+                            multiscoreDrawDialogP1.text = scores1
+                            multiscoreDrawDialogP2.text = scores2
                             if (correctanswer1 > correctanswer2) {
                                 dialogEndWinP1.show()
                             } else if (correctanswer1 < correctanswer2) {
@@ -367,7 +383,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         dialogEndWinP1.setCancelable(false)
         //Вызов диалогового окна Выйграл первый игрок "В Конце" - конец
 
-        multiscoreP1Dialog = dialogEndWinP1.findViewById(R.id.multiscore)
+        multiscoreP1DialogWinP1 = dialogEndWinP1.findViewById(R.id.multip1scoreP1)
+        multiscoreP2DialogWinP1 = dialogEndWinP1.findViewById(R.id.multip2scoreP1)
 
         //(Первый игрок) Кнопка которая закрывет диалоговое окно - начало
         btnDialogEndWinP1Cloce = dialogEndWinP1.findViewById(R.id.btnclose)
@@ -423,7 +440,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         dialogEndWinP2.setCancelable(false)
         //Вызов диалогового окна Выйграл второй игрок "В Конце" - конец
 
-        multiscoreP2Dialog = dialogEndWinP2.findViewById(R.id.multiscore2)
+        multiscoreP1DialogWinP2 = dialogEndWinP2.findViewById(R.id.multip2scoreP1)
+        multiscoreP2DialogWinP2 = dialogEndWinP2.findViewById(R.id.multip2scoreP2)
 
         //(Второй игрок) Кнопка которая закрывет диалоговое окно - начало
         btnDialogEndWinP2Cloce = dialogEndWinP2.findViewById(R.id.btnclose2)
@@ -477,7 +495,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         dialogEndDraw.setCancelable(false)
         //Вызов диалогового окна Ничья "В Конце" - конец
 
-        multiscoreDrawDialog = dialogEndDraw.findViewById(R.id.multiscoredraw)
+        multiscoreDrawDialogP1 = dialogEndDraw.findViewById(R.id.multidrawscoreP1)
+        multiscoreDrawDialogP2 = dialogEndDraw.findViewById(R.id.multidrawscoreP2)
 
         //(Ничья) Кнопка которая закрывет диалоговое окно - начало
         btnDialogEndDrawCloce = dialogEndDraw.findViewById(R.id.btnclosedraw)
@@ -544,15 +563,15 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
     private fun accrualOfPoints(score1: TextView, score2: TextView) {
         if (onechek && !twochek) {
             correctanswer1 += 1 //Увеличиваем правильный ответ первому игроку на 1
-            score1.text = "Первый Игрок : $correctanswer1" //Меняем текст первому игроку
-        } else if (onechek == false && twochek == true) {
+            score1.text = "$correctanswer1" //Меняем текст первому игроку
+        } else if (!onechek && twochek) {
             correctanswer2 += 1 //Увеличиваем правильный ответ второму игроку на 1
-            score2.text = "Второй Игрок : $correctanswer2" //Меняем текст первому игроку
+            score2.text = "$correctanswer2" //Меняем текст первому игроку
         } else if (onechek && twochek) {
             correctanswer1 += 1 //Увеличиваем правильный ответ первому игроку на 1
             correctanswer2 += 1 //Увеличиваем правильный ответ первому игроку на 1
-            score1.text = "Первый Игрок : $correctanswer1" //Меняем текст первому игроку
-            score2.text = "Второй Игрок : $correctanswer2" //Меняем текст первому игроку
+            score1.text = "$correctanswer1" //Меняем текст первому игроку
+            score2.text = "$correctanswer2" //Меняем текст первому игроку
         }
         saveResult()
     }
