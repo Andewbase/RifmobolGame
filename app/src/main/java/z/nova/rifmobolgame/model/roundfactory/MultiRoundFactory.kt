@@ -16,10 +16,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.yodo1.mas.Yodo1Mas
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import z.nova.rifmobolgame.GameMenu
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.multi.GetRoundInfoMulti
@@ -33,7 +30,8 @@ private const val ID_ZERO = 0
 private const val ID_ONE = 1
 private const val ID_TWO = 2
 
-class MultiRoundFactory(private val idRound: Int, private val context: Context, private var checkdIdBtn: Int = ID_ZERO) {
+
+class MultiRoundFactory(idRound: Int, private val context: Context, private var checkdIdBtn: Int = ID_ZERO) {
 
     private var mediaPlayer: MediaPlayer? = null
 
@@ -95,6 +93,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         p2btn_bottom_right.setText(roundInfoMulti.nameBtnfour)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonPlayerLose(clickBtnLose: Button, clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         checkdIdBtn++
         if (checkdIdBtn == ID_TWO && mediaPlayer != null){
@@ -119,6 +118,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonPlayerLoseFinalRound(clickBtnLose: Button, clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
         checkdIdBtn++
         if (checkdIdBtn == ID_TWO && mediaPlayer != null){
@@ -155,6 +155,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonPlayer1Win(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         onechek = true
         checkdIdBtn++
@@ -179,6 +180,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonPlayer1WinFinalRound(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
         onechek = true
         checkdIdBtn++
@@ -215,7 +217,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
-    fun clickButtonPlayer2WinFinalRound(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button,score1: TextView, score2: TextView){
+    @OptIn(DelicateCoroutinesApi::class)
+    fun clickButtonPlayer2WinFinalRound(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button, score1: TextView, score2: TextView){
         twochek = true
         checkdIdBtn++
         if (checkdIdBtn == ID_TWO && mediaPlayer != null){
@@ -251,7 +254,8 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
-    fun clickButtonPlayer2Win(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button,score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
+    @OptIn(DelicateCoroutinesApi::class)
+    fun clickButtonPlayer2Win(clickBtnWinPlayer2: Button, clickBtnWinPlayer1: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         twochek = true
         checkdIdBtn++
         if (checkdIdBtn == ID_TWO && mediaPlayer != null){
@@ -275,6 +279,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun mediaStrartMulit(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView, activity: Activity, nextClass: Class<*>){
         if (checkdIdBtn <= ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music1)
@@ -299,6 +304,7 @@ class MultiRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun mediaStrartMulitFinalRound(clickBtnWinPlayer1: Button, clickBtnWinPlayer2: Button, score1: TextView, score2: TextView){
         if (checkdIdBtn <= ID_ONE){
             mediaPlayer = MediaPlayer.create(context, roundInfoMulti.music1)

@@ -14,15 +14,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.yodo1.mas.Yodo1Mas
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import z.nova.rifmobolgame.PlayGame
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.singl.GetRoundInfo
 import z.nova.rifmobolgame.model.round.singl.RoundInfo
 import z.nova.rifmobolgame.model.round.singl.RoundInfoImpl
+
 
 class SinglRoundFactory(private val idRound: Int, private val context: Context, private var clickedIdBtn: Int = 0) {
 
@@ -47,6 +45,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
     private lateinit var btnOneMoreTimeDialogLose: Button
     private lateinit var btnNextDialogLose: Button
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonRoundLose(clickIdBtn: Int, btnLose: Button, btnWin: Button) {
         clickedIdBtn = clickIdBtn //Кнопка нажата
         //Вопроизводим полный куплет -начало
@@ -70,6 +69,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun clickButtonRoundWin(clickIdBtn: Int, btnWin: Button) {
         clickedIdBtn = clickIdBtn //Кнопка нажата
         //Вопроизводим полный куплет -начало
@@ -140,6 +140,7 @@ class SinglRoundFactory(private val idRound: Int, private val context: Context, 
         btn_bottom_right.setText(roundInfo.nameBtnfour)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun mediaStart(btnWin: Button) {
         if (mediaPlayer == null && clickedIdBtn == 0) { //Если свернули игру до нажатия варианта ответа
             mediaPlayer = MediaPlayer.create(context, roundInfo.music1)
