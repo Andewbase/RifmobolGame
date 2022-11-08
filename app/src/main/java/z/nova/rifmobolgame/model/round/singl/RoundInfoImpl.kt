@@ -3,7 +3,6 @@ package z.nova.rifmobolgame.model.round.singl
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.model.round.LevelData.listBackground
 import z.nova.rifmobolgame.model.round.LevelData.listTextLevl
-import z.nova.rifmobolgame.model.round.LevelData.listTextRoundMulti
 import z.nova.rifmobolgame.model.round.LevelData.listbtnfour
 import z.nova.rifmobolgame.model.round.LevelData.listbtnone
 import z.nova.rifmobolgame.model.round.LevelData.listbtnthree
@@ -54,45 +53,6 @@ class RoundInfoImpl(private val id: Int = 0): RoundRepo {
             33 -> listTextLevl[32]
             34 -> listTextLevl[33]
             35 -> listTextLevl[34]
-            else -> R.string.eror
-        }
-
-        val resultTextRoundMUlit = when(id){
-            1 -> listTextRoundMulti[0]
-            2 -> listTextRoundMulti[1]
-            3 -> listTextRoundMulti[2]
-            4 -> listTextRoundMulti[3]
-            5 -> listTextRoundMulti[4]
-            6 -> listTextRoundMulti[0]
-            7-> listTextRoundMulti[1]
-            8 -> listTextRoundMulti[2]
-            9 -> listTextRoundMulti[3]
-            10 -> listTextRoundMulti[4]
-            11 -> listTextRoundMulti[0]
-            12 -> listTextRoundMulti[1]
-            13 -> listTextRoundMulti[2]
-            14 -> listTextRoundMulti[3]
-            15 -> listTextRoundMulti[4]
-            16 -> listTextRoundMulti[0]
-            17 -> listTextRoundMulti[1]
-            18 -> listTextRoundMulti[2]
-            19 -> listTextRoundMulti[3]
-            20 -> listTextRoundMulti[4]
-            21 -> listTextRoundMulti[0]
-            22 -> listTextRoundMulti[1]
-            23 -> listTextRoundMulti[2]
-            24 -> listTextRoundMulti[3]
-            25 -> listTextRoundMulti[4]
-            26 -> listTextRoundMulti[0]
-            27 -> listTextRoundMulti[1]
-            28 -> listTextRoundMulti[2]
-            29 -> listTextRoundMulti[3]
-            30 -> listTextRoundMulti[4]
-            31 -> listTextRoundMulti[0]
-            32 -> listTextRoundMulti[1]
-            33 -> listTextRoundMulti[2]
-            34 -> listTextRoundMulti[3]
-            35 -> listTextRoundMulti[4]
             else -> R.string.eror
         }
 
