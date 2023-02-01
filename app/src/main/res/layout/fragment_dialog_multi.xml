@@ -20,27 +20,29 @@
         android:gravity="center">
 
         <TextView
-            android:textColor="@color/light_yellow"
+            android:id="@+id/btnClose"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:id="@+id/btnClose"
-            android:text="@string/close"
-            android:textStyle="bold"
-            android:gravity="center"
+            android:layout_gravity="end"
             android:background="@drawable/button_stroke_olive_press_lightseagreen"
-            android:layout_gravity="end"/>
+            android:gravity="center"
+            android:text="@string/close"
+            android:textColor="@color/light_yellow"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:textAllCaps="true"
-            android:textStyle="bold"
             android:id="@+id/textwin"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/dialogwinsmultidraw"
+            android:textAllCaps="true"
             android:textColor="@color/light_yellow"
             android:textSize="24sp"
-            android:layout_height="wrap_content"
-            android:text="@string/dialogwinsmultidraw"/>
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -49,69 +51,74 @@
 
             <TextView
                 android:id="@+id/scoreMulti"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/scoremulti"
+                android:textAllCaps="true"
                 android:textColor="@color/light_yellow"
                 android:textSize="24sp"
-                android:text="@string/scoremulti"/>
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/multiScoreP1"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textAllCaps="true"
                 android:textColor="@color/light_yellow"
                 android:textSize="24sp"
-                tools:text="@string/scoree"/>
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/scoree" />
 
             <TextView
                 android:id="@+id/dashMulti"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/dash"
+                android:textAllCaps="true"
                 android:textColor="@color/light_yellow"
                 android:textSize="24sp"
-                android:text="@string/dash"/>
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/multiScoreP2"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textAllCaps="true"
                 android:textColor="@color/light_yellow"
                 android:textSize="24sp"
-                tools:text="@string/scoree"/>
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/scoree" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnContinue"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:id="@+id/btnContinue"
+            android:layout_marginTop="20dp"
             android:background="@drawable/button_stroke_olive_press_lightseagreen"
-            android:text="@string/lvl1continue2"
-            android:textColor="@color/light_yellow"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:text="@string/lvl1continue2"
             android:textAllCaps="true"
+            android:textColor="@color/light_yellow"
             android:textSize="24sp"
-            android:layout_marginTop="20dp"/>
+            tools:ignore="TextContrastCheck" />
 
 
     </LinearLayout>
