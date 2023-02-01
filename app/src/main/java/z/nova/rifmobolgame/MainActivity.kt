@@ -1,52 +1,50 @@
 package z.nova.rifmobolgame
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.yodo1.mas.Yodo1Mas
 import com.yodo1.mas.error.Yodo1MasError
-import kotlinx.coroutines.*
-import z.nova.rifmobolgame.model.const.TEXT_BACK
+import dagger.hilt.android.AndroidEntryPoint
+import z.nova.rifmobolgame.databinding.ActivityMainBinding
 
-private const val YODO1MAS_KEY = "sszpCIMxv0"
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private var backPressedTime: Long = 0
-    private lateinit var backToast: Toast
+    private var mBinding: ActivityMainBinding?= null
+    private val binding get() = mBinding!!
 
-    @OptIn(DelicateCoroutinesApi::class)
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        //you just have to use this code in MainActivity not others. Just once
-        Yodo1Mas.getInstance().init(this@MainActivity, YODO1MAS_KEY, object : Yodo1Mas.InitListener {
+        Yodo1Mas.getInstance().init(this, YODO_KEY, object : Yodo1Mas.InitListener {
             override fun onMasInitSuccessful() {}
             override fun onMasInitFailed(error: Yodo1MasError) {}
         })
 
-        val intent = Intent(this@MainActivity, GameMenu::class.java)
-        GlobalScope.launch(Dispatchers.Main){
-            delay(5000)
-                startActivity(intent)
-                finish()
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerMain) as NavHostFragment
+        navController = navHostFragment.findNavController()
 
     }
 
-    //Системная кнопка "Назад" - начало
-    override fun onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            backToast.cancel() //Закрывает Тост вместе с приложением
-            super.onBackPressed()
-            return
-        } else {
-            backToast =
-                Toast.makeText(baseContext, TEXT_BACK, Toast.LENGTH_SHORT)
-            backToast.show()
-        }
-        backPressedTime = System.currentTimeMillis()
-    } //Системная кнопка "Назад" - конец
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding = null
+    }
+
+    companion object ConstKey{
+        private const val YODO_KEY = "sszpCIMxv0"
+    }
 }

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.multilevl.MultiLevelFragment">
+
+    <ImageView
+        android:id="@+id/menu_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/level1_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="contentDescription" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_stroke_olive_press_lightseagreen"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textColor="@color/light_yellow"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_levels"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/raund1"
+        android:textAllCaps="true"
+        android:textColor="@color/light_yellow"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMulti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_levels">
+
+        <TextView
+            android:id="@+id/couplet_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/lvlcouplet1"
+            android:textAllCaps="true"
+            android:textColor="@color/light_yellow"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/player1"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti" />
+
+    <TextView
+        android:id="@+id/tvColonP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/colon"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvPlayer1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti" />
+
+    <TextView
+        android:id="@+id/scoree1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvColonP1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti"
+        tools:text="@string/scoree" />
+
+    <TextView
+        android:id="@+id/tvPlayer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/player2"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvColonP2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti" />
+
+
+    <TextView
+        android:id="@+id/tvColonP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/colon"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/scoree2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti" />
+
+    <TextView
+        android:id="@+id/scoree2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="80dp"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMulti"
+        tools:text="@string/scoree" />
+
+    <Button
+        android:id="@+id/p1btn_left_up"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:gravity="center"
+        android:text="@string/lvl1textone"
+        android:textColor="@color/light_yellow"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlayer1" />
+
+    <Button
+        android:id="@+id/p1btn_right_up"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:textColor="@color/light_yellow"
+        android:gravity="center"
+        android:text="@string/lvl1texttwo"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    <Button
+        android:id="@+id/p1btn_left_bottom"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:textColor="@color/light_yellow"
+        android:gravity="center"
+        android:text="@string/lvl1textthree"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/p1btn_left_up"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlayer1" />
+
+    <Button
+        android:id="@+id/p1btn_right_bottom"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:textColor="@color/light_yellow"
+        android:gravity="center"
+        android:text="@string/lvl1textfour"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/p1btn_right_up"
+        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    <Button
+        android:id="@+id/p2btn_left_up"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:gravity="center"
+        android:text="@string/lvl1textone"
+        android:textColor="@color/light_yellow"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/p2btn_left_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlayer2" />
+
+    <Button
+        android:id="@+id/p2btn_right_up"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:textColor="@color/light_yellow"
+        android:gravity="center"
+        android:text="@string/lvl1texttwo"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/p2btn_right_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    <Button
+        android:id="@+id/p2btn_left_bottom"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:gravity="center"
+        android:text="@string/lvl1textthree"
+        android:textColor="@color/light_yellow"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlayer2" />
+
+    <Button
+        android:id="@+id/p2btn_right_bottom"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/style_btn_stroke_white_black"
+        android:textColor="@color/light_yellow"
+        android:gravity="center"
+        android:text="@string/lvl1textfour"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="p1btn_left_up,p1btn_left_bottom, p2btn_left_up, p2btn_left_bottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

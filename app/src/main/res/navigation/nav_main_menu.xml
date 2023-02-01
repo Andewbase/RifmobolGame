@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_menu"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="z.nova.rifmobolgame.screen.mainmenu.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_singlListFragment"
+            app:destination="@id/singlListFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_rulesGameFragment"
+            app:destination="@id/rulesGameFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_multiLevelFragment"
+            app:destination="@id/multiLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singlListFragment"
+        android:name="z.nova.rifmobolgame.screen.singllist.SingleListFragment"
+        android:label="fragment_singl_list"
+        tools:layout="@layout/fragment_singl_list" >
+        <action
+            android:id="@+id/action_singlListFragment_to_singLevelFragment"
+            app:destination="@id/singLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singLevelFragment"
+        android:name="z.nova.rifmobolgame.screen.singlevel.SingLevelFragment"
+        android:label="fragment_sing_level"
+        tools:layout="@layout/fragment_sing_level" >
+        <argument android:name="idLvl"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_singLevelFragment_to_loseDialogFragment"
+            app:destination="@id/loseDialogFragment" />
+        <action
+            android:id="@+id/action_singLevelFragment_to_winDialogFragment"
+            app:destination="@id/winDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/loseDialogFragment"
+        android:name="z.nova.rifmobolgame.screen.singlevel.dialog.LoseDialogFragment"
+        android:label="LoseDialogFragment" >
+        <action
+            android:id="@+id/action_loseDialogFragment_to_singLevelFragment"
+            app:destination="@id/singLevelFragment"
+            app:popUpTo="@id/singLevelFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loseDialogFragment_to_singlListFragment"
+            app:destination="@id/singlListFragment"
+            app:popUpTo="@id/singLevelFragment"
+            app:popUpToInclusive="true" />
+        <argument android:name="idLvlDialogLose"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/winDialogFragment"
+        android:name="z.nova.rifmobolgame.screen.singlevel.dialog.WinDialogFragment"
+        android:label="WinDialogFragment" >
+        <action
+            android:id="@+id/action_winDialogFragment_to_singLevelFragment"
+            app:destination="@id/singLevelFragment"
+            app:popUpTo="@id/singLevelFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_winDialogFragment_to_singlListFragment"
+            app:destination="@id/singlListFragment"
+            app:popUpTo="@id/singlListFragment"
+            app:popUpToInclusive="true" />
+        <argument android:name="idLvlDialogWin"
+            app:argType="integer" />
+    </dialog>
+    <fragment
+        android:id="@+id/rulesGameFragment"
+        android:name="z.nova.rifmobolgame.screen.rulesgame.RulesGameFragment"
+        android:label="fragment_rules_game"
+        tools:layout="@layout/fragment_rules_game" />
+    <fragment
+        android:id="@+id/multiLevelFragment"
+        android:name="z.nova.rifmobolgame.screen.multilevl.MultiLevelFragment"
+        android:label="fragment_multi_level"
+        tools:layout="@layout/fragment_multi_level" >
+        <argument
+            android:name="idMultiLvl"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_multiLevelFragment_to_multiLvlFragmentFragmentTwo"
+            app:destination="@id/multiLvlFragmentFragmentTwo" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiLvlFragmentFragmentTwo"
+        android:name="z.nova.rifmobolgame.screen.multilevl.MultiLvlFragmentTwo"
+        android:label="fragment_multi_lvl_fragment_two"
+        tools:layout="@layout/fragment_multi_level" >
+        <argument
+            android:name="idLvlMulit"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP1Lvl"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentTwo_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="scoreP2Lvl"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentTwo_to_multiLvlFragmentFragmentThree"
+            app:destination="@id/multiLvlFragmentFragmentThree" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiLvlFragmentFragmentThree"
+        android:name="z.nova.rifmobolgame.screen.multilevl.MultiLvlFragmentThree"
+        android:label="MultiLvlFragmentFragmentThree"
+        tools:layout="@layout/fragment_multi_level">
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentThree_to_multiLvlFragmentFragmentFour"
+            app:destination="@id/multiLvlFragmentFragmentFour" />
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentThree_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="idMultiLvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP1Lvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP2Lvl"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiLvlFragmentFragmentFour"
+        android:name="z.nova.rifmobolgame.screen.multilevl.MultiLvlFragmentFour"
+        android:label="MultiLvlFragmentFragmentFour"
+        tools:layout="@layout/fragment_multi_level">
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentFour_to_multiLvlFragmentFragmentFive"
+            app:destination="@id/multiLvlFragmentFragmentFive" />
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentFour_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="idiMulitLvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP1Lvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP2Lvl"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiLvlFragmentFragmentFive"
+        android:name="z.nova.rifmobolgame.screen.multilevl.MultiLvlFragmentFive"
+        android:label="MultiLvlFragmentFragmentFive"
+        tools:layout="@layout/fragment_multi_level">
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentFive_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_multiLvlFragmentFragmentFive_to_dialogMultiFragment"
+            app:destination="@id/dialogMultiFragment" />
+        <argument
+            android:name="idMulitLvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP1Lvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP2Lvl"
+            app:argType="integer" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogMultiFragment"
+        android:name="z.nova.rifmobolgame.screen.multilevl.dialog.DialogMultiFragment"
+        android:label="fragment_dialog_multi"
+        tools:layout="@layout/fragment_dialog_multi" >
+        <action
+            android:id="@+id/action_dialogMultiFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="scoreP1Lvl"
+            app:argType="integer" />
+        <argument
+            android:name="scoreP2Lvl"
+            app:argType="integer" />
+    </dialog>
+
+</navigation>

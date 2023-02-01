@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line1"
+    android:layout_width="60dp"
+    android:layout_height="60dp">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/button_stroke_olive_press_lightseagreen"
+        android:text="@string/imagetextlvl1"
+        android:textColor="@color/light_yellow"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
