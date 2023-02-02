@@ -3,23 +3,17 @@ package z.nova.rifmobolgame.screen.mainmenu
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.databinding.FragmentMainMenuBinding
+import z.nova.rifmobolgame.screen.base.BaseFragment
 import kotlin.system.exitProcess
 
 @AndroidEntryPoint
-class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
-
-    private var mBinding: FragmentMainMenuBinding?= null
-    private val binding get() = mBinding!!
+class MainMenuFragment : BaseFragment<FragmentMainMenuBinding>(FragmentMainMenuBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding = FragmentMainMenuBinding.bind(view)
 
        val randomMultiLvl = (1..31).random()
 
@@ -45,13 +39,9 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
         }
 
         callbackBackPressedCallback.isEnabled
-
     }
 
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        mBinding = null
-    }
+
 
 }

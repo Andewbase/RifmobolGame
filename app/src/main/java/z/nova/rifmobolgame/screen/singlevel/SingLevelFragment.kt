@@ -4,22 +4,16 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.databinding.FragmentSingLevelBinding
-
-private const val DELAY = 1500L
+import z.nova.rifmobolgame.screen.base.BaseFragment
 
 @AndroidEntryPoint
-class SingLevelFragment : Fragment(R.layout.fragment_sing_level), View.OnClickListener {
-
-    private var mBinding: FragmentSingLevelBinding? = null
-    private val binding get() = mBinding!!
+class SingLevelFragment : BaseFragment<FragmentSingLevelBinding>(FragmentSingLevelBinding::inflate), View.OnClickListener {
 
     private var mediaPlayer: MediaPlayer? = null
 
@@ -29,8 +23,6 @@ class SingLevelFragment : Fragment(R.layout.fragment_sing_level), View.OnClickLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding = FragmentSingLevelBinding.bind(view)
 
         val idLvl = safeArgs.idLvl
 
@@ -224,7 +216,6 @@ class SingLevelFragment : Fragment(R.layout.fragment_sing_level), View.OnClickLi
 
     override fun onDestroyView() {
         super.onDestroyView()
-        mBinding = null
         releaseMediaPlayer()
     }
 
@@ -233,6 +224,10 @@ class SingLevelFragment : Fragment(R.layout.fragment_sing_level), View.OnClickLi
             mediaPlayer!!.release()
             mediaPlayer = null
         }
+    }
+
+    companion object Const{
+        private const val DELAY = 1500L
     }
 
 }

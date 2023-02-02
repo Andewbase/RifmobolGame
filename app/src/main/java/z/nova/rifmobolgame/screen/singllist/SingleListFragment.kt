@@ -2,19 +2,15 @@ package z.nova.rifmobolgame.screen.singllist
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.data.model.TextLevel
 import z.nova.rifmobolgame.databinding.FragmentSinglListBinding
+import z.nova.rifmobolgame.screen.base.BaseFragment
 
 @AndroidEntryPoint
-class SingleListFragment : Fragment(R.layout.fragment_singl_list) {
-
-    private var mBinding: FragmentSinglListBinding?= null
-    private val binding get() = mBinding!!
+class SingleListFragment : BaseFragment<FragmentSinglListBinding>(FragmentSinglListBinding::inflate) {
 
     private val viewModel by viewModels<SingleListViewModel>()
 
@@ -22,8 +18,6 @@ class SingleListFragment : Fragment(R.layout.fragment_singl_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding = FragmentSinglListBinding.bind(view)
 
         viewModel.textLvlLiveData.observe(viewLifecycleOwner) { list ->
             adapter.submitList(list)
@@ -44,13 +38,6 @@ class SingleListFragment : Fragment(R.layout.fragment_singl_list) {
             findNavController().navigateUp()
         }
 
-    }
-
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        mBinding = null
     }
 
 }
