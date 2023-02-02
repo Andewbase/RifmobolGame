@@ -15,7 +15,7 @@ abstract class BaseDialogFragment<VB: ViewBinding>(
 ) : DialogFragment() {
 
     private var _binding: VB? = null
-    val binding get() = _binding!!
+    protected val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +31,7 @@ abstract class BaseDialogFragment<VB: ViewBinding>(
         dialog!!.setCancelable(false)
     }
 
-    fun yodoMas (idLvlDialog: Int){
+    protected fun yodoMas (idLvlDialog: Int){
         when (idLvlDialog) {
             5 -> if (Yodo1Mas.getInstance().isInterstitialAdLoaded) {
                 Yodo1Mas.getInstance().showInterstitialAd(requireActivity())

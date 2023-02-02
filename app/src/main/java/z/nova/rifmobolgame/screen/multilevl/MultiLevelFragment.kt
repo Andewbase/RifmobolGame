@@ -4,7 +4,6 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -12,32 +11,23 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.databinding.FragmentMultiLevelBinding
+import z.nova.rifmobolgame.screen.base.BaseMultiFragment
 
 @AndroidEntryPoint
-class MultiLevelFragment : Fragment(R.layout.fragment_multi_level), View.OnClickListener {
+class MultiLevelFragment : BaseMultiFragment<FragmentMultiLevelBinding>(FragmentMultiLevelBinding::inflate), View.OnClickListener {
 
-    private val numberRound = 1
+    override val numberRound = 1
 
     private var scoreP1 = 0
 
     private var scoreP2 = 0
 
-    private var mBinding: FragmentMultiLevelBinding? = null
-    private val binding get() = mBinding!!
-
-    private var mediaPlayer: MediaPlayer? = null
-
     private val viewModel by viewModels<MultiLevelViewModel>()
 
     private val safeArgs: MultiLevelFragmentArgs by navArgs()
 
-    private var idButtonP1 = 0
-
-    private var idButtonP2 = 0
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding = FragmentMultiLevelBinding.bind(view)
 
         val idMultiLvl = safeArgs.idMultiLvl
 
@@ -235,40 +225,5 @@ class MultiLevelFragment : Fragment(R.layout.fragment_multi_level), View.OnClick
 
         } //if
     }
-
-
-
-    override fun onStart() {
-        super.onStart()
-        if (mediaPlayer != null) {
-            mediaPlayer!!.start()
-        }
-    }
-
-
-    override fun onPause() {
-        super.onPause()
-        if (mediaPlayer != null){
-            mediaPlayer!!.pause()
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        mBinding = null
-        releaseMediaPlayer()
-    }
-
-    private fun releaseMediaPlayer() {
-        if (mediaPlayer != null) {
-            mediaPlayer!!.release()
-            mediaPlayer = null
-        }
-    }
-
-    companion object Const {
-        private const val DELAY = 1500L
-    }
-
 
 }

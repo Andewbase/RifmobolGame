@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,28 +12,19 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import z.nova.rifmobolgame.R
 import z.nova.rifmobolgame.databinding.FragmentMultiLevelBinding
+import z.nova.rifmobolgame.screen.base.BaseMultiFragment
 
 @AndroidEntryPoint
-class MultiLvlFragmentTwo : Fragment(R.layout.fragment_multi_level), View.OnClickListener {
+class MultiLvlFragmentTwo : BaseMultiFragment<FragmentMultiLevelBinding>(FragmentMultiLevelBinding::inflate), View.OnClickListener {
 
-    private val numberRound = 2
-
-    private var mBinding: FragmentMultiLevelBinding? = null
-    private val binding get() = mBinding!!
-
-    private var mediaPlayer: MediaPlayer? = null
+    override val numberRound = 2
 
     private val viewModel by viewModels<MultiLevelViewModel>()
 
     private val safeArgs: MultiLvlFragmentTwoArgs by navArgs()
 
-    private var idButtonP1 = 0
-
-    private var idButtonP2 = 0
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding = FragmentMultiLevelBinding.bind(view)
 
         val idMultiLvl = safeArgs.idLvlMulit
 
@@ -250,40 +240,6 @@ class MultiLvlFragmentTwo : Fragment(R.layout.fragment_multi_level), View.OnClic
         } //if
 
 
-    }
-
-
-
-    override fun onStart() {
-        super.onStart()
-        if (mediaPlayer != null) {
-            mediaPlayer!!.start()
-        }
-    }
-
-
-    override fun onPause() {
-        super.onPause()
-        if (mediaPlayer != null){
-            mediaPlayer!!.pause()
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        mBinding = null
-        releaseMediaPlayer()
-    }
-
-    private fun releaseMediaPlayer() {
-        if (mediaPlayer != null) {
-            mediaPlayer!!.release()
-            mediaPlayer = null
-        }
-    }
-
-    companion object Const {
-        private const val DELAY = 1500L
     }
 
 }
