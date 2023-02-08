@@ -5,21 +5,17 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import z.nova.rifmobolgame.R
-import z.nova.rifmobolgame.databinding.FragmentMultiLevelBinding
 import z.nova.rifmobolgame.screen.base.BaseMultiFragment
 
 @AndroidEntryPoint
-class MultiLvlFragmentTwo : BaseMultiFragment<FragmentMultiLevelBinding>(FragmentMultiLevelBinding::inflate), View.OnClickListener {
+class MultiLvlFragmentTwo : BaseMultiFragment(){
 
     override val numberRound = 2
-
-    private val viewModel by viewModels<MultiLevelViewModel>()
 
     private val safeArgs: MultiLvlFragmentTwoArgs by navArgs()
 
@@ -42,31 +38,7 @@ class MultiLvlFragmentTwo : BaseMultiFragment<FragmentMultiLevelBinding>(Fragmen
 
         viewModel.getRoundMusic(idMultiLvl)
 
-        viewModel.roundMusicLivedata.observe(viewLifecycleOwner) { music ->
-            binding.apply {
-                p1btnLeftUp.setText(music.p1leftUpButton.name)
-                p1btnRightUp.setText(music.p1rightUpButton.name)
-                p1btnLeftBottom.setText(music.p1leftBottomButton.name)
-                p1btnRightBottom.setText(music.p1rightBottomButton.name)
-
-                p2btnLeftUp.setText(music.p2leftUpButton.name)
-                p2btnRightUp.setText(music.p2rightUpButton.name)
-                p2btnLeftBottom.setText(music.p2leftBottomButton.name)
-                p2btnRightBottom.setText(music.p2rightBottomButton.name)
-            }
-            mediaPlayer = MediaPlayer.create(activity, music.music1)
-            mediaPlayer!!.start()
-        }
-
         viewModel.getRoundInfo(idMultiLvl, numberRound)
-
-        viewModel.roundInfoLiveData.observe(viewLifecycleOwner) { info ->
-            binding.apply {
-                menuBackground.setImageResource(info.backgroundRound)
-                textLevels.setText(info.textLvl)
-                coupletText.setText(info.textCouplet)
-            }
-        }
 
         val callbackBackPressedCallback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
             val action = MultiLvlFragmentTwoDirections.actionMultiLvlFragmentFragmentTwoToMainMenuFragment()
@@ -79,17 +51,6 @@ class MultiLvlFragmentTwo : BaseMultiFragment<FragmentMultiLevelBinding>(Fragmen
             val action = MultiLvlFragmentTwoDirections.actionMultiLvlFragmentFragmentTwoToMainMenuFragment()
             findNavController().navigate(action)
         }
-
-        binding.p1btnLeftUp.setOnClickListener(this)
-        binding.p1btnRightUp.setOnClickListener(this)
-        binding.p1btnLeftBottom.setOnClickListener(this)
-        binding.p1btnRightBottom.setOnClickListener(this)
-
-        binding.p2btnLeftUp.setOnClickListener(this)
-        binding.p2btnRightUp.setOnClickListener(this)
-        binding.p2btnLeftBottom.setOnClickListener(this)
-        binding.p2btnRightBottom.setOnClickListener(this)
-
 
     }
 

@@ -2,35 +2,65 @@ package z.nova.rifmobolgame.screen.base
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
+import androidx.fragment.app.viewModels
+import z.nova.rifmobolgame.R
+import z.nova.rifmobolgame.databinding.FragmentMultiLevelBinding
+import z.nova.rifmobolgame.screen.multilevl.MultiLevelViewModel
 
-typealias InflateMulti<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
+abstract class BaseMultiFragment: Fragment(R.layout.fragment_multi_level), View.OnClickListener {
 
-abstract class BaseMultiFragment<VB: ViewBinding>(
-    private val inflate: InflateMulti<VB>
-) : Fragment() {
-
-    private var _binding: VB? = null
+    private var _binding: FragmentMultiLevelBinding?= null
     protected val binding get() = _binding!!
 
     protected abstract val numberRound: Int
 
     protected var mediaPlayer: MediaPlayer? = null
 
+    protected val viewModel by viewModels<MultiLevelViewModel>()
+
     protected var idButtonP1: Int = 0
     protected var idButtonP2: Int = 0
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = inflate.invoke(inflater, container, false)
-        return binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentMultiLevelBinding.bind(view)
+
+        viewModel.roundMusicLivedata.observe(viewLifecycleOwner) { music ->
+            binding.apply {
+                p1btnLeftUp.setText(music.p1leftUpButton.name)
+                p1btnRightUp.setText(music.p1rightUpButton.name)
+                p1btnLeftBottom.setText(music.p1leftBottomButton.name)
+                p1btnRightBottom.setText(music.p1rightBottomButton.name)
+
+                p2btnLeftUp.setText(music.p2leftUpButton.name)
+                p2btnRightUp.setText(music.p2rightUpButton.name)
+                p2btnLeftBottom.setText(music.p2leftBottomButton.name)
+                p2btnRightBottom.setText(music.p2rightBottomButton.name)
+            }
+            mediaPlayer = MediaPlayer.create(activity, music.music1)
+            mediaPlayer!!.start()
+        }
+
+        viewModel.roundInfoLiveData.observe(viewLifecycleOwner) { info ->
+            binding.apply {
+                menuBackground.setImageResource(info.backgroundRound)
+                textLevels.setText(info.textLvl)
+                coupletText.setText(info.textCouplet)
+            }
+        }
+
+        binding.p1btnLeftUp.setOnClickListener(this)
+        binding.p1btnRightUp.setOnClickListener(this)
+        binding.p1btnLeftBottom.setOnClickListener(this)
+        binding.p1btnRightBottom.setOnClickListener(this)
+
+        binding.p2btnLeftUp.setOnClickListener(this)
+        binding.p2btnRightUp.setOnClickListener(this)
+        binding.p2btnLeftBottom.setOnClickListener(this)
+        binding.p2btnRightBottom.setOnClickListener(this)
+
     }
 
     override fun onStart() {
