@@ -32,7 +32,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         callbackBackPressedCallback.isEnabled
     }
 
-    companion object Const {
+  private companion object {
         private const val DELAY_SPLASH = 5000L
     }
 

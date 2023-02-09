@@ -90,7 +90,7 @@ abstract class BaseMultiFragment: Fragment(R.layout.fragment_multi_level), View.
         }
     }
 
-    protected companion object Const {
+    protected companion object {
         const val DELAY = 1500L
     }
 }

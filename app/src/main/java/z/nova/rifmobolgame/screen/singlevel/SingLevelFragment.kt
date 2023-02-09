@@ -226,7 +226,7 @@ class SingLevelFragment : BaseFragment<FragmentSingLevelBinding>(FragmentSingLev
         }
     }
 
-    companion object Const{
+   private companion object {
         private const val DELAY = 1500L
     }
 
