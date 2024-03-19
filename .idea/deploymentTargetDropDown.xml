@@ -2,6 +2,15 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="MenuPreview">
+        <State />
+      </entry>
+      <entry key="RulesPreview">
+        <State />
+      </entry>
+      <entry key="SingleMenuPreview">
+        <State />
+      </entry>
       <entry key="SplashPreview">
         <State />
       </entry>

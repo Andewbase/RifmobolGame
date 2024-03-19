@@ -101,7 +101,6 @@ fun MenuButton(
                   },
     ) {
         Text(
-            color = colorResource(id = R.color.light_yellow),
             text = stringResource(id = text),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
@@ -117,7 +116,7 @@ fun MenuButton(
     device = "spec:width=480dp,height=891dp,dpi=420,isRound=false,chinSize=0dp,orientation=landscape"
 )
 @Composable
-fun SplashPreview() {
+fun MenuPreview() {
     Rifmobol2Theme {
         MenuScreen(
             rememberNavController()
