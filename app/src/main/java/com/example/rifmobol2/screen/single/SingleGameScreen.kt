@@ -1,18 +1,24 @@
 package com.example.rifmobol2.screen.single
 
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -48,33 +54,115 @@ fun SingleGameScreen(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(top = 30.dp, start = 20.dp)
+                .padding(top = 30.dp),
+            horizontalArrangement = Arrangement.Start
         ) {
-            OutlinedButton(
-                onClick = { navController },
-                shape = RoundedCornerShape(20.dp),
-                border = BorderStroke(
-                    width = 2.dp,
-                    color = colorResource(id = R.color.medium_spring_green)
-                )
-            ) {
-                Text(
-                    text = stringResource(id = R.string.back),
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
+                OutlinedButton(
+                    onClick = { navController },
+                    shape = RoundedCornerShape(20.dp),
+                    border = BorderStroke(
+                        width = 2.dp,
+                        color = colorResource(id = R.color.medium_spring_green)
+                    )
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.back),
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+        }
 
-            /*Text(text = stringResource(id = state.roundInfo!!.numberRound))*/
+        Row {
+                /*Text(text = stringResource(id = state.roundInfo!!.numberRound))*/
+                Text(
+                    text = stringResource(id = R.string.level1),
+                )
+        }
+
+        Row(
+            modifier = modifier.padding(top = 50.dp)
+        ) {
+            /*Text(text = stringResource(id = state.roundInfo!!.couplet))*/
             Text(
-                text = stringResource(id = R.string.level1),
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                text = stringResource(id = R.string.lvlcouplet1)
             )
         }
 
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(top = 30.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
+
+           SingleGameButton(
+               navController = navController,
+               text = R.string.lvl1textone,
+               modifier
+           )
+
+            SingleGameButton(
+                navController = navController,
+                text = R.string.lvl1texttwo,
+                modifier
+            )
+        }
+
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
+
+            SingleGameButton(
+                navController = navController,
+                text = R.string.lvl1textthree,
+                modifier
+            )
+
+            SingleGameButton(
+                navController = navController,
+                text = R.string.lvl1textfour,
+                modifier
+            )
+        }
+
+
+
     }
 
+}
+
+
+@Composable
+fun SingleGameButton(
+    navController: NavController,
+    /*@ColorRes background: Int,*/
+    @StringRes text: Int,
+    modifier: Modifier = Modifier
+){
+    OutlinedButton(
+        modifier = modifier.width(200.dp),
+        onClick = { navController },
+        shape = RoundedCornerShape(20.dp),
+        border = BorderStroke(
+            width = 2.dp,
+            color = colorResource(id = R.color.white)
+        ),
+        colors = ButtonColors(
+            containerColor = Color.Black,
+            contentColor = Color.White,
+            disabledContainerColor = Color.Black,
+            Color.White
+        )
+    ) {
+        /*Text(text = stringResource(id = state.roundInfo!!.upLeftButton.name))*/
+        Text(
+            text = stringResource(id = text)
+        )
+    }
 }
 
 @Preview(
