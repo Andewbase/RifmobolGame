@@ -137,7 +137,7 @@ fun SingleGameScreen(
 
 
 @Composable
-fun SingleGameButton(
+private fun SingleGameButton(
     navController: NavController,
     /*@ColorRes background: Int,*/
     @StringRes text: Int,

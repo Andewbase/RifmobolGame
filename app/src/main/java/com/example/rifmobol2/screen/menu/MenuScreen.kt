@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
+import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 
 @Composable
@@ -50,17 +51,20 @@ fun MenuScreen(
 
         MenuButton(
             text = R.string.play,
-            onClick = { navController }
+            onClick = { navController.navigate(RifmobolScreen.SingleMenu.name) },
+            modifier = modifier
         )
         MenuButton(
             text = R.string.multiplayer,
-            onClick = { navController },
-            paddingTop = 20.dp
+            onClick = { navController.navigate(RifmobolScreen.Multiplayer.name) },
+            paddingTop = 20.dp,
+            modifier = modifier
         )
         MenuButton(
             text = R.string.rules,
-            onClick = { navController },
-            paddingTop = 20.dp
+            onClick = { navController.navigate(RifmobolScreen.Rules.name) },
+            paddingTop = 20.dp,
+            modifier = modifier
         )
 
     }
@@ -68,7 +72,7 @@ fun MenuScreen(
 }
 
 @Composable
-fun MenuButton(
+private fun MenuButton(
     @StringRes text: Int,
     onClick: () -> Unit,
     paddingTop: Dp = 0.dp,

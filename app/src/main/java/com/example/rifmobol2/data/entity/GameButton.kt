@@ -1,4 +1,4 @@
-package com.example.rifmobol2.data
+package com.example.rifmobol2.data.entity
 
 import androidx.annotation.StringRes
 

@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Rifmobol2</string>
+    
+    <string name="splash_screen">Splash</string>
+    <string name="menu_screen">Menu</string>
+    <string name="rules_screen">Rules</string>
+    <string name="single_menu_screen">SingleMenu</string>
+    <string name="single_game_screen">SingleGame</string>
+    <string name="single_game_dialog">SingleDialog</string>
+    <string name="multiplayer_screen">Multiplayer</string>
+    
     <string name="play">Начать</string>
     <string name="multiplayer">Вдвоём</string>
     <string name="highscores">Рекорды</string>

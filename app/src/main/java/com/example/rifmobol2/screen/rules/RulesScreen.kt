@@ -78,7 +78,7 @@ fun RulesScreen(
 }
 
 @Composable
-fun RulesText(
+private fun RulesText(
     @StringRes text: Int
 ){
     Text(

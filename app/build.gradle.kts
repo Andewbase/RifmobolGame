@@ -76,4 +76,7 @@ dependencies {
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
     implementation (libs.hilt.navigation.compose)
+
+    implementation(libs.exoplayer)
+    implementation(libs.media3.ui)
 }

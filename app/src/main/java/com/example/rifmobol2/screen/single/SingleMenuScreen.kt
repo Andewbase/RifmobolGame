@@ -30,7 +30,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
-import com.example.rifmobol2.data.TextLevel
+import com.example.rifmobol2.data.entity.TextLevel
+import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 
 @Composable
@@ -87,7 +88,7 @@ fun SingleMenuScreen(
                 ){ item ->
                     Item(
                         text = item.id.toString(),
-                        onClick = { navController }
+                        onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?id=${item.id}") }
                     )
                 }
 
@@ -107,7 +108,7 @@ fun SingleMenuScreen(
 
 
 @Composable
-fun Item(
+private fun Item(
     text: String,
     onClick: () -> Unit,
 ){
@@ -131,7 +132,7 @@ fun Item(
 
 
 @Composable
-fun SingleMenuButton(
+private fun SingleMenuButton(
     @StringRes text: Int,
     onClick: () -> Unit,
 ){

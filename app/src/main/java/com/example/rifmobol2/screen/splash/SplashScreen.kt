@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
+import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 import kotlinx.coroutines.delay
 
@@ -48,7 +49,7 @@ fun SplashScreen(
                 }))
         // Customize the delay time
         delay(3000L)
-        navController.navigate("menu")
+        navController.navigate(RifmobolScreen.Menu.name)
     }
 
     Column(
@@ -71,7 +72,7 @@ fun SplashScreen(
 }
 
 @Composable
-fun SplashText(
+private fun SplashText(
     paddingTop: Dp = 0.dp,
     @StringRes text: Int,
     textSize: TextUnit,

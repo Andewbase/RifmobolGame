@@ -2,7 +2,7 @@ package com.example.rifmobol2.screen.single
 
 import androidx.annotation.ColorRes
 import com.example.rifmobol2.R
-import com.example.rifmobol2.data.RoundInfo
+import com.example.rifmobol2.data.entity.RoundInfo
 
 data class SingleGameState(
     val idRound: Int? = null,
