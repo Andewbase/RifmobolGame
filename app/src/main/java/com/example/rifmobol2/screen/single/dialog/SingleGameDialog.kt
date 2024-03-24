@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.R
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
@@ -78,7 +79,7 @@ private fun SingleDialogWin(
 
         Row(
             modifier
-                .fillMaxWidth()
+                .fillMaxWidth(0.9f)
                 .padding(top = 30.dp, end = 30.dp)
             ,
             horizontalArrangement = Arrangement.End,
@@ -100,7 +101,7 @@ private fun SingleDialogWin(
 
         Column(
             modifier = modifier
-                .fillMaxWidth()
+                .fillMaxWidth(0.7f)
                 .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -142,7 +143,7 @@ private fun SingleDialogLose(
 
         Row(
             modifier
-                .fillMaxWidth()
+                .fillMaxWidth(0.9f)
                 .padding(top = 30.dp, end = 30.dp)
             ,
             horizontalArrangement = Arrangement.End,
@@ -164,7 +165,7 @@ private fun SingleDialogLose(
 
         Column(
             modifier = modifier
-                .fillMaxWidth()
+                .fillMaxWidth(0.7f)
                 .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -174,13 +175,13 @@ private fun SingleDialogLose(
 
         Row(
             modifier = modifier
-                .fillMaxWidth()
+                .fillMaxWidth(0.7f)
                 .padding(top = 20.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
 
             OutlinedButton(
-                onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?id=${idReplay}") },
+                onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?$ID_ARGUMENT=${idReplay}") },
                 shape = RoundedCornerShape(20.dp),
                 border = BorderStroke(
                     width = 2.dp,
@@ -213,7 +214,7 @@ private fun NextSingleDialogButton(
 ){
 
     OutlinedButton(
-        onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?id=${id}") },
+        onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?$ID_ARGUMENT=${id}") },
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(
             width = 2.dp,

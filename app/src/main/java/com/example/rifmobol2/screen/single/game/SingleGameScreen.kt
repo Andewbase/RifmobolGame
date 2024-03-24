@@ -1,5 +1,6 @@
 package com.example.rifmobol2.screen.single.game
 
+import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -44,8 +45,7 @@ fun SingleGameScreen(
         modifier = Modifier
             .fillMaxSize()
             .paint(
-                /*painter = painterResource(id = state.roundInfo!!.backgroundImage),*/
-                painter = painterResource(id = R.drawable.level1_background),
+                painter = painterResource(id = state.roundInfo!!.backgroundImage),
                 contentScale = ContentScale.FillWidth
             ),
     ) {
@@ -73,18 +73,18 @@ fun SingleGameScreen(
         }
 
         Row {
-                /*Text(text = stringResource(id = state.roundInfo!!.numberRound))*/
                 Text(
-                    text = stringResource(id = R.string.level1),
+                    text = stringResource(id = state.roundInfo.numberRound),
                 )
         }
 
         Row(
-            modifier = modifier.padding(top = 50.dp)
+            modifier = modifier
+                .fillMaxWidth(0.8f)
+                .padding(top = 50.dp),
         ) {
-            /*Text(text = stringResource(id = state.roundInfo!!.couplet))*/
             Text(
-                text = stringResource(id = R.string.lvlcouplet1)
+                text = stringResource(id = state.roundInfo.couplet)
             )
         }
 
@@ -97,13 +97,15 @@ fun SingleGameScreen(
 
            SingleGameButton(
                onClick = {send(SingleGameEvent.UpLeftButtonClick(navController))},
-               text = R.string.lvl1textone,
+               background = state.upLeftButtonColor,
+               text = state.roundInfo.upLeftButton.name,
                modifier
            )
 
             SingleGameButton(
                 onClick = {send(SingleGameEvent.UpRightButtonClick(navController))},
-                text = R.string.lvl1texttwo,
+                background = state.upRightButtonColor,
+                text = state.roundInfo.upRightButton.name,
                 modifier
             )
         }
@@ -117,13 +119,15 @@ fun SingleGameScreen(
 
             SingleGameButton(
                 onClick = {send(SingleGameEvent.BottomLeftButtonCLick(navController))},
-                text = R.string.lvl1textthree,
+                background = state.bottomLeftButtonColor,
+                text = state.roundInfo.bottomLeftButton.name,
                 modifier
             )
 
             SingleGameButton(
                 onClick = {send(SingleGameEvent.BottomRightButtonClick(navController))},
-                text = R.string.lvl1textfour,
+                background = state.bottomRightButtonColor,
+                text = state.roundInfo.bottomRightButton.name,
                 modifier
             )
         }
@@ -134,11 +138,10 @@ fun SingleGameScreen(
 
 }
 
-
 @Composable
 private fun SingleGameButton(
     onClick: () -> Unit,
-    /*@ColorRes background: Int,*/
+    @ColorRes background: Int,
     @StringRes text: Int,
     modifier: Modifier = Modifier
 ){
@@ -151,13 +154,12 @@ private fun SingleGameButton(
             color = colorResource(id = R.color.white)
         ),
         colors = ButtonColors(
-            containerColor = Color.Black,
+            containerColor = colorResource(id = background),
             contentColor = Color.White,
             disabledContainerColor = Color.Black,
             Color.White
         )
     ) {
-        /*Text(text = stringResource(id = state.roundInfo!!.upLeftButton.name))*/
         Text(
             text = stringResource(id = text)
         )
