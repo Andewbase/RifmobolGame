@@ -17,6 +17,7 @@ import com.example.rifmobol2.Constant.ANSWER_ARGUMENT
 import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.screen.menu.MenuScreen
+import com.example.rifmobol2.screen.multiplayer.MultiplayerGameScreen
 import com.example.rifmobol2.screen.rules.RulesScreen
 import com.example.rifmobol2.screen.single.dialog.SingleDialogViewModel
 import com.example.rifmobol2.screen.single.dialog.SingleGameDialog
@@ -26,7 +27,9 @@ import com.example.rifmobol2.screen.single.menu.SingleMenuScreen
 import com.example.rifmobol2.screen.single.menu.SingleMenuViewModel
 import com.example.rifmobol2.screen.splash.SplashScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,12 +66,11 @@ class MainActivity : ComponentActivity() {
                         val viewModel = hiltViewModel<SingleDialogViewModel>()
                         val state = viewModel.state
                         SingleGameDialog(
-                            idNext = state.idNext!!,
-                            idReplay = state.idReplay!!,
-                            answer = state.answer,
+                            state = state,
                             navController = navController
                         )
                     }
+                    composable(route = RifmobolScreen.Multiplayer.name){ MultiplayerGameScreen(navController = navController)}
                 }
 
             }

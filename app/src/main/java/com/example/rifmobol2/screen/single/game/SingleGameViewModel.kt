@@ -37,11 +37,12 @@ class SingleGameViewModel @Inject constructor(
     init {
         val id: Int = savedStateHandle["id"] ?: 1
         state = state.copy(idRound = id)
-        send(PlayMusic)
+
         viewModelScope.launch {
             repository.getRoundInfo(id).collect{ roundInfo ->
                 state = state.copy(roundInfo = roundInfo)
             }
+            send(PlayMusic)
         }
     }
 

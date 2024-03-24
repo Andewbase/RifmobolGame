@@ -60,7 +60,7 @@ fun SingleMenuScreen(
         ) {
             SingleMenuButton(
                 text = R.string.back,
-                onClick = {navController.popBackStack()}
+                onClick = {navController.navigate(route = RifmobolScreen.Menu.name)}
             )
         }
 
@@ -116,7 +116,7 @@ private fun Item(
    OutlinedButton(
        modifier = Modifier
            .padding(start = 20.dp, top = 20.dp),
-       onClick = { onClick },
+       onClick = { onClick() },
        shape = RoundedCornerShape(20.dp),
        border = BorderStroke(
            width = 2.dp,
@@ -139,7 +139,7 @@ private fun SingleMenuButton(
 ){
 
     OutlinedButton(
-        onClick = { onClick },
+        onClick = { onClick() },
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(
             width = 2.dp,

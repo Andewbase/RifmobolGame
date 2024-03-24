@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
+import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 
 @Composable
@@ -57,7 +58,7 @@ fun SingleGameScreen(
             horizontalArrangement = Arrangement.Start
         ) {
                 OutlinedButton(
-                    onClick = { navController.popBackStack() },
+                    onClick = { navController.navigate(route = RifmobolScreen.SingleMenu.name) },
                     shape = RoundedCornerShape(20.dp),
                     border = BorderStroke(
                         width = 2.dp,
@@ -147,7 +148,7 @@ private fun SingleGameButton(
 ){
     OutlinedButton(
         modifier = modifier.width(200.dp),
-        onClick = { onClick },
+        onClick = { onClick() },
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(
             width = 2.dp,
@@ -161,7 +162,9 @@ private fun SingleGameButton(
         )
     ) {
         Text(
-            text = stringResource(id = text)
+            text = stringResource(id = text),
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold
         )
     }
 }

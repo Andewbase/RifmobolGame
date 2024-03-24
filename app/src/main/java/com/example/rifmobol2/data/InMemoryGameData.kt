@@ -1,6 +1,7 @@
 package com.example.rifmobol2.data
 
 import com.example.rifmobol2.R
+import com.example.rifmobol2.data.entity.DialogText
 import com.example.rifmobol2.data.entity.GameButton
 import com.example.rifmobol2.data.entity.RoundInfo
 import com.example.rifmobol2.data.entity.TextLevel
@@ -926,5 +927,21 @@ object InMemoryGameData {
             musicTwo = R.raw.goldenrain2
         )
         ).asFlow()
+
+    val singleTextDialogLose = listOf(
+        DialogText(1, R.string.dialoglose1),
+        DialogText(2, R.string.dialoglose2),
+        DialogText(3, R.string.dialoglose3),
+        DialogText(4, R.string.dialoglose4),
+        DialogText(5, R.string.dialoglose5),
+    ).asFlow()
+
+    val singleTextDialogWin = listOf(
+        DialogText(1, R.string.dialogwins1),
+        DialogText(2, R.string.dialogwins2),
+        DialogText(3, R.string.dialogwins3),
+        DialogText(4, R.string.dialogwins4),
+        DialogText(5, R.string.dialogwins5),
+    ).asFlow()
 
 }

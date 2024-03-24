@@ -1,5 +1,6 @@
 package com.example.rifmobol2.screen.menu
 
+import android.annotation.SuppressLint
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -51,21 +52,22 @@ fun MenuScreen(
 
         MenuButton(
             text = R.string.play,
-            onClick = { navController.navigate(RifmobolScreen.SingleMenu.name) },
+            onClick = { navController.navigate(route = RifmobolScreen.SingleMenu.name) },
             modifier = modifier
         )
         MenuButton(
             text = R.string.multiplayer,
-            onClick = { navController.navigate(RifmobolScreen.Multiplayer.name) },
+            onClick = { navController.navigate(route = RifmobolScreen.Multiplayer.name) },
             paddingTop = 20.dp,
             modifier = modifier
         )
         MenuButton(
             text = R.string.rules,
-            onClick = { navController.navigate(RifmobolScreen.Rules.name) },
+            onClick = { navController.navigate(route = RifmobolScreen.Rules.name) },
             paddingTop = 20.dp,
             modifier = modifier
         )
+
 
     }
 
@@ -76,13 +78,8 @@ private fun MenuButton(
     @StringRes text: Int,
     onClick: () -> Unit,
     paddingTop: Dp = 0.dp,
-    modifier: Modifier = Modifier
+    @SuppressLint("ModifierParameter") modifier: Modifier = Modifier
 ){
-
-    val color = remember {
-        mutableIntStateOf(0)
-    }
-
 
     OutlinedButton(
         modifier = modifier
@@ -93,10 +90,7 @@ private fun MenuButton(
             width = 2.dp,
             color = colorResource(id = R.color.medium_spring_green)
         ),
-        onClick = {
-            color.intValue = R.color.light_sea_green
-            onClick
-                  },
+        onClick = { onClick() },
     ) {
         Text(
             text = stringResource(id = text),

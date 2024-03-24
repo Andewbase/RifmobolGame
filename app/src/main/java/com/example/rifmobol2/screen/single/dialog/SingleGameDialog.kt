@@ -39,23 +39,23 @@ import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 
 @Composable
 fun SingleGameDialog(
-    idNext: Int,
-    idReplay: Int,
-    answer: Boolean,
+    state: SingleDialogState,
     navController: NavController,
     modifier: Modifier = Modifier
 ){
 
-    if (answer){
+    if (state.answer){
         SingleDialogWin(
-            idNext = idNext,
+            text = state.text!!,
+            idNext = state.idNext!!,
             navController = navController,
             modifier = modifier
         )
     }else{
         SingleDialogLose(
-            idNext = idNext,
-            idReplay = idReplay,
+            text = state.text!!,
+            idNext = state.idNext!!,
+            idReplay = state.idReplay!!,
             navController = navController,
             modifier = modifier
             )
@@ -64,6 +64,7 @@ fun SingleGameDialog(
 
 @Composable
 private fun SingleDialogWin(
+    @StringRes text: Int,
     idNext: Int,
     navController: NavController,
     modifier: Modifier = Modifier
@@ -79,7 +80,7 @@ private fun SingleDialogWin(
 
         Row(
             modifier
-                .fillMaxWidth(0.9f)
+                .fillMaxWidth()
                 .padding(top = 30.dp, end = 30.dp)
             ,
             horizontalArrangement = Arrangement.End,
@@ -101,12 +102,12 @@ private fun SingleDialogWin(
 
         Column(
             modifier = modifier
-                .fillMaxWidth(0.7f)
+                .fillMaxWidth()
                 .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
-            Text(text = stringResource(id = R.string.dialogwins1))
+            Text(text = stringResource(id = text))
         }
 
         Row(
@@ -127,6 +128,7 @@ private fun SingleDialogWin(
 
 @Composable
 private fun SingleDialogLose(
+    @StringRes text: Int,
     idNext: Int,
     idReplay: Int,
     navController: NavController,
@@ -143,7 +145,7 @@ private fun SingleDialogLose(
 
         Row(
             modifier
-                .fillMaxWidth(0.9f)
+                .fillMaxWidth()
                 .padding(top = 30.dp, end = 30.dp)
             ,
             horizontalArrangement = Arrangement.End,
@@ -165,17 +167,17 @@ private fun SingleDialogLose(
 
         Column(
             modifier = modifier
-                .fillMaxWidth(0.7f)
+                .fillMaxWidth()
                 .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
-            Text(text = stringResource(id = R.string.dialoglose1))
+            Text(text = stringResource(id = text))
         }
 
         Row(
             modifier = modifier
-                .fillMaxWidth(0.7f)
+                .fillMaxWidth()
                 .padding(top = 20.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
@@ -239,9 +241,7 @@ private fun NextSingleDialogButton(
 fun SingleGameDialogPreview() {
     Rifmobol2Theme {
         SingleGameDialog(
-            idNext = 0,
-            idReplay= 0,
-            answer = false,
+            state = SingleDialogState(),
             navController = rememberNavController()
         )
     }
