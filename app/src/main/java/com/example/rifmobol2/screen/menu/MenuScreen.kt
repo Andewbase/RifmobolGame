@@ -32,6 +32,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
+import kotlin.system.exitProcess
 
 @Composable
 fun MenuScreen(
@@ -69,8 +70,7 @@ fun MenuScreen(
             modifier = modifier
         )
 
-
-
+        BackHandler { exitProcess(0) }
 
     }
 
