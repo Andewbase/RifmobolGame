@@ -1,5 +1,6 @@
 package com.example.rifmobol2.screen.single.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -41,6 +42,8 @@ fun SingleMenuScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ){
+
+    BackHandler { navController.navigate(route = RifmobolScreen.Menu.name) }
 
     Column(
         modifier = modifier
@@ -95,8 +98,6 @@ fun SingleMenuScreen(
 
             }
         }
-
-
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.rifmobol2.screen.single.game
 
+import androidx.activity.compose.BackHandler
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
@@ -27,6 +28,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
@@ -40,6 +43,16 @@ fun SingleGameScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ){
+
+    LifecycleEventEffect(event = Lifecycle.Event.ON_START) {
+        send(SingleGameEvent.Resume)
+    }
+
+    LifecycleEventEffect(event = Lifecycle.Event.ON_PAUSE) {
+        send(SingleGameEvent.Pause)
+    }
+
+    BackHandler { navController.navigate(route = RifmobolScreen.SingleMenu.name) }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

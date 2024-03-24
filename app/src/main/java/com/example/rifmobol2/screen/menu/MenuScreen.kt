@@ -1,6 +1,7 @@
 package com.example.rifmobol2.screen.menu
 
 import android.annotation.SuppressLint
+import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -67,6 +68,8 @@ fun MenuScreen(
             paddingTop = 20.dp,
             modifier = modifier
         )
+
+
 
 
     }

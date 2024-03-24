@@ -1,5 +1,6 @@
 package com.example.rifmobol2.screen.rules
 
+import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
