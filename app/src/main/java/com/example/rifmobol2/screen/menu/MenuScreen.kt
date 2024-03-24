@@ -89,12 +89,6 @@ private fun MenuButton(
             .padding(top = paddingTop)
             .width(200.dp),
         shape = RoundedCornerShape(20.dp),
-      /*  colors = ButtonColors(
-            containerColor = colorResource(id = color.intValue),
-            contentColor = colorResource(id = color.intValue),
-            disabledContainerColor = colorResource(id = color.intValue),
-            disabledContentColor = colorResource(id = color.intValue)
-        ),*/
         border = BorderStroke(
             width = 2.dp,
             color = colorResource(id = R.color.medium_spring_green)
