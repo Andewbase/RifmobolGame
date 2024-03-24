@@ -1,4 +1,4 @@
-package com.example.rifmobol2.screen.single
+package com.example.rifmobol2.screen.single.menu
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.R
 import com.example.rifmobol2.data.entity.TextLevel
 import com.example.rifmobol2.navigation.RifmobolScreen
@@ -88,7 +89,7 @@ fun SingleMenuScreen(
                 ){ item ->
                     Item(
                         text = item.id.toString(),
-                        onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?id=${item.id}") }
+                        onClick = { navController.navigate(RifmobolScreen.SingleGame.name + "?$ID_ARGUMENT=${item.id}") }
                     )
                 }
 

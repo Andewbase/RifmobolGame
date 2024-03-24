@@ -1,4 +1,4 @@
-package com.example.rifmobol2.screen.single
+package com.example.rifmobol2.screen.single.game
 
 import androidx.annotation.ColorRes
 import com.example.rifmobol2.R

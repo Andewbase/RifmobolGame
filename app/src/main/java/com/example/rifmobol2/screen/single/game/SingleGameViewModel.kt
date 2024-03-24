@@ -1,4 +1,4 @@
-package com.example.rifmobol2.screen.single
+package com.example.rifmobol2.screen.single.game
 
 import android.content.ContentResolver
 import android.net.Uri
@@ -10,13 +10,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
+import com.example.rifmobol2.Constant
+import com.example.rifmobol2.Constant.ANSWER_ARGUMENT
+import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.R
 import com.example.rifmobol2.data.SingleGameRepository
 import com.example.rifmobol2.navigation.RifmobolScreen
-import com.example.rifmobol2.screen.single.SingleGameEvent.BottomLeftButtonCLick
-import com.example.rifmobol2.screen.single.SingleGameEvent.BottomRightButtonClick
-import com.example.rifmobol2.screen.single.SingleGameEvent.UpLeftButtonClick
-import com.example.rifmobol2.screen.single.SingleGameEvent.UpRightButtonClick
+import com.example.rifmobol2.screen.single.game.SingleGameEvent.BottomLeftButtonCLick
+import com.example.rifmobol2.screen.single.game.SingleGameEvent.BottomRightButtonClick
+import com.example.rifmobol2.screen.single.game.SingleGameEvent.PlayMusic
+import com.example.rifmobol2.screen.single.game.SingleGameEvent.UpLeftButtonClick
+import com.example.rifmobol2.screen.single.game.SingleGameEvent.UpRightButtonClick
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -34,7 +38,7 @@ class SingleGameViewModel @Inject constructor(
     init {
         val id: Int = savedStateHandle["id"] ?: 1
         state = state.copy(idRound = id)
-
+        send(PlayMusic)
         viewModelScope.launch {
             repository.getRoundInfo(id).collect{ roundInfo ->
                 state = state.copy(roundInfo = roundInfo)
@@ -44,6 +48,8 @@ class SingleGameViewModel @Inject constructor(
 
     fun send(event: SingleGameEvent){
         when (event){
+
+            is PlayMusic -> playMusic()
 
             is UpLeftButtonClick -> {
                 state = state.copy(upLeftButtonColor = R.color.blue)
@@ -59,7 +65,7 @@ class SingleGameViewModel @Inject constructor(
                                 checkingTheResponse()
 
                                 player.release()
-                                event.navController.navigate(RifmobolScreen.SingleDialog.name + "?id=${state.idRound}&answer=${state.roundInfo!!.upLeftButton.isChecked}")
+                                event.navController.navigate(route = singleDialogRoute(state.roundInfo!!.upLeftButton.isChecked))
                             }
                         }
                     }
@@ -80,7 +86,7 @@ class SingleGameViewModel @Inject constructor(
                                 checkingTheResponse()
 
                                 player.release()
-                                event.navController.navigate(RifmobolScreen.SingleDialog.name + "?id=${state.idRound}&answer=${state.roundInfo!!.upRightButton.isChecked}")
+                                event.navController.navigate(route = singleDialogRoute(state.roundInfo!!.upRightButton.isChecked))
                             }
                         }
                     }
@@ -101,7 +107,7 @@ class SingleGameViewModel @Inject constructor(
                                 checkingTheResponse()
 
                                 player.release()
-                                event.navController.navigate(RifmobolScreen.SingleDialog.name + "?id=${state.idRound}&answer=${state.roundInfo!!.bottomLeftButton.isChecked}")
+                                event.navController.navigate(route = singleDialogRoute(state.roundInfo!!.bottomLeftButton.isChecked))
                             }
                         }
                     }
@@ -122,7 +128,7 @@ class SingleGameViewModel @Inject constructor(
                                 checkingTheResponse()
 
                                 player.release()
-                                event.navController.navigate(RifmobolScreen.SingleDialog.name + "?id=${state.idRound}&answer=${state.roundInfo!!.bottomRightButton.isChecked}")
+                                event.navController.navigate(route = singleDialogRoute(state.roundInfo!!.bottomRightButton.isChecked))
                             }
                         }
                     }
@@ -134,20 +140,13 @@ class SingleGameViewModel @Inject constructor(
         }
     }
 
-    private fun checkingTheResponse() {
-        with(state.roundInfo!!){
-            if (upLeftButton.isChecked) state = state.copy(upLeftButtonColor = R.color.green)
-            if (upRightButton.isChecked) state = state.copy(upRightButtonColor = R.color.green)
-            if (bottomLeftButton.isChecked) state = state.copy(bottomLeftButtonColor = R.color.green)
-            if (bottomRightButton.isChecked) state = state.copy(bottomRightButtonColor = R.color.green)
-        }
-    }
-
     override fun onCleared() {
         super.onCleared()
         player.release()
     }
 
+    private fun singleDialogRoute(answer: Boolean) =
+        RifmobolScreen.SingleDialog.name + "$ID_ARGUMENT=${state.idRound}&$ANSWER_ARGUMENT=${answer}"
 
     private fun playMusic(){
         val file = Uri.Builder()
@@ -171,4 +170,14 @@ class SingleGameViewModel @Inject constructor(
         player.prepare()
         player.play()
     }
+
+    private fun checkingTheResponse() {
+        with(state.roundInfo!!){
+            if (upLeftButton.isChecked) state = state.copy(upLeftButtonColor = R.color.green)
+            if (upRightButton.isChecked) state = state.copy(upRightButtonColor = R.color.green)
+            if (bottomLeftButton.isChecked) state = state.copy(bottomLeftButtonColor = R.color.green)
+            if (bottomRightButton.isChecked) state = state.copy(bottomRightButtonColor = R.color.green)
+        }
+    }
+
 }

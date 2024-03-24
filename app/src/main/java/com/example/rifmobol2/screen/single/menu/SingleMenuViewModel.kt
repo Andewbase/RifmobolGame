@@ -1,4 +1,4 @@
-package com.example.rifmobol2.screen.single
+package com.example.rifmobol2.screen.single.menu
 
 import androidx.lifecycle.ViewModel
 import com.example.rifmobol2.data.SingleGameRepository

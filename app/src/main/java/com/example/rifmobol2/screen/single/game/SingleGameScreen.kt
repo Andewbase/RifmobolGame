@@ -1,6 +1,5 @@
-package com.example.rifmobol2.screen.single
+package com.example.rifmobol2.screen.single.game
 
-import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -58,7 +57,7 @@ fun SingleGameScreen(
             horizontalArrangement = Arrangement.Start
         ) {
                 OutlinedButton(
-                    onClick = { navController },
+                    onClick = { navController.popBackStack() },
                     shape = RoundedCornerShape(20.dp),
                     border = BorderStroke(
                         width = 2.dp,
@@ -97,13 +96,13 @@ fun SingleGameScreen(
         ){
 
            SingleGameButton(
-               navController = navController,
+               onClick = {send(SingleGameEvent.UpLeftButtonClick(navController))},
                text = R.string.lvl1textone,
                modifier
            )
 
             SingleGameButton(
-                navController = navController,
+                onClick = {send(SingleGameEvent.UpRightButtonClick(navController))},
                 text = R.string.lvl1texttwo,
                 modifier
             )
@@ -117,13 +116,13 @@ fun SingleGameScreen(
         ){
 
             SingleGameButton(
-                navController = navController,
+                onClick = {send(SingleGameEvent.BottomLeftButtonCLick(navController))},
                 text = R.string.lvl1textthree,
                 modifier
             )
 
             SingleGameButton(
-                navController = navController,
+                onClick = {send(SingleGameEvent.BottomRightButtonClick(navController))},
                 text = R.string.lvl1textfour,
                 modifier
             )
@@ -138,14 +137,14 @@ fun SingleGameScreen(
 
 @Composable
 private fun SingleGameButton(
-    navController: NavController,
+    onClick: () -> Unit,
     /*@ColorRes background: Int,*/
     @StringRes text: Int,
     modifier: Modifier = Modifier
 ){
     OutlinedButton(
         modifier = modifier.width(200.dp),
-        onClick = { navController },
+        onClick = { onClick },
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(
             width = 2.dp,
