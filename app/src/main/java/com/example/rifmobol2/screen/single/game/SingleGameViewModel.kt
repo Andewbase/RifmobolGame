@@ -52,7 +52,9 @@ class SingleGameViewModel @Inject constructor(
             is PlayMusic -> playMusic()
 
             is UpLeftButtonClick -> {
+                turnOffTheButtons()
                 state = state.copy(upLeftButtonColor = R.color.blue)
+
 
                 playMusic2()
 
@@ -73,6 +75,7 @@ class SingleGameViewModel @Inject constructor(
 
             }
             is UpRightButtonClick -> {
+                turnOffTheButtons()
                 state = state.copy(upRightButtonColor = R.color.blue)
 
                 playMusic2()
@@ -94,6 +97,7 @@ class SingleGameViewModel @Inject constructor(
 
             }
             is BottomLeftButtonCLick -> {
+                turnOffTheButtons()
                 state = state.copy(bottomLeftButtonColor = R.color.blue)
 
                 playMusic2()
@@ -115,6 +119,7 @@ class SingleGameViewModel @Inject constructor(
 
             }
             is BottomRightButtonClick -> {
+                turnOffTheButtons()
                 state = state.copy(bottomRightButtonColor = R.color.blue)
 
                 playMusic2()
@@ -178,6 +183,10 @@ class SingleGameViewModel @Inject constructor(
             if (bottomLeftButton.isChecked) state = state.copy(bottomLeftButtonColor = R.color.green)
             if (bottomRightButton.isChecked) state = state.copy(bottomRightButtonColor = R.color.green)
         }
+    }
+
+    private fun turnOffTheButtons(){
+        state = state.copy(enabledButtons = false)
     }
 
 }

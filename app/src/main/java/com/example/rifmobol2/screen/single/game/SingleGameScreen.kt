@@ -113,6 +113,7 @@ fun SingleGameScreen(
                onClick = {send(SingleGameEvent.UpLeftButtonClick(navController))},
                background = state.upLeftButtonColor,
                text = state.roundInfo.upLeftButton.name,
+               enabled = state.enabledButtons,
                modifier
            )
 
@@ -120,6 +121,7 @@ fun SingleGameScreen(
                 onClick = {send(SingleGameEvent.UpRightButtonClick(navController))},
                 background = state.upRightButtonColor,
                 text = state.roundInfo.upRightButton.name,
+                enabled = state.enabledButtons,
                 modifier
             )
         }
@@ -135,6 +137,7 @@ fun SingleGameScreen(
                 onClick = {send(SingleGameEvent.BottomLeftButtonCLick(navController))},
                 background = state.bottomLeftButtonColor,
                 text = state.roundInfo.bottomLeftButton.name,
+                enabled = state.enabledButtons,
                 modifier
             )
 
@@ -142,6 +145,7 @@ fun SingleGameScreen(
                 onClick = {send(SingleGameEvent.BottomRightButtonClick(navController))},
                 background = state.bottomRightButtonColor,
                 text = state.roundInfo.bottomRightButton.name,
+                enabled = state.enabledButtons,
                 modifier
             )
         }
@@ -157,6 +161,7 @@ private fun SingleGameButton(
     onClick: () -> Unit,
     @ColorRes background: Int,
     @StringRes text: Int,
+    enabled: Boolean,
     modifier: Modifier = Modifier
 ){
     OutlinedButton(
@@ -172,7 +177,8 @@ private fun SingleGameButton(
             contentColor = Color.White,
             disabledContainerColor = Color.Black,
             Color.White
-        )
+        ),
+        enabled = enabled
     ) {
         Text(
             text = stringResource(id = text),

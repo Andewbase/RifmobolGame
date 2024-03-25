@@ -10,5 +10,6 @@ data class SingleGameState(
     @ColorRes val upLeftButtonColor: Int = R.color.black,
     @ColorRes val upRightButtonColor: Int = R.color.black,
     @ColorRes val bottomLeftButtonColor: Int = R.color.black,
-    @ColorRes val bottomRightButtonColor: Int = R.color.black
+    @ColorRes val bottomRightButtonColor: Int = R.color.black,
+    val enabledButtons: Boolean = true
 )
