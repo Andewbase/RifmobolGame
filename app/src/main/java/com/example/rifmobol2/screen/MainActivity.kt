@@ -17,7 +17,7 @@ import com.example.rifmobol2.Constant.ANSWER_ARGUMENT
 import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.screen.menu.MenuScreen
-import com.example.rifmobol2.screen.multiplayer.MultiplayerGameScreen
+import com.example.rifmobol2.screen.multiplayer.game.MultiplayerGameScreen
 import com.example.rifmobol2.screen.rules.RulesScreen
 import com.example.rifmobol2.screen.single.dialog.SingleDialogViewModel
 import com.example.rifmobol2.screen.single.dialog.SingleGameDialog
@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController
                         )
                     }
-                    composable(route = RifmobolScreen.Multiplayer.name){ MultiplayerGameScreen(navController = navController)}
+                    composable(route = RifmobolScreen.MultiPlayer.name){ MultiplayerGameScreen(navController = navController) }
                 }
 
             }

@@ -7,7 +7,7 @@
     <string name="single_menu_screen">SingleMenu</string>
     <string name="single_game_screen">SingleGame</string>
     <string name="single_game_dialog">SingleDialog</string>
-    <string name="multiplayer_screen">Multiplayer</string>
+    <string name="multiplayer_screen">MultiPlayer</string>
     
     <string name="play">Начать</string>
     <string name="multiplayer">Вдвоём</string>

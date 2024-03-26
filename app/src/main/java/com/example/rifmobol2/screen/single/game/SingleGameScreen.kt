@@ -67,7 +67,7 @@ fun SingleGameScreen(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(top = 30.dp),
+                .padding(top = 30.dp, start = 20.dp),
             horizontalArrangement = Arrangement.Start
         ) {
                 OutlinedButton(
@@ -95,7 +95,7 @@ fun SingleGameScreen(
         Row(
             modifier = modifier
                 .fillMaxWidth(0.8f)
-                .padding(top = 50.dp),
+                .padding(top = 10.dp),
         ) {
             Text(
                 text = stringResource(id = state.roundInfo.couplet)
