@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rifmobol2.Constant.ANSWER_ARGUMENT
 import com.example.rifmobol2.Constant.ID_ARGUMENT
-import com.example.rifmobol2.data.SingleGameRepository
+import com.example.rifmobol2.data.single.SingleGameRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

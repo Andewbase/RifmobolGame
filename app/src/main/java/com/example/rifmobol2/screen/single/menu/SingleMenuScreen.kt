@@ -32,7 +32,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.R
-import com.example.rifmobol2.data.entity.TextLevel
+import com.example.rifmobol2.data.single.entity.TextLevel
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 

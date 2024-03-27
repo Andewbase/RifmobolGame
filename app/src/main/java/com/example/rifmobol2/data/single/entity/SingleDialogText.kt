@@ -1,8 +1,8 @@
-package com.example.rifmobol2.data.entity
+package com.example.rifmobol2.data.single.entity
 
 import androidx.annotation.StringRes
 
-data class DialogText(
+data class SingleDialogText(
     val id: Int,
     @StringRes val text: Int
 )

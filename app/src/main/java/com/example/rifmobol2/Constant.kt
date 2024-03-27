@@ -6,4 +6,8 @@ object Constant {
 
     const val ANSWER_ARGUMENT = "answer"
 
+    const val SCORE_P1 = "scoreP1"
+
+    const val SCORE_P2 = "scoreP2"
+
 }

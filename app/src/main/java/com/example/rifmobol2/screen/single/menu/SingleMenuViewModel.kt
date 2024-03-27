@@ -1,7 +1,7 @@
 package com.example.rifmobol2.screen.single.menu
 
 import androidx.lifecycle.ViewModel
-import com.example.rifmobol2.data.SingleGameRepository
+import com.example.rifmobol2.data.single.SingleGameRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

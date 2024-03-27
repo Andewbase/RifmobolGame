@@ -5,7 +5,6 @@ import androidx.navigation.NavController
 sealed interface SingleGameEvent {
 
     data object PlayMusic: SingleGameEvent
-
     data class UpLeftButtonClick(val navController: NavController): SingleGameEvent
     data class UpRightButtonClick(val navController: NavController): SingleGameEvent
     data class BottomLeftButtonCLick(val navController: NavController): SingleGameEvent

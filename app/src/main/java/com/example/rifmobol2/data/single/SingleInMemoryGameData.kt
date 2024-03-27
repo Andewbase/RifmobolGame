@@ -1,14 +1,14 @@
-package com.example.rifmobol2.data
+package com.example.rifmobol2.data.single
 
 import com.example.rifmobol2.R
-import com.example.rifmobol2.data.entity.DialogText
+import com.example.rifmobol2.data.single.entity.SingleDialogText
 import com.example.rifmobol2.data.entity.GameButton
 import com.example.rifmobol2.data.entity.RoundInfo
-import com.example.rifmobol2.data.entity.TextLevel
+import com.example.rifmobol2.data.single.entity.TextLevel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
-object InMemoryGameData {
+object SingleInMemoryGameData {
 
     val singleLevels = flow {
         val listLevel = listOf(
@@ -51,7 +51,7 @@ object InMemoryGameData {
         emit(listLevel)
     }
 
-    val singleRoundInfo = listOf(
+    val roundInfo = listOf(
         RoundInfo(
             id = 1,
             numberRound = R.string.level1,
@@ -929,19 +929,19 @@ object InMemoryGameData {
         ).asFlow()
 
     val singleTextDialogLose = listOf(
-        DialogText(1, R.string.dialoglose1),
-        DialogText(2, R.string.dialoglose2),
-        DialogText(3, R.string.dialoglose3),
-        DialogText(4, R.string.dialoglose4),
-        DialogText(5, R.string.dialoglose5),
+        SingleDialogText(1, R.string.dialoglose1),
+        SingleDialogText(2, R.string.dialoglose2),
+        SingleDialogText(3, R.string.dialoglose3),
+        SingleDialogText(4, R.string.dialoglose4),
+        SingleDialogText(5, R.string.dialoglose5),
     ).asFlow()
 
     val singleTextDialogWin = listOf(
-        DialogText(1, R.string.dialogwins1),
-        DialogText(2, R.string.dialogwins2),
-        DialogText(3, R.string.dialogwins3),
-        DialogText(4, R.string.dialogwins4),
-        DialogText(5, R.string.dialogwins5),
+        SingleDialogText(1, R.string.dialogwins1),
+        SingleDialogText(2, R.string.dialogwins2),
+        SingleDialogText(3, R.string.dialogwins3),
+        SingleDialogText(4, R.string.dialogwins4),
+        SingleDialogText(5, R.string.dialogwins5),
     ).asFlow()
 
 }

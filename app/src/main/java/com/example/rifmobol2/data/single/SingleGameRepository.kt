@@ -1,12 +1,12 @@
-package com.example.rifmobol2.data
+package com.example.rifmobol2.data.single
 
-import com.example.rifmobol2.data.InMemoryGameData.singleLevels
-import com.example.rifmobol2.data.InMemoryGameData.singleRoundInfo
-import com.example.rifmobol2.data.InMemoryGameData.singleTextDialogLose
-import com.example.rifmobol2.data.InMemoryGameData.singleTextDialogWin
-import com.example.rifmobol2.data.entity.DialogText
+import com.example.rifmobol2.data.single.SingleInMemoryGameData.singleLevels
+import com.example.rifmobol2.data.single.SingleInMemoryGameData.roundInfo
+import com.example.rifmobol2.data.single.SingleInMemoryGameData.singleTextDialogLose
+import com.example.rifmobol2.data.single.SingleInMemoryGameData.singleTextDialogWin
+import com.example.rifmobol2.data.single.entity.SingleDialogText
 import com.example.rifmobol2.data.entity.RoundInfo
-import com.example.rifmobol2.data.entity.TextLevel
+import com.example.rifmobol2.data.single.entity.TextLevel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import javax.inject.Inject
@@ -19,12 +19,12 @@ interface SingleGameRepository {
 
     fun getTextLevels(): Flow<List<TextLevel>>
 
-    fun getTextDialog(answer: Boolean): Flow<DialogText>
+    fun getTextDialog(answer: Boolean): Flow<SingleDialogText>
 
     @Singleton
-    class Base @Inject constructor(): SingleGameRepository{
+    class Base @Inject constructor(): SingleGameRepository {
         override fun getRoundInfo(id: Int): Flow<RoundInfo> {
-            return singleRoundInfo.filter { roundInfo ->
+            return roundInfo.filter { roundInfo ->
                 roundInfo.id == id
             }
         }
@@ -33,7 +33,7 @@ interface SingleGameRepository {
             return singleLevels
         }
 
-        override fun getTextDialog(answer: Boolean): Flow<DialogText> {
+        override fun getTextDialog(answer: Boolean): Flow<SingleDialogText> {
             val id: Int = Random.nextInt(1,6)
             return if (answer){
                 singleTextDialogWin.filter {

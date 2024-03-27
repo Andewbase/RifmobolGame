@@ -1,6 +1,7 @@
 package com.example.rifmobol2.screen.multiplayer.game
 
 import android.annotation.SuppressLint
+import androidx.activity.compose.BackHandler
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
@@ -29,6 +30,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.rifmobol2.R
@@ -40,6 +43,16 @@ fun MultiplayerGameScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ){
+
+    LifecycleEventEffect(event = Lifecycle.Event.ON_START) {
+
+    }
+
+    LifecycleEventEffect(event = Lifecycle.Event.ON_PAUSE) {
+
+    }
+
+    BackHandler { navController.navigate(route = RifmobolScreen.Menu.name) }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

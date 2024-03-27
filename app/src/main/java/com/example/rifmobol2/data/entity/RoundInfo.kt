@@ -3,6 +3,7 @@ package com.example.rifmobol2.data.entity
 import androidx.annotation.DrawableRes
 import androidx.annotation.RawRes
 import androidx.annotation.StringRes
+import com.example.rifmobol2.data.entity.GameButton
 
 data class RoundInfo(
     val id: Int,

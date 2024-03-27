@@ -13,7 +13,7 @@ import androidx.media3.common.Player
 import com.example.rifmobol2.Constant.ANSWER_ARGUMENT
 import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.R
-import com.example.rifmobol2.data.SingleGameRepository
+import com.example.rifmobol2.data.single.SingleGameRepository
 import com.example.rifmobol2.navigation.RifmobolScreen
 import com.example.rifmobol2.screen.single.game.SingleGameEvent.BottomLeftButtonCLick
 import com.example.rifmobol2.screen.single.game.SingleGameEvent.BottomRightButtonClick
@@ -35,7 +35,7 @@ class SingleGameViewModel @Inject constructor(
         private set
 
     init {
-        val id: Int = savedStateHandle["id"] ?: 1
+        val id: Int = savedStateHandle[ID_ARGUMENT] ?: 1
         state = state.copy(idRound = id)
 
         viewModelScope.launch {
