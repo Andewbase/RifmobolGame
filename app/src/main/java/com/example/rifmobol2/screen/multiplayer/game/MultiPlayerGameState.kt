@@ -5,6 +5,7 @@ import com.example.rifmobol2.R
 import com.example.rifmobol2.data.entity.RoundInfo
 
 data class MultiPlayerGameState(
+    val id: Int? = null,
     val roundInfo: RoundInfo? = null,
     val scoreP1: Int = 0,
     val scoreP2: Int = 0,

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
+import com.example.rifmobol2.Constant
 import com.example.rifmobol2.Constant.SCORE_P1
 import com.example.rifmobol2.Constant.SCORE_P2
 import com.example.rifmobol2.R
@@ -29,11 +30,17 @@ class MultiPlayerGameViewModel @Inject constructor(
         private set
 
     init {
+        val id: Int = savedStateHandle[Constant.ID_ARGUMENT] ?: 1
+
         val scoreP1: Int = savedStateHandle[SCORE_P1] ?: 0
         val scoreP2: Int = savedStateHandle[SCORE_P2] ?: 0
 
-        viewModelScope.launch {
 
+
+        viewModelScope.launch {
+            repository.getRoundInfo(id).collect{
+                state = state.copy(roundInfo = it)
+            }
             send(MultiPlayerGameEvent.PlayMusic)
         }
     }
