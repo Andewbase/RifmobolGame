@@ -5,6 +5,9 @@
       <entry key="MenuPreview">
         <State />
       </entry>
+      <entry key="MultiPlayerDialogPreview">
+        <State />
+      </entry>
       <entry key="RulesPreview">
         <State />
       </entry>
@@ -12,9 +15,6 @@
         <State />
       </entry>
       <entry key="SingleMenuPreview">
-        <State />
-      </entry>
-      <entry key="SplashPreview">
         <State />
       </entry>
       <entry key="app">

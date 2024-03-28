@@ -40,6 +40,8 @@ import com.example.rifmobol2.ui.theme.Rifmobol2Theme
 
 @Composable
 fun MultiplayerGameScreen(
+    state: MultiPlayerGameState,
+    send: (MultiPlayerGameEvent) -> Unit,
     navController: NavController,
     modifier: Modifier = Modifier
 ){
@@ -314,6 +316,8 @@ private fun MultiPlayerGameButton(
 fun MultiplayerGamePreview() {
     Rifmobol2Theme {
         MultiplayerGameScreen(
+            state = MultiPlayerGameState(),
+            send = {},
             navController = rememberNavController()
         )
     }

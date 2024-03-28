@@ -11,6 +11,7 @@ enum class RifmobolScreen(@StringRes val title: Int) {
     SingleMenu(R.string.single_menu_screen),
     SingleGame(R.string.single_game_screen),
     SingleDialog(R.string.single_game_dialog),
-    MultiPlayer(R.string.multiplayer_screen)
+    MultiPlayer(R.string.multi_player_screen),
+    MultiPlayerDialog(R.string.multi_player_dialog)
 
 }

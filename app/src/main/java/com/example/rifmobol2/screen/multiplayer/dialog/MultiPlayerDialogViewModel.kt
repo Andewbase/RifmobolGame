@@ -26,6 +26,8 @@ class MultiPlayerDialogViewModel @Inject constructor(
 
         val id: Int = savedStateHandle[ID_ARGUMENT] ?: 1
 
+        state = state.copy(id = id, scoreP1 = scoreP1, scoreP2 = scoreP2)
+
     }
 
 }

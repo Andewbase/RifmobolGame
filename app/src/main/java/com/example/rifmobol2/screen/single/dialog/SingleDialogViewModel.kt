@@ -33,9 +33,7 @@ class SingleDialogViewModel @Inject constructor(
                 }
             }
 
-            state = state.copy(idNext = id +1)
-            state = state.copy(idReplay = id)
-            state = state.copy(answer = answer)
+            state = state.copy(idNext = id +1, idReplay = id, answer = answer)
         }
     }
 

@@ -11,10 +11,12 @@ import androidx.lifecycle.viewModelScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import com.example.rifmobol2.Constant
+import com.example.rifmobol2.Constant.ID_ARGUMENT
 import com.example.rifmobol2.Constant.SCORE_P1
 import com.example.rifmobol2.Constant.SCORE_P2
 import com.example.rifmobol2.R
 import com.example.rifmobol2.data.multiplayer.MultiPlayerGameRepository
+import com.example.rifmobol2.navigation.RifmobolScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,12 +32,12 @@ class MultiPlayerGameViewModel @Inject constructor(
         private set
 
     init {
-        val id: Int = savedStateHandle[Constant.ID_ARGUMENT] ?: 1
+        val id: Int = savedStateHandle[ID_ARGUMENT] ?: 1
 
         val scoreP1: Int = savedStateHandle[SCORE_P1] ?: 0
         val scoreP2: Int = savedStateHandle[SCORE_P2] ?: 0
 
-
+        state = state.copy(id = id, scoreP1 = scoreP1, scoreP2 = scoreP2)
 
         viewModelScope.launch {
             repository.getRoundInfo(id).collect{
@@ -66,7 +68,7 @@ class MultiPlayerGameViewModel @Inject constructor(
                                 }
 
                                 player.release()
-                                /*event.navController.navigate(route = singleDialogRoute(state.singleRoundInfo!!.upLeftButton.isChecked))*/
+                                event.navController.navigate(route = multiPlayerDialogRoute())
                             }
                         }
                     }
@@ -76,36 +78,176 @@ class MultiPlayerGameViewModel @Inject constructor(
                 turnOffTheButtonsP1()
                 state = state.copy(upRightButtonColorP1 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (upRightButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (upRightButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.BottomLeftButtonCLickP1 -> {
                 turnOffTheButtonsP1()
                 state = state.copy(bottomLeftButtonColorP1 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (bottomLeftButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (bottomLeftButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.BottomRightButtonClickP1 -> {
                 turnOffTheButtonsP1()
                 state = state.copy(bottomRightButtonColorP1 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (bottomRightButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (bottomRightButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.UpLeftButtonClickP2 -> {
                 turnOffTheButtonsP2()
                 state = state.copy(upLeftButtonColorP2 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (upLeftButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (upLeftButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.UpRightButtonClickP2 -> {
                 turnOffTheButtonsP2()
                 state = state.copy(upRightButtonColorP2 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (upRightButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (upRightButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.BottomLeftButtonCLickP2 -> {
                 turnOffTheButtonsP2()
                 state = state.copy(bottomLeftButtonColorP2 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (bottomLeftButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (bottomLeftButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             is MultiPlayerGameEvent.BottomRightButtonClickP2 -> {
                 turnOffTheButtonsP2()
                 state = state.copy(bottomRightButtonColorP2 = R.color.blue)
                 checkingClickP1AndP2()
+
+                player.addListener(object : Player.Listener {
+                    override fun onPlaybackStateChanged(playbackState: Int) {
+                        super.onPlaybackStateChanged(playbackState)
+                        when (playbackState) {
+                            Player.STATE_ENDED -> {
+
+                                checkingTheResponse()
+
+                                with(state){
+                                    if (bottomRightButtonColorP1 == R.color.green) state = state.copy(scoreP1 = scoreP1+1)
+                                    if (bottomRightButtonColorP2 == R.color.green) state = state.copy(scoreP2 = scoreP2+1)
+                                }
+
+                                player.release()
+                                event.navController.navigate(route = multiPlayerDialogRoute())
+                            }
+                        }
+                    }
+                })
             }
             MultiPlayerGameEvent.PlayMusic -> playMusic()
             MultiPlayerGameEvent.Pause -> player.pause()
@@ -117,6 +259,9 @@ class MultiPlayerGameViewModel @Inject constructor(
         super.onCleared()
         player.release()
     }
+
+    private fun multiPlayerDialogRoute() =
+        RifmobolScreen.MultiPlayerDialog.name + "?$ID_ARGUMENT={${state.id}}&$SCORE_P1={${state.scoreP1}}&$SCORE_P2={${state.scoreP2}}"
 
     private fun playMusic(){
         val file = Uri.Builder()
